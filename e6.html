@@ -64,21 +64,15 @@
     .phase-tasks li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; }
 
     .duree-totale {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(99,102,241,0.08));
-      border: 1px solid rgba(59,130,246,0.25);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
       margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-      text-align: center;
+      font-size: 0.92rem;
+      color: var(--text-muted);
     }
-    .duree-totale strong { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--accent); }
-    .duree-totale span { font-size: 0.9rem; color: var(--text-muted); }
-    .duree-sep { color: var(--text-dim); }
+    .duree-totale strong { color: var(--text); font-weight: 600; }
 
     .activites-grid {
       display: grid;
@@ -200,17 +194,7 @@
 
       <!-- DURÉE TOTALE -->
       <div class="duree-totale">
-        <strong>2h10</strong>
-        <span>réparties en</span>
-        <strong>4 phases</strong>
-        <span class="duree-sep">·</span>
-        <span>30 min préparation</span>
-        <span class="duree-sep">·</span>
-        <span>20 min exposé</span>
-        <span class="duree-sep">·</span>
-        <span>1h réalisation</span>
-        <span class="duree-sep">·</span>
-        <span>20 min audit du jury</span>
+        <span>Durée totale : <strong>2h10</strong> réparties en 4 phases — 30 min de préparation, 20 min d'exposé, 1h de réalisation, 20 min d'audit du jury.</span>
       </div>
 
       <!-- LES 4 PHASES -->

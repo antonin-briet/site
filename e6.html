@@ -38,8 +38,8 @@
       <div class="e6-intro">
         <div class="e6-desc">
           <h2>Qu'est-ce que l'épreuve E6 ?</h2>
-          <p>L'épreuve E6 est une épreuve orale du BTS SIO. Elle consiste en la présentation et la soutenance d'un <strong>portfolio de compétences</strong> devant un jury. Le candidat doit présenter des situations professionnelles significatives (SPS) issues de ses stages, de ses travaux en cours de formation, ou de ses projets personnels.</p>
-          <p>L'objectif est de démontrer la maîtrise des compétences du référentiel BTS SIO à travers des réalisations concrètes et documentées.</p>
+          <p>L'épreuve E6 est une épreuve <strong>technique et orale</strong> du BTS SIO. Le jury choisit <strong>une des deux activités</strong> présentées dans le portfolio pour en faire l'objet de la soutenance. Chaque activité doit être documentée et démontrer la maîtrise des compétences du référentiel BTS SIO SISR.</p>
+          <p>Mes deux activités ont été réalisées en <strong>environnement lab</strong>, avec une documentation technique complète disponible au téléchargement.</p>
         </div>
         <div class="e6-format">
           <h3>📋 Format de l'épreuve</h3>
@@ -48,107 +48,104 @@
             <li><strong>Support :</strong> Portfolio numérique ou papier</li>
             <li><strong>Coefficient :</strong> 4</li>
             <li><strong>Jury :</strong> 2 personnes (enseignant + professionnel)</li>
+            <li><strong>Activités :</strong> Le jury choisit 1 activité parmi les 2 présentées</li>
           </ul>
         </div>
       </div>
 
       <div class="section-header" style="margin-top:3rem">
-        <span class="section-tag">Situations professionnelles</span>
-        <h2>Mes SPS sélectionnées</h2>
+        <span class="section-tag">Activités techniques</span>
+        <h2>Mes 2 activités E6</h2>
       </div>
 
-      <div class="sps-grid">
+      <div class="e6-activites-grid">
 
-        <div class="sps-card">
-          <div class="sps-number">SPS 01</div>
-          <div class="sps-content">
-            <h3>Mise en place d'une infrastructure réseau segmentée</h3>
-            <div class="sps-meta">
-              <span>📍 PSTB Paris — TP</span>
-              <span>📅 2024</span>
+        <!-- Activité 1 : Windows Server -->
+        <div class="activite-card">
+          <div class="activite-header">
+            <div class="activite-num-wrap">
+              <span class="activite-num">Activité 01</span>
+              <span class="activite-env">🔬 Lab</span>
             </div>
-            <p>Configuration d'une architecture réseau avec segmentation VLAN sur des équipements Cisco. Mise en œuvre du routage inter-VLAN et documentation de l'infrastructure.</p>
-            <div class="sps-competences">
-              <strong>Compétences mobilisées :</strong>
-              <div class="card-techs">
-                <span>B4 — Infrastructure réseau</span>
-                <span>B3 — Administration</span>
-              </div>
-            </div>
-            <a href="#" class="btn btn-outline btn-sm">Voir le document ↗</a>
+            <div class="activite-logo">🖥️</div>
           </div>
-        </div>
-
-        <div class="sps-card">
-          <div class="sps-number">SPS 02</div>
-          <div class="sps-content">
-            <h3>Administration d'un domaine Active Directory</h3>
+          <div class="activite-body">
+            <h3>Déploiement et administration de Windows Server</h3>
             <div class="sps-meta">
-              <span>📍 PSTB Paris — TP</span>
+              <span>📍 Environnement lab</span>
               <span>📅 2024</span>
             </div>
-            <p>Déploiement d'un contrôleur de domaine, création de politiques de sécurité (GPO), gestion centralisée des utilisateurs et des ressources partagées.</p>
+            <p>Installation et configuration d'un serveur Windows Server en environnement virtualisé. Mise en place d'un contrôleur de domaine Active Directory, gestion des utilisateurs, des groupes et des politiques de sécurité (GPO). Configuration des services réseau associés (DNS, DHCP).</p>
+            <div class="activite-details">
+              <h4>Détail des tâches réalisées</h4>
+              <ul class="activite-tasks">
+                <li>Installation de Windows Server en machine virtuelle</li>
+                <li>Promotion en contrôleur de domaine (Active Directory DS)</li>
+                <li>Création et gestion des utilisateurs et unités d'organisation (OU)</li>
+                <li>Mise en place de stratégies de groupe (GPO)</li>
+                <li>Configuration des services DNS et DHCP</li>
+                <li>Partage de ressources et gestion des droits d'accès</li>
+              </ul>
+            </div>
             <div class="sps-competences">
               <strong>Compétences mobilisées :</strong>
               <div class="card-techs">
-                <span>B3 — Administration</span>
+                <span>B3 — Administration systèmes</span>
+                <span>B4 — Infrastructure</span>
                 <span>B5 — Sécurité</span>
               </div>
             </div>
-            <a href="#" class="btn btn-outline btn-sm">Voir le document ↗</a>
+          </div>
+          <div class="activite-footer">
+            <a href="doc_windows_server.pdf" download class="btn btn-primary">
+              ⬇️ Télécharger la documentation technique
+            </a>
           </div>
         </div>
 
-        <div class="sps-card">
-          <div class="sps-number">SPS 03</div>
-          <div class="sps-content">
-            <h3>Sécurisation du périmètre réseau avec pfSense</h3>
+        <!-- Activité 2 : GLPI -->
+        <div class="activite-card">
+          <div class="activite-header">
+            <div class="activite-num-wrap">
+              <span class="activite-num">Activité 02</span>
+              <span class="activite-env">🔬 Lab</span>
+            </div>
+            <div class="activite-logo">🗂️</div>
+          </div>
+          <div class="activite-body">
+            <h3>Installation et configuration de GLPI</h3>
             <div class="sps-meta">
-              <span>📍 PSTB Paris — TP</span>
+              <span>📍 Environnement lab</span>
               <span>📅 2024</span>
             </div>
-            <p>Installation et configuration d'un pare-feu pfSense : définition des règles de filtrage, mise en place d'un VPN IPsec pour les accès distants sécurisés.</p>
-            <div class="sps-competences">
-              <strong>Compétences mobilisées :</strong>
-              <div class="card-techs">
-                <span>B5 — Protection des données</span>
-                <span>B4 — Infrastructure</span>
-              </div>
+            <p>Déploiement de GLPI (Gestionnaire Libre de Parc Informatique) sur un serveur Linux. Configuration de l'outil de gestion de parc et de helpdesk : inventaire des équipements, gestion des tickets d'incidents, paramétrage des utilisateurs et des profils d'accès.</p>
+            <div class="activite-details">
+              <h4>Détail des tâches réalisées</h4>
+              <ul class="activite-tasks">
+                <li>Installation du serveur LAMP (Linux, Apache, MySQL, PHP)</li>
+                <li>Déploiement et configuration de GLPI</li>
+                <li>Paramétrage de l'inventaire du parc informatique</li>
+                <li>Configuration du module helpdesk et des files de tickets</li>
+                <li>Création des profils utilisateurs et règles d'attribution</li>
+                <li>Intégration avec l'annuaire Active Directory (LDAP)</li>
+              </ul>
             </div>
-            <a href="#" class="btn btn-outline btn-sm">Voir le document ↗</a>
-          </div>
-        </div>
-
-        <div class="sps-card">
-          <div class="sps-number">SPS 04</div>
-          <div class="sps-content">
-            <h3>Alternance chez V2SI — Support & Administration</h3>
-            <div class="sps-meta">
-              <span>📍 V2SI — Alternance</span>
-              <span>📅 Sept. 2024 — Juil. 2026</span>
-            </div>
-            <p>Prise en charge des tickets de support N1/N2, administration du parc informatique, déploiement de postes utilisateurs et documentation des interventions. Dans la continuité de 2 stages effectués chez V2SI durant le Bac Pro SN RISC.</p>
             <div class="sps-competences">
               <strong>Compétences mobilisées :</strong>
               <div class="card-techs">
                 <span>B1 — Support</span>
-                <span>B2 — Patrimoine</span>
+                <span>B2 — Patrimoine informatique</span>
                 <span>B3 — Administration</span>
               </div>
             </div>
-            <a href="#" class="btn btn-outline btn-sm">Voir le document ↗</a>
+          </div>
+          <div class="activite-footer">
+            <a href="doc_glpi.pdf" download class="btn btn-primary">
+              ⬇️ Télécharger la documentation technique
+            </a>
           </div>
         </div>
 
-      </div>
-
-      <div class="e6-download">
-        <h3>📁 Documents E6</h3>
-        <p>Téléchargez les fiches de situations professionnelles complètes au format PDF.</p>
-        <div class="download-btns">
-          <a href="#" class="btn btn-primary">Télécharger le dossier E6 complet</a>
-          <a href="#" class="btn btn-outline">Attestations de stage</a>
-        </div>
       </div>
 
     </div>

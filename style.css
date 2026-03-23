@@ -311,6 +311,19 @@ em { font-style: normal; color: var(--accent); }
   align-items: start;
 }
 
+.about-photo-wrap {
+  margin-bottom: 1.5rem;
+}
+.about-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(59,130,246,0.3);
+  box-shadow: 0 0 0 6px rgba(59,130,246,0.08), var(--shadow);
+  display: block;
+}
+
 .about-text p {
   color: var(--text-muted);
   margin-bottom: 1rem;
@@ -785,6 +798,107 @@ em { font-style: normal; color: var(--accent); }
 .cert-body h3 { margin-bottom: 0.5rem; }
 .cert-body p { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; }
 .cert-date { margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-dim); }
+
+/* ===========================
+   E6 ACTIVITÉS
+   =========================== */
+.e6-activites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 2rem;
+}
+
+.activite-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+.activite-card:hover {
+  border-color: rgba(59,130,246,0.35);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.activite-header {
+  background: linear-gradient(135deg, var(--surface-2), rgba(59,130,246,0.08));
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.activite-num-wrap { display: flex; align-items: center; gap: 0.75rem; }
+.activite-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.activite-env {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  background: rgba(139,92,246,0.12);
+  color: #a78bfa;
+  border: 1px solid rgba(139,92,246,0.2);
+}
+.activite-logo { font-size: 1.8rem; }
+
+.activite-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+.activite-body h3 { font-size: 1.1rem; }
+.activite-body > p { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; }
+
+.activite-details {
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+.activite-details h4 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.activite-tasks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.activite-tasks li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.activite-tasks li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.75rem;
+}
+
+.activite-footer {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.15);
+}
+.activite-footer .btn { width: 100%; justify-content: center; }
+
+@media (max-width: 700px) {
+  .e6-activites-grid { grid-template-columns: 1fr; }
+}
 
 /* ===========================
    EMPTY STATE & FICHIERS

@@ -7,6 +7,144 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .phases-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .phase-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    .phase-card:hover { border-color: rgba(59,130,246,0.3); transform: translateY(-3px); }
+    .phase-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .phase-time {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      font-size: 1.8rem;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .phase-time span { font-size: 0.8rem; color: var(--text-dim); font-family: 'DM Sans', sans-serif; font-weight: 400; }
+    .phase-card h4 { font-size: 0.95rem; margin: 0; }
+    .phase-card p { font-size: 0.83rem; color: var(--text-muted); font-weight: 300; margin: 0; }
+    .phase-tasks { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; margin: 0; padding: 0; }
+    .phase-tasks li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .phase-tasks li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; }
+
+    .duree-totale {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(99,102,241,0.08));
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .duree-totale strong { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+    .duree-totale span { font-size: 0.9rem; color: var(--text-muted); }
+    .duree-sep { color: var(--text-dim); }
+
+    .activites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 1.75rem;
+    }
+    .activite-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+    }
+    .activite-card:hover { border-color: rgba(59,130,246,0.3); transform: translateY(-3px); box-shadow: var(--shadow); }
+    .activite-header {
+      background: linear-gradient(135deg, var(--surface-2), rgba(59,130,246,0.08));
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .activite-num-wrap { display: flex; flex-direction: column; gap: 0.3rem; }
+    .activite-num { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .activite-env { font-size: 0.78rem; color: var(--text-dim); }
+    .activite-logo { font-size: 2rem; }
+    .activite-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.85rem; }
+    .activite-body h3 { font-size: 1.1rem; }
+    .activite-body p { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; }
+    .activite-details h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-dim); font-weight: 700; margin-bottom: 0.6rem; }
+    .activite-tasks { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; padding: 0; }
+    .activite-tasks li { font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; }
+    .activite-tasks li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-size: 0.78rem; }
+    .activite-footer { padding: 1rem 1.5rem 1.5rem; border-top: 1px solid var(--border); }
+
+    .sps-competences strong { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-dim); font-weight: 700; margin-bottom: 0.5rem; }
+
+    .e6-intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; align-items: start; }
+    .e6-desc h2 { margin-bottom: 0.75rem; font-size: 1.6rem; }
+    .e6-desc p { color: var(--text-muted); font-weight: 300; margin-bottom: 0.75rem; font-size: 0.95rem; }
+    .e6-desc p strong { color: var(--text); font-weight: 500; }
+    .e6-format { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+    .e6-format h3 { margin-bottom: 1rem; }
+    .format-list { display: flex; flex-direction: column; gap: 0.65rem; }
+    .format-list li { font-size: 0.9rem; color: var(--text-muted); }
+    .format-list strong { color: var(--text); }
+
+    .jury-box {
+      background: rgba(251,146,60,0.07);
+      border: 1px solid rgba(251,146,60,0.25);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.4rem;
+      margin-top: 1.5rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .jury-box strong { color: #fb923c; }
+
+    @media (max-width: 900px) {
+      .e6-intro { grid-template-columns: 1fr; }
+      .activites-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -26,60 +164,144 @@
   <section class="page-hero">
     <div class="hero-bg-grid"></div>
     <div class="page-hero-content">
-      <span class="hero-tag">Épreuve d'examen</span>
+      <span class="hero-tag">Épreuve pratique · Coefficient 4</span>
       <h1>Épreuve <em>E6</em></h1>
-      <p>Parcours de professionnalisation — Présentation des situations professionnelles significatives.</p>
+      <p>Administration des systèmes et des réseaux — Mise en situation technique face à un jury.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
 
+      <!-- PRÉSENTATION DE L'ÉPREUVE -->
       <div class="e6-intro">
         <div class="e6-desc">
           <h2>Qu'est-ce que l'épreuve E6 ?</h2>
-          <p>L'épreuve E6 est une épreuve <strong>technique et orale</strong> du BTS SIO. Le jury choisit <strong>une des deux activités</strong> présentées dans le portfolio pour en faire l'objet de la soutenance. Chaque activité doit être documentée et démontrer la maîtrise des compétences du référentiel BTS SIO SISR.</p>
-          <p>Mes deux activités ont été réalisées en <strong>environnement lab</strong>, avec une documentation technique complète disponible au téléchargement.</p>
+          <p>L'épreuve E6, intitulée <strong>« Administration des systèmes et des réseaux »</strong>, est une épreuve <strong>pratique et technique</strong> spécifique à l'option SISR. Ce n'est <strong>pas un oral de soutenance</strong> : c'est une <strong>mise en situation réelle sur machine</strong>.</p>
+          <p>Je remets en amont un dossier contenant <strong>deux activités professionnelles documentées</strong>. Le jour de l'épreuve, le jury <strong>choisit une des deux activités</strong>, puis émet une <strong>expression de besoin</strong> — une problématique concrète liée à cette activité — que je dois <strong>analyser, proposer une solution et réaliser techniquement</strong> dans le temps imparti.</p>
+          <p>L'épreuve évalue ma capacité à comprendre un besoin client, choisir une solution adaptée, la mettre en œuvre et la défendre avec un vocabulaire technique précis.</p>
+          <div class="jury-box">
+            ⚠️ <strong>Point clé :</strong> Le jury choisit lui-même l'activité et formule l'expression de besoin le jour J. Je ne sais donc pas à l'avance ce qui me sera demandé — il faut maîtriser les deux activités en profondeur et être capable de répondre à n'importe quelle problématique liée à celles-ci.
+          </div>
         </div>
         <div class="e6-format">
-          <h3>📋 Format de l'épreuve</h3>
+          <h3>📋 Caractéristiques de l'épreuve</h3>
           <ul class="format-list">
-            <li><strong>Durée :</strong> 40 minutes (20 min exposé + 20 min entretien)</li>
-            <li><strong>Support :</strong> Portfolio numérique ou papier</li>
+            <li><strong>Intitulé :</strong> Administration des systèmes et des réseaux</li>
+            <li><strong>Type :</strong> Épreuve pratique et orale</li>
             <li><strong>Coefficient :</strong> 4</li>
-            <li><strong>Jury :</strong> 2 personnes (enseignant + professionnel)</li>
-            <li><strong>Activités :</strong> Le jury choisit 1 activité parmi les 2 présentées</li>
+            <li><strong>Durée totale :</strong> 2h10</li>
+            <li><strong>Jury :</strong> Enseignant + professionnel du secteur</li>
+            <li><strong>Dossier :</strong> 2 activités remises avant l'épreuve</li>
+            <li><strong>Choix du jury :</strong> 1 activité parmi les 2, + expression de besoin émise sur place</li>
           </ul>
         </div>
       </div>
 
-      <div class="section-header" style="margin-top:3rem">
-        <span class="section-tag">Activités techniques</span>
-        <h2>Mes 2 activités E6</h2>
+      <!-- DURÉE TOTALE -->
+      <div class="duree-totale">
+        <strong>2h10</strong>
+        <span>réparties en</span>
+        <strong>4 phases</strong>
+        <span class="duree-sep">·</span>
+        <span>30 min préparation</span>
+        <span class="duree-sep">·</span>
+        <span>20 min exposé</span>
+        <span class="duree-sep">·</span>
+        <span>1h réalisation</span>
+        <span class="duree-sep">·</span>
+        <span>20 min audit du jury</span>
       </div>
 
-      <div class="e6-activites-grid">
+      <!-- LES 4 PHASES -->
+      <div class="section-header">
+        <span class="section-tag">Déroulement</span>
+        <h2>Les 4 phases de l'épreuve</h2>
+      </div>
 
-        <!-- Activité 1 : Windows Server -->
+      <div class="phases-wrap">
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 1</span>
+          <div class="phase-time">30 <span>min</span></div>
+          <h4>Préparation</h4>
+          <p>Réception et analyse de l'expression de besoin formulée par le jury.</p>
+          <ul class="phase-tasks">
+            <li>Lire et comprendre la problématique soumise</li>
+            <li>Identifier les solutions techniques possibles</li>
+            <li>Évaluer la faisabilité dans le temps imparti</li>
+            <li>Organiser et structurer la présentation à venir</li>
+          </ul>
+        </div>
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 2</span>
+          <div class="phase-time">20 <span>min</span></div>
+          <h4>Exposé & orientation</h4>
+          <p>Présentation des solutions envisagées avant la mise en œuvre.</p>
+          <ul class="phase-tasks">
+            <li>Exposer les solutions identifiées</li>
+            <li>Comparer avantages / inconvénients</li>
+            <li>Justifier la solution retenue</li>
+            <li>Intégrer les éventuelles remarques du jury</li>
+          </ul>
+        </div>
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 3</span>
+          <div class="phase-time">1h</div>
+          <h4>Réalisation technique</h4>
+          <p>Mise en œuvre concrète de la solution sur poste informatique.</p>
+          <ul class="phase-tasks">
+            <li>Configurer / déployer la solution retenue</li>
+            <li>Tester et valider au fur et à mesure</li>
+            <li>Documenter les étapes importantes</li>
+            <li>Préparer la démonstration pour le jury</li>
+          </ul>
+        </div>
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 4</span>
+          <div class="phase-time">20 <span>min</span></div>
+          <h4>Audit du jury</h4>
+          <p>Le jury évalue la solution produite et pose des questions techniques.</p>
+          <ul class="phase-tasks">
+            <li>Démontrer la maîtrise de l'environnement</li>
+            <li>Répondre avec un vocabulaire métier précis</li>
+            <li>Expliquer et justifier les choix réalisés</li>
+            <li>Reconnaître les limites et proposer des pistes d'amélioration</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- MES 2 ACTIVITÉS -->
+      <div class="section-header">
+        <span class="section-tag">Mon dossier E6</span>
+        <h2>Mes 2 activités soumises au jury</h2>
+      </div>
+
+      <div class="activites-grid">
+
         <div class="activite-card">
           <div class="activite-header">
             <div class="activite-num-wrap">
               <span class="activite-num">Activité 01</span>
-              <span class="activite-env">🔬 Lab</span>
+              <span class="activite-env">🔬 Environnement lab · VMware</span>
             </div>
             <div class="activite-logo">🖥️</div>
           </div>
           <div class="activite-body">
             <h3>Déploiement et administration de Windows Server</h3>
             <div class="sps-meta">
-              <span>📍 Environnement lab</span>
+              <span>📍 PSTB Paris — TP</span>
               <span>📅 2024</span>
             </div>
-            <p>Installation et configuration d'un serveur Windows Server en environnement virtualisé. Mise en place d'un contrôleur de domaine Active Directory, gestion des utilisateurs, des groupes et des politiques de sécurité (GPO). Configuration des services réseau associés (DNS, DHCP).</p>
+            <p>Installation et configuration d'un serveur Windows Server en environnement virtualisé. Mise en place d'un contrôleur de domaine Active Directory, gestion des utilisateurs, GPO et services réseau associés (DNS, DHCP).</p>
             <div class="activite-details">
-              <h4>Détail des tâches réalisées</h4>
+              <h4>Tâches réalisées</h4>
               <ul class="activite-tasks">
-                <li>Installation de Windows Server en machine virtuelle</li>
+                <li>Installation de Windows Server en machine virtuelle (VMware)</li>
                 <li>Promotion en contrôleur de domaine (Active Directory DS)</li>
                 <li>Création et gestion des utilisateurs et unités d'organisation (OU)</li>
                 <li>Mise en place de stratégies de groupe (GPO)</li>
@@ -97,30 +319,29 @@
             </div>
           </div>
           <div class="activite-footer">
-            <a href="doc_windows_server.pdf" download class="btn btn-primary">
+            <a href="doc_windows_server.pdf" download class="btn btn-primary btn-full">
               ⬇️ Télécharger la documentation technique
             </a>
           </div>
         </div>
 
-        <!-- Activité 2 : GLPI -->
         <div class="activite-card">
           <div class="activite-header">
             <div class="activite-num-wrap">
               <span class="activite-num">Activité 02</span>
-              <span class="activite-env">🔬 Lab</span>
+              <span class="activite-env">🔬 Environnement lab · Debian</span>
             </div>
             <div class="activite-logo">🗂️</div>
           </div>
           <div class="activite-body">
             <h3>Installation et configuration de GLPI</h3>
             <div class="sps-meta">
-              <span>📍 Environnement lab</span>
+              <span>📍 PSTB Paris — TP</span>
               <span>📅 2024</span>
             </div>
-            <p>Déploiement de GLPI (Gestionnaire Libre de Parc Informatique) sur un serveur Linux. Configuration de l'outil de gestion de parc et de helpdesk : inventaire des équipements, gestion des tickets d'incidents, paramétrage des utilisateurs et des profils d'accès.</p>
+            <p>Déploiement de GLPI (Gestionnaire Libre de Parc Informatique) sur un serveur Linux Debian. Configuration complète : inventaire des équipements, helpdesk, gestion des tickets et intégration avec l'annuaire Active Directory via LDAP.</p>
             <div class="activite-details">
-              <h4>Détail des tâches réalisées</h4>
+              <h4>Tâches réalisées</h4>
               <ul class="activite-tasks">
                 <li>Installation du serveur LAMP (Linux, Apache, MySQL, PHP)</li>
                 <li>Déploiement et configuration de GLPI</li>
@@ -140,7 +361,7 @@
             </div>
           </div>
           <div class="activite-footer">
-            <a href="doc_glpi.pdf" download class="btn btn-primary">
+            <a href="doc_glpi.pdf" download class="btn btn-primary btn-full">
               ⬇️ Télécharger la documentation technique
             </a>
           </div>
@@ -152,7 +373,7 @@
   </section>
 
   <footer class="footer">
-    <p>© 2024 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+    <p>© 2025 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
   </footer>
 
   <script src="script.js"></script>

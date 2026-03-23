@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antonin Briet — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">AB</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">À propos</a></li>
+      <li><a href="realisations.html">Réalisations</a></li>
+      <li><a href="tableau.html">Tableau de synthèse</a></li>
+      <li><a href="veille.html">Veille technologique</a></li>
+      <li><a href="e6.html">E6</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <span class="hero-tag">BTS SIO · Option SISR</span>
+      <h1 class="hero-title">Découvrez<br><em>mon Univers</em></h1>
+      <p class="hero-desc">Bienvenue sur mon portfolio personnel. Je suis <strong>Antonin Briet</strong>, étudiant en BTS SIO SISR en alternance chez <strong>V2SI</strong>, passionné par les réseaux et l'infrastructure. Explorez mes projets et découvrez mon parcours.</p>
+      <div class="hero-cta">
+        <a href="realisations.html" class="btn btn-primary">Voir mes réalisations</a>
+        <a href="certifications.html" class="btn btn-outline">Certifications</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="profile-img-wrap">
+        <div class="profile-img-placeholder">AB</div>
+      </div>
+      <div class="info-block">
+        <div class="info-item">
+          <span class="info-label">École</span>
+          <span class="info-value">PSTB Paris</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Adresse</span>
+          <span class="info-value">41 Rue Chanzy, 75011 Paris</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Tél.</span>
+          <span class="info-value">01 86 47 93 66</span>
+        </div>
+      </div>
+      <a href="cv_antonin_briet.pdf" download class="btn btn-primary btn-full">⬇️ Télécharger mon CV</a>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Qui suis-je ?</span>
+        <h2>À propos de moi</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Je suis <strong>Antonin Briet</strong>, étudiant en BTS SIO option SISR à l'école PSTB Paris, en alternance chez <strong>V2SI</strong>.</p>
+          <p>Titulaire d'un <strong>Bac Pro SN RISC mention Bien</strong> obtenu au lycée Jean Perrin de Saint-Ouen-l'Aumône, j'ai effectué deux stages chez V2SI durant mes années de lycée. Ces expériences concluantes m'ont permis de décrocher une alternance dès l'entrée en BTS SIO SISR — une continuité professionnelle dont je suis fier.</p>
+          <p>Passionné par les réseaux, l'infrastructure et la cybersécurité, je mets en pratique au quotidien les compétences acquises en cours grâce à mon environnement professionnel chez V2SI.</p>
+        </div>
+        <div class="skills-wrap">
+          <h3>Compétences clés</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">Administration réseau</span>
+              <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Windows Server</span>
+              <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Linux / Debian</span>
+              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Cisco / VLAN</span>
+              <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Cybersécurité</span>
+              <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Virtualisation (VMware)</span>
+              <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Mon parcours</span>
+        <h2>Formation & Expériences</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Sept. 2024 — Juil. 2026</span>
+            <h3>BTS SIO — Option SISR <span class="badge-alt">En alternance</span></h3>
+            <p>PSTB Paris · En alternance chez <strong>V2SI</strong></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024</span>
+            <h3>Baccalauréat Professionnel SN RISC — Mention Bien</h3>
+            <p>Lycée Jean Perrin · Saint-Ouen-l'Aumône</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022 — 2024</span>
+            <h3>2 Stages en entreprise</h3>
+            <p>Réseaux & infrastructure · <strong>V2SI</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2024 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

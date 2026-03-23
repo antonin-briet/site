@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Réalisations — Antonin Briet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">AB</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">À propos</a></li>
+      <li><a href="realisations.html" class="active">Réalisations</a></li>
+      <li><a href="tableau.html">Tableau de synthèse</a></li>
+      <li><a href="veille.html">Veille technologique</a></li>
+      <li><a href="e6.html">E6</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="hero-bg-grid"></div>
+    <div class="page-hero-content">
+      <span class="hero-tag">Portfolio</span>
+      <h1>Mes <em>Réalisations</em></h1>
+      <p>L'ensemble des projets réalisés durant ma formation BTS SIO SISR, en TP, en stage et en autonomie.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="reseau">Réseau</button>
+        <button class="filter-btn" data-filter="serveur">Serveur</button>
+        <button class="filter-btn" data-filter="secu">Sécurité</button>
+        <button class="filter-btn" data-filter="stage">Stage</button>
+      </div>
+
+      <div class="cards-grid" id="cardsGrid">
+
+        <div class="card" data-cat="reseau">
+          <div class="card-icon">🌐</div>
+          <div class="card-body">
+            <span class="card-tag">Réseau</span>
+            <h3>Configuration VLAN & Routage inter-VLAN</h3>
+            <p>Mise en place d'une architecture réseau segmentée avec des VLANs sur des switchs Cisco Catalyst. Configuration du routage inter-VLAN via un routeur.</p>
+            <div class="card-techs">
+              <span>Cisco IOS</span><span>VLAN</span><span>802.1Q</span>
+            </div>
+          </div>
+          <a href="#" class="card-link">Voir le détail →</a>
+        </div>
+
+        <div class="card" data-cat="serveur">
+          <div class="card-icon">🖥️</div>
+          <div class="card-body">
+            <span class="card-tag">Serveur</span>
+            <h3>Installation Active Directory Windows Server</h3>
+            <p>Déploiement d'un contrôleur de domaine sous Windows Server 2019, création d'une GPO, gestion des utilisateurs et des groupes.</p>
+            <div class="card-techs">
+              <span>Windows Server</span><span>Active Directory</span><span>GPO</span>
+            </div>
+          </div>
+          <a href="#" class="card-link">Voir le détail →</a>
+        </div>
+
+        <div class="card" data-cat="serveur">
+          <div class="card-icon">🐧</div>
+          <div class="card-body">
+            <span class="card-tag">Serveur</span>
+            <h3>Serveur Web Apache sous Debian</h3>
+            <p>Installation et configuration d'un serveur Apache sur Debian, mise en place de virtual hosts, configuration HTTPS avec certificat auto-signé.</p>
+            <div class="card-techs">
+              <span>Linux</span><span>Apache</span><span>HTTPS</span>
+            </div>
+          </div>
+          <a href="#" class="card-link">Voir le détail →</a>
+        </div>
+
+        <div class="card" data-cat="secu">
+          <div class="card-icon">🔒</div>
+          <div class="card-body">
+            <span class="card-tag">Sécurité</span>
+            <h3>Mise en place d'un pare-feu pfSense</h3>
+            <p>Configuration d'un pare-feu pfSense pour sécuriser un réseau d'entreprise : règles de filtrage, NAT, VPN et supervision du trafic.</p>
+            <div class="card-techs">
+              <span>pfSense</span><span>Firewall</span><span>VPN</span>
+            </div>
+          </div>
+          <a href="#" class="card-link">Voir le détail →</a>
+        </div>
+
+        <div class="card" data-cat="reseau">
+          <div class="card-icon">📡</div>
+          <div class="card-body">
+            <span class="card-tag">Réseau</span>
+            <h3>Supervision réseau avec Zabbix</h3>
+            <p>Déploiement d'une solution de supervision avec Zabbix. Monitoring des équipements réseau, création d'alertes et de tableaux de bord.</p>
+            <div class="card-techs">
+              <span>Zabbix</span><span>SNMP</span><span>Linux</span>
+            </div>
+          </div>
+          <a href="#" class="card-link">Voir le détail →</a>
+        </div>
+
+        <div class="card" data-cat="stage">
+          <div class="card-icon">🏢</div>
+          <div class="card-body">
+            <span class="card-tag">Alternance / Stage</span>
+            <h3>V2SI — Alternance & Stages</h3>
+            <p>2 stages réalisés durant le Bac Pro SN RISC, suivis d'une alternance BTS SIO SISR. Support N1/N2, administration réseau, déploiement de postes, gestion du parc informatique.</p>
+            <div class="card-techs">
+              <span>Support N1/N2</span><span>Active Directory</span><span>GLPI</span><span>V2SI</span>
+            </div>
+          </div>
+          <a href="#" class="card-link">Voir le détail →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2024 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veille Technologique — Antonin Briet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">AB</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">À propos</a></li>
+      <li><a href="realisations.html">Réalisations</a></li>
+      <li><a href="tableau.html">Tableau de synthèse</a></li>
+      <li><a href="veille.html" class="active">Veille technologique</a></li>
+      <li><a href="e6.html">E6</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="hero-bg-grid"></div>
+    <div class="page-hero-content">
+      <span class="hero-tag">Actualité tech</span>
+      <h1>Veille <em>Technologique</em></h1>
+      <p>Suivi régulier des évolutions dans les domaines des réseaux, de la cybersécurité et de l'infrastructure.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="veille-intro">
+        <div class="veille-sujet">
+          <h2>Sujet de veille : <em>Évolution des outils de gestion de parc informatique</em></h2>
+          <p>Dans le cadre de mon alternance chez <strong>V2SI</strong>, j'ai pu observer et participer directement aux migrations successives des outils de gestion du parc informatique. Cette veille retrace l'évolution des solutions adoptées, leurs apports et les raisons des changements.</p>
+        </div>
+        <div class="veille-methode">
+          <h3>📡 Mes sources d'information</h3>
+          <ul class="sources-list">
+            <li><a href="https://www.lemagit.fr/" target="_blank">LeMagIT</a> — Actualités IT & comparatifs outils</li>
+            <li><a href="https://www.ninjarmm.com/blog/" target="_blank">Blog NinjaOne</a> — Documentation & actualités</li>
+            <li><a href="https://www.acronis.com/fr-fr/blog/" target="_blank">Blog Acronis</a> — Sécurité & sauvegarde</li>
+            <li><a href="https://www.actionone.com/blog/" target="_blank">Blog Action1</a> — Gestion de parc & RMM</li>
+            <li><a href="https://www.eset.com/fr/blog/" target="_blank">ESET Blog FR</a> — Sécurité endpoint</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FRISE CHRONOLOGIQUE -->
+      <div class="section-header" style="margin-top:3rem">
+        <span class="section-tag">Frise chronologique</span>
+        <h2>Évolution du parc chez V2SI</h2>
+      </div>
+
+      <div class="frise-wrap">
+        <div class="frise-line"></div>
+
+        <!-- Étape 1 -->
+        <div class="frise-step left">
+          <div class="frise-dot-wrap">
+            <div class="frise-dot" style="background:#3b82f6;"></div>
+          </div>
+          <div class="frise-card">
+            <div class="frise-card-header">
+              <span class="frise-period">Avant 2024 — Bac Pro</span>
+              <span class="frise-badge" style="background:rgba(59,130,246,0.12);color:#60a5fa;">Étape 1</span>
+            </div>
+            <h3>GLPI</h3>
+            <div class="frise-tools">
+              <span class="frise-tool glpi">🗂️ GLPI</span>
+              <span class="frise-tool eset">🛡️ ESET (antivirus)</span>
+            </div>
+            <p><strong>GLPI</strong> (Gestionnaire Libre de Parc Informatique) est un outil open source utilisé pour l'inventaire du parc, la gestion des tickets de support et le helpdesk. C'est la solution en place avant mon arrivée en alternance — je l'ai peu connue directement.</p>
+            <div class="frise-bilan">
+              <strong>Pourquoi évoluer ?</strong> GLPI nécessite un serveur on-premise à maintenir, une configuration manuelle poussée et manque de fonctionnalités de supervision et télémaintenance en temps réel, essentielles pour une ESN comme V2SI.
+            </div>
+          </div>
+        </div>
+
+        <div class="frise-arrow">↓ Migration</div>
+
+        <!-- Étape 2 -->
+        <div class="frise-step right">
+          <div class="frise-dot-wrap">
+            <div class="frise-dot" style="background:#8b5cf6;"></div>
+          </div>
+          <div class="frise-card">
+            <div class="frise-card-header">
+              <span class="frise-period">Sept. 2024 — Début alternance</span>
+              <span class="frise-badge" style="background:rgba(139,92,246,0.12);color:#a78bfa;">Étape 2</span>
+            </div>
+            <h3>NinjaOne</h3>
+            <div class="frise-tools">
+              <span class="frise-tool ninja">⚡ NinjaOne (RMM)</span>
+              <span class="frise-tool eset">🛡️ ESET (antivirus)</span>
+            </div>
+            <p><strong>NinjaOne</strong> est un outil RMM (Remote Monitoring & Management) cloud. Il permet la supervision en temps réel des équipements, la télémaintenance, le déploiement de scripts et la gestion des alertes. C'est la solution que j'ai majoritairement utilisée en début d'alternance.</p>
+            <div class="frise-bilan">
+              <strong>Pourquoi évoluer ?</strong> Malgré ses nombreuses fonctionnalités, NinjaOne représente un coût important. V2SI a cherché à tester une solution intégrant également la sauvegarde et la sécurité dans un seul outil.
+            </div>
+          </div>
+        </div>
+
+        <div class="frise-arrow">↓ Migration</div>
+
+        <!-- Étape 3 -->
+        <div class="frise-step left">
+          <div class="frise-dot-wrap">
+            <div class="frise-dot" style="background:#ef4444;"></div>
+          </div>
+          <div class="frise-card">
+            <div class="frise-card-header">
+              <span class="frise-period">Fin 2024 — Mi-alternance</span>
+              <span class="frise-badge" style="background:rgba(239,68,68,0.12);color:#f87171;">Étape 3</span>
+            </div>
+            <h3>Acronis Cyber Cloud</h3>
+            <div class="frise-tools">
+              <span class="frise-tool acronis">☁️ Acronis Cyber Cloud</span>
+            </div>
+            <p><strong>Acronis Cyber Cloud</strong> est une suite tout-en-un combinant sauvegarde cloud, protection antivirus et supervision du parc. Durant cette période, Acronis remplace également ESET comme solution antivirus, en plus d'assurer la gestion et la sauvegarde des postes.</p>
+            <div class="frise-bilan">
+              <strong>Pourquoi évoluer ?</strong> Bien qu'Acronis soit complet sur le volet backup et sécurité, il s'avère moins performant sur la partie déploiement de mises à jour et télémaintenance au quotidien. V2SI cherche une solution plus légère et spécialisée pour ces usages.
+            </div>
+          </div>
+        </div>
+
+        <div class="frise-arrow">↓ Migration</div>
+
+        <!-- Étape 4 -->
+        <div class="frise-step right current">
+          <div class="frise-dot-wrap">
+            <div class="frise-dot current-dot" style="background:#22c55e;"></div>
+          </div>
+          <div class="frise-card current-card">
+            <div class="frise-card-header">
+              <span class="frise-period">2025 — Actuellement</span>
+              <span class="frise-badge" style="background:rgba(34,197,94,0.15);color:#4ade80;">✅ En cours</span>
+            </div>
+            <h3>Action1 + ESET</h3>
+            <div class="frise-tools">
+              <span class="frise-tool action1">🔧 Action1</span>
+              <span class="frise-tool eset">🛡️ ESET (antivirus)</span>
+            </div>
+            <p><strong>Action1</strong> n'est pas un RMM à proprement parler : c'est avant tout un outil de <strong>déploiement de mises à jour</strong> (patch management) et de déploiement de logiciels à distance, cloud-native et gratuit jusqu'à 200 endpoints. ESET reprend son rôle d'antivirus dédié, séparé de la gestion du parc.</p>
+            <div class="frise-bilan current-bilan">
+              <strong>Bilan :</strong> Cette combinaison est plus simple et économique. Action1 couvre efficacement le besoin principal de V2SI — maintenir les postes à jour à distance — sans la lourdeur d'un RMM complet. ESET assure la protection endpoint de façon dédiée.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TABLEAU COMPARATIF -->
+      <div class="section-header" style="margin-top:4rem">
+        <span class="section-tag">Analyse comparative</span>
+        <h2>Comparatif des solutions</h2>
+      </div>
+
+      <div class="tableau-wrap">
+        <table class="synth-table">
+          <thead>
+            <tr>
+              <th>Outil</th>
+              <th>Type</th>
+              <th>Inventaire / Tickets</th>
+              <th>Télémaintenance</th>
+              <th>Déploiement MAJ</th>
+              <th>Sauvegarde</th>
+              <th>Antivirus</th>
+              <th>Coût</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="realisation-name">GLPI</td>
+              <td>ITSM / Helpdesk</td>
+              <td><span class="check">✓</span></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="veille-badge gratuit">Gratuit</span></td>
+            </tr>
+            <tr>
+              <td class="realisation-name">NinjaOne</td>
+              <td>RMM</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td></td>
+              <td></td>
+              <td><span class="veille-badge payant">Payant</span></td>
+            </tr>
+            <tr>
+              <td class="realisation-name">Acronis Cyber Cloud</td>
+              <td>Backup / Sécu / EDR</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="veille-badge payant">Payant</span></td>
+            </tr>
+            <tr>
+              <td class="realisation-name">Action1</td>
+              <td>Patch Management</td>
+              <td></td>
+              <td></td>
+              <td><span class="check">✓</span></td>
+              <td></td>
+              <td></td>
+              <td><span class="veille-badge freemium">Freemium</span></td>
+            </tr>
+            <tr>
+              <td class="realisation-name">ESET Endpoint</td>
+              <td>Antivirus / EDR</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="veille-badge payant">Payant</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2024 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

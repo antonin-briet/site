@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E6 — Antonin Briet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">AB</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">À propos</a></li>
+      <li><a href="realisations.html">Réalisations</a></li>
+      <li><a href="tableau.html">Tableau de synthèse</a></li>
+      <li><a href="veille.html">Veille technologique</a></li>
+      <li><a href="e6.html" class="active">E6</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="hero-bg-grid"></div>
+    <div class="page-hero-content">
+      <span class="hero-tag">Épreuve d'examen</span>
+      <h1>Épreuve <em>E6</em></h1>
+      <p>Parcours de professionnalisation — Présentation des situations professionnelles significatives.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="e6-intro">
+        <div class="e6-desc">
+          <h2>Qu'est-ce que l'épreuve E6 ?</h2>
+          <p>L'épreuve E6 est une épreuve orale du BTS SIO. Elle consiste en la présentation et la soutenance d'un <strong>portfolio de compétences</strong> devant un jury. Le candidat doit présenter des situations professionnelles significatives (SPS) issues de ses stages, de ses travaux en cours de formation, ou de ses projets personnels.</p>
+          <p>L'objectif est de démontrer la maîtrise des compétences du référentiel BTS SIO à travers des réalisations concrètes et documentées.</p>
+        </div>
+        <div class="e6-format">
+          <h3>📋 Format de l'épreuve</h3>
+          <ul class="format-list">
+            <li><strong>Durée :</strong> 40 minutes (20 min exposé + 20 min entretien)</li>
+            <li><strong>Support :</strong> Portfolio numérique ou papier</li>
+            <li><strong>Coefficient :</strong> 4</li>
+            <li><strong>Jury :</strong> 2 personnes (enseignant + professionnel)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top:3rem">
+        <span class="section-tag">Situations professionnelles</span>
+        <h2>Mes SPS sélectionnées</h2>
+      </div>
+
+      <div class="sps-grid">
+
+        <div class="sps-card">
+          <div class="sps-number">SPS 01</div>
+          <div class="sps-content">
+            <h3>Mise en place d'une infrastructure réseau segmentée</h3>
+            <div class="sps-meta">
+              <span>📍 PSTB Paris — TP</span>
+              <span>📅 2024</span>
+            </div>
+            <p>Configuration d'une architecture réseau avec segmentation VLAN sur des équipements Cisco. Mise en œuvre du routage inter-VLAN et documentation de l'infrastructure.</p>
+            <div class="sps-competences">
+              <strong>Compétences mobilisées :</strong>
+              <div class="card-techs">
+                <span>B4 — Infrastructure réseau</span>
+                <span>B3 — Administration</span>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm">Voir le document ↗</a>
+          </div>
+        </div>
+
+        <div class="sps-card">
+          <div class="sps-number">SPS 02</div>
+          <div class="sps-content">
+            <h3>Administration d'un domaine Active Directory</h3>
+            <div class="sps-meta">
+              <span>📍 PSTB Paris — TP</span>
+              <span>📅 2024</span>
+            </div>
+            <p>Déploiement d'un contrôleur de domaine, création de politiques de sécurité (GPO), gestion centralisée des utilisateurs et des ressources partagées.</p>
+            <div class="sps-competences">
+              <strong>Compétences mobilisées :</strong>
+              <div class="card-techs">
+                <span>B3 — Administration</span>
+                <span>B5 — Sécurité</span>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm">Voir le document ↗</a>
+          </div>
+        </div>
+
+        <div class="sps-card">
+          <div class="sps-number">SPS 03</div>
+          <div class="sps-content">
+            <h3>Sécurisation du périmètre réseau avec pfSense</h3>
+            <div class="sps-meta">
+              <span>📍 PSTB Paris — TP</span>
+              <span>📅 2024</span>
+            </div>
+            <p>Installation et configuration d'un pare-feu pfSense : définition des règles de filtrage, mise en place d'un VPN IPsec pour les accès distants sécurisés.</p>
+            <div class="sps-competences">
+              <strong>Compétences mobilisées :</strong>
+              <div class="card-techs">
+                <span>B5 — Protection des données</span>
+                <span>B4 — Infrastructure</span>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm">Voir le document ↗</a>
+          </div>
+        </div>
+
+        <div class="sps-card">
+          <div class="sps-number">SPS 04</div>
+          <div class="sps-content">
+            <h3>Alternance chez V2SI — Support & Administration</h3>
+            <div class="sps-meta">
+              <span>📍 V2SI — Alternance</span>
+              <span>📅 Sept. 2024 — Juil. 2026</span>
+            </div>
+            <p>Prise en charge des tickets de support N1/N2, administration du parc informatique, déploiement de postes utilisateurs et documentation des interventions. Dans la continuité de 2 stages effectués chez V2SI durant le Bac Pro SN RISC.</p>
+            <div class="sps-competences">
+              <strong>Compétences mobilisées :</strong>
+              <div class="card-techs">
+                <span>B1 — Support</span>
+                <span>B2 — Patrimoine</span>
+                <span>B3 — Administration</span>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline btn-sm">Voir le document ↗</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="e6-download">
+        <h3>📁 Documents E6</h3>
+        <p>Téléchargez les fiches de situations professionnelles complètes au format PDF.</p>
+        <div class="download-btns">
+          <a href="#" class="btn btn-primary">Télécharger le dossier E6 complet</a>
+          <a href="#" class="btn btn-outline">Attestations de stage</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2024 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

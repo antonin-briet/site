@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Active Directory Windows Server — Antonin Briet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">AB</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">À propos</a></li>
+      <li><a href="realisations.html" class="active">Réalisations</a></li>
+      <li><a href="tableau.html">Tableau de synthèse</a></li>
+      <li><a href="veille.html">Veille technologique</a></li>
+      <li><a href="e6.html">E6</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <section class="section" style="padding-top: 6rem;">
+    <div class="container">
+      <a href="realisations.html" class="back-btn">← Retour aux réalisations</a>
+
+      <div class="page-title-wrap">
+        <span class="card-tag">Serveur</span>
+        <h1>Active Directory &<br><em>Windows Server</em></h1>
+        <p class="hero-desc">Déploiement d'un contrôleur de domaine Active Directory sur Proxmox, gestion des utilisateurs, GPO et services DNS/DHCP.</p>
+        <div class="card-techs" style="margin-top:1rem">
+          <span>Windows Server 2022</span><span>Active Directory</span><span>GPO</span><span>DNS</span><span>DHCP</span><span>Proxmox</span>
+        </div>
+      </div>
+
+      <div class="detail-layout" style="margin-top: 2.5rem;">
+
+        <div class="detail-main">
+
+          <div class="detail-block">
+            <h2>📋 Contexte & objectifs</h2>
+            <p>Dans le cadre des TP BTS SIO SISR (sept. 2025 — jan. 2026), l'objectif était de déployer une infrastructure Windows Server complète sur l'environnement Proxmox de l'école. Il s'agissait de simuler l'infrastructure d'une PME avec un domaine Active Directory centralisé.</p>
+            <p>Les objectifs étaient de <strong>mettre en place un contrôleur de domaine</strong>, de gérer les comptes utilisateurs de manière centralisée, d'appliquer des <strong>politiques de sécurité via les GPO</strong>, et de configurer les services réseau essentiels (DNS, DHCP).</p>
+          </div>
+
+          <div class="detail-block">
+            <h2>🛠️ Déroulement & étapes</h2>
+            <ul class="steps-list">
+              <li class="step-item">
+                <span class="step-num">1</span>
+                <div class="step-content">
+                  <h4>Création de la VM sur Proxmox</h4>
+                  <p>Provisionnement d'une machine virtuelle Windows Server 2022 sur l'hyperviseur Proxmox de l'école. Paramétrage des ressources (RAM, CPU, stockage) et installation du système d'exploitation.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <span class="step-num">2</span>
+                <div class="step-content">
+                  <h4>Installation et promotion en contrôleur de domaine</h4>
+                  <p>Installation du rôle Active Directory Domain Services (AD DS), promotion du serveur en contrôleur de domaine, création du domaine (ex: <code>btssio.local</code>).</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <span class="step-num">3</span>
+                <div class="step-content">
+                  <h4>Structure organisationnelle et comptes utilisateurs</h4>
+                  <p>Création d'une hiérarchie d'Unités d'Organisation (OU) par service, création de comptes utilisateurs et de groupes de sécurité, gestion des droits d'accès aux ressources partagées.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <span class="step-num">4</span>
+                <div class="step-content">
+                  <h4>Mise en place des GPO</h4>
+                  <p>Création et liaison de stratégies de groupe (GPO) : restriction d'accès au panneau de configuration, déploiement de paramètres de sécurité, configuration du bureau des utilisateurs.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <span class="step-num">5</span>
+                <div class="step-content">
+                  <h4>Configuration DNS et DHCP</h4>
+                  <p>Paramétrage du serveur DNS intégré à l'AD, création des zones de recherche directe et inverse. Installation et configuration du rôle DHCP avec les plages d'adresses par VLAN.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <span class="step-num">6</span>
+                <div class="step-content">
+                  <h4>Intégration de postes clients et tests</h4>
+                  <p>Jonction de machines Windows 10 au domaine, vérification de l'application des GPO sur les postes clients, tests de connexion avec différents comptes utilisateurs.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>⚠️ Difficultés rencontrées</h2>
+            <ul class="problems-list">
+              <li class="problem-item">Problème de résolution DNS lors de la jonction des postes clients au domaine (mauvaise configuration du DNS sur les clients)</li>
+              <li class="problem-item">GPO non appliquées immédiatement — nécessité d'utiliser <code>gpupdate /force</code> et de comprendre l'héritage des stratégies</li>
+              <li class="problem-item">Conflits entre plages DHCP et adresses IP statiques déjà attribuées sur le réseau Proxmox</li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>✅ Résultats obtenus</h2>
+            <ul class="problems-list">
+              <li class="result-item">Contrôleur de domaine fonctionnel avec une structure OU reflétant une organisation réelle</li>
+              <li class="result-item">GPO appliquées correctement sur les postes clients du domaine</li>
+              <li class="result-item">Services DNS et DHCP opérationnels et intégrés au domaine Active Directory</li>
+              <li class="result-item">Documentation technique complète avec captures d'écran des configurations</li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>💡 Ce que j'ai appris</h2>
+            <p>Ce projet m'a donné une vision concrète de l'administration d'un environnement Windows en entreprise. La gestion centralisée des identités via <strong>Active Directory</strong> est un pilier de l'infrastructure SISR que j'ai désormais bien assimilé.</p>
+            <p>Les <strong>GPO</strong> m'ont particulièrement intéressé : elles permettent de gérer des dizaines de postes en quelques clics, ce qui illustre parfaitement l'intérêt de la centralisation en environnement professionnel.</p>
+          </div>
+
+        </div>
+
+        <aside class="detail-sidebar">
+          <div class="sidebar-card">
+            <h3>Informations</h3>
+            <div class="meta-row">
+              <span class="meta-label">Catégorie</span>
+              <span class="meta-value">Serveur</span>
+            </div>
+            <hr class="meta-divider">
+            <div class="meta-row">
+              <span class="meta-label">Contexte</span>
+              <span class="meta-value">TP — PSTB Paris</span>
+            </div>
+            <hr class="meta-divider">
+            <div class="meta-row">
+              <span class="meta-label">Période</span>
+              <span class="meta-value">Sept. 2025 — Jan. 2026</span>
+            </div>
+            <hr class="meta-divider">
+            <div class="meta-row">
+              <span class="meta-label">Environnement</span>
+              <span class="meta-value">Proxmox (infra école)</span>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3>Technologies</h3>
+            <div class="card-techs" style="margin:0">
+              <span>Windows Server 2022</span>
+              <span>Active Directory</span>
+              <span>GPO</span>
+              <span>DNS</span>
+              <span>DHCP</span>
+              <span>Proxmox</span>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3>Compétences BTS SIO</h3>
+            <div class="card-techs" style="margin:0">
+              <span>B3 — Administration</span>
+              <span>B4 — Infrastructure</span>
+              <span>B5 — Sécurité</span>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

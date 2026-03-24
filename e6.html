@@ -267,7 +267,7 @@
 
       <div class="activites-grid">
 
-        <div class="activite-card">
+        <div class="activite-card" onclick="openPdf('doc_windows_server.pdf', 'Activité 01 — Windows Server')">
           <div class="activite-header">
             <div class="activite-num-wrap">
               <span class="activite-num">Activité 01</span>
@@ -303,25 +303,11 @@
             </div>
           </div>
           <div class="activite-footer">
-            <div class="pdf-preview-mini">
-              <a href="doc_windows_server.pdf" target="_blank" class="pdf-thumb-link">
-                <div class="pdf-thumb pdf-thumb-sm">
-                  <iframe src="doc_windows_server.pdf#toolbar=0&navpanes=0&scrollbar=0" class="pdf-thumb-iframe" scrolling="no" title="Aperçu documentation Windows Server"></iframe>
-                  <div class="pdf-thumb-overlay"><span>🔍 Agrandir</span></div>
-                </div>
-              </a>
-              <div class="pdf-mini-actions">
-                <span class="pdf-filename">doc_windows_server.pdf</span>
-                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-                  <a href="doc_windows_server.pdf" target="_blank" class="btn btn-outline btn-sm">🔍 Ouvrir</a>
-                  <a href="doc_windows_server.pdf" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
-                </div>
-              </div>
-            </div>
+            <span class="activite-open-hint">📄 Cliquer pour voir la documentation</span>
           </div>
         </div>
 
-        <div class="activite-card">
+        <div class="activite-card" onclick="openPdf('doc_glpi.pdf', 'Activité 02 — GLPI')">
           <div class="activite-header">
             <div class="activite-num-wrap">
               <span class="activite-num">Activité 02</span>
@@ -357,24 +343,24 @@
             </div>
           </div>
           <div class="activite-footer">
-            <div class="pdf-preview-mini">
-              <a href="doc_glpi.pdf" target="_blank" class="pdf-thumb-link">
-                <div class="pdf-thumb pdf-thumb-sm">
-                  <iframe src="doc_glpi.pdf#toolbar=0&navpanes=0&scrollbar=0" class="pdf-thumb-iframe" scrolling="no" title="Aperçu documentation GLPI"></iframe>
-                  <div class="pdf-thumb-overlay"><span>🔍 Agrandir</span></div>
-                </div>
-              </a>
-              <div class="pdf-mini-actions">
-                <span class="pdf-filename">doc_glpi.pdf</span>
-                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-                  <a href="doc_glpi.pdf" target="_blank" class="btn btn-outline btn-sm">🔍 Ouvrir</a>
-                  <a href="doc_glpi.pdf" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
-                </div>
-              </div>
-            </div>
+            <span class="activite-open-hint">📄 Cliquer pour voir la documentation</span>
           </div>
         </div>
 
+      </div>
+
+      <!-- MODALE PDF -->
+      <div class="pdf-modal" id="pdfModal" onclick="closePdf(event)">
+        <div class="pdf-modal-box">
+          <div class="pdf-modal-header">
+            <h3 id="pdfModalTitle">Documentation</h3>
+            <div class="pdf-modal-actions">
+              <a id="pdfModalDownload" href="#" download class="btn btn-primary btn-sm">⬇️ Télécharger</a>
+              <button class="pdf-modal-close" onclick="closePdfBtn()">✕</button>
+            </div>
+          </div>
+          <iframe id="pdfModalIframe" src="" class="pdf-modal-iframe" title="Aperçu PDF"></iframe>
+        </div>
       </div>
 
     </div>
@@ -384,6 +370,116 @@
     <p>© 2025 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
   </footer>
 
+  <style>
+    /* Carte cliquable */
+    .activite-card {
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .activite-card:hover {
+      border-color: rgba(59,130,246,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .activite-open-hint {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+      text-align: center;
+      padding: 0.25rem 0;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+    .activite-card:hover .activite-open-hint { opacity: 1; }
+
+    /* Modale */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .pdf-modal.open { display: flex; }
+
+    .pdf-modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: fadeUp 0.25s ease both;
+    }
+
+    .pdf-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .pdf-modal-header h3 { font-size: 1rem; margin: 0; }
+    .pdf-modal-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+    .pdf-modal-close {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+    }
+    .pdf-modal-close:hover { border-color: var(--accent); color: var(--accent); }
+
+    .pdf-modal-iframe {
+      width: 100%;
+      flex: 1;
+      border: none;
+      min-height: 500px;
+    }
+
+    @media (max-width: 600px) {
+      .pdf-modal { padding: 0.75rem; }
+      .pdf-modal-iframe { min-height: 400px; }
+    }
+  </style>
+
   <script src="script.js"></script>
+  <script>
+    function openPdf(file, title) {
+      document.getElementById('pdfModalTitle').textContent = title;
+      document.getElementById('pdfModalIframe').src = file;
+      document.getElementById('pdfModalDownload').href = file;
+      document.getElementById('pdfModalDownload').download = file;
+      document.getElementById('pdfModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePdfBtn() {
+      document.getElementById('pdfModal').classList.remove('open');
+      document.getElementById('pdfModalIframe').src = '';
+      document.body.style.overflow = '';
+    }
+    function closePdf(e) {
+      if (e.target === document.getElementById('pdfModal')) closePdfBtn();
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closePdfBtn();
+    });
+  </script>
 </body>
 </html>

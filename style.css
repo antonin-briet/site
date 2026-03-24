@@ -454,6 +454,9 @@ em { font-style: normal; color: var(--accent); }
   gap: 1rem;
   transition: all var(--transition);
   animation: fadeUp 0.5s ease both;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 .card:hover {
   border-color: rgba(59,130,246,0.35);

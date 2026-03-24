@@ -32,6 +32,40 @@
     </div>
   </section>
 
+  <style>
+    .pdf-viewer-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .pdf-viewer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .pdf-viewer-header h3 { font-size: 1rem; margin: 0; }
+    .pdf-viewer-header span { font-size: 0.82rem; color: var(--text-dim); }
+    .pdf-viewer-iframe {
+      width: 100%;
+      height: 780px;
+      border: none;
+      display: block;
+    }
+    .pdf-fallback {
+      display: none;
+      padding: 3rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+  </style>
+
   <section class="section">
     <div class="container">
 
@@ -39,16 +73,24 @@
         <p>Ce tableau présente la correspondance entre mes réalisations et les compétences du référentiel BTS SIO option SISR. Il permet de vérifier la couverture des blocs de compétences.</p>
       </div>
 
-      <div class="fichier-block">
-        <div class="fichier-icon">📊</div>
-        <div class="fichier-info">
-          <h3>Tableau de synthèse</h3>
-          <p class="fichier-name">tableau_synthese.xlsx</p>
-          <p class="fichier-desc">Téléchargez le tableau de synthèse au format Excel pour consulter la correspondance complète entre réalisations et compétences du référentiel BTS SIO SISR.</p>
+      <div class="pdf-viewer-wrap">
+        <div class="pdf-viewer-header">
+          <div>
+            <h3>📊 Tableau de synthèse</h3>
+            <span>tableau_synthese.pdf</span>
+          </div>
+          <a href="tableau_synthese.pdf" download class="btn btn-outline btn-sm">⬇️ Télécharger</a>
         </div>
-        <a href="tableau_synthese.xlsx" download class="btn btn-primary">
-          ⬇️ Télécharger le tableau
-        </a>
+        <iframe
+          class="pdf-viewer-iframe"
+          src="tableau_synthese.pdf"
+          title="Tableau de synthèse BTS SIO SISR"
+          onerror="this.style.display='none'; document.getElementById('pdf-fallback-tableau').style.display='block'">
+        </iframe>
+        <div class="pdf-fallback" id="pdf-fallback-tableau">
+          <p>Le fichier PDF n'est pas disponible en prévisualisation.<br>
+          <a href="tableau_synthese.pdf" class="btn btn-primary" style="margin-top:1rem; display:inline-flex">⬇️ Télécharger le tableau</a></p>
+        </div>
       </div>
 
     </div>

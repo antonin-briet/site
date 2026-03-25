@@ -8,133 +8,509 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ---- Formation section ---- */
-    .formation-grid {
+
+    /* ── HERO FULLSCREEN ─────────────────────────── */
+    .hero-full {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-full .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .hero-full .hero-bg-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(59,130,246,0.1), transparent 65%);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-text-block { max-width: 640px; }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow-line {
+      width: 40px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .hero-eyebrow span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .hero-name .line-dim {
+      color: var(--text-dim);
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-muted);
+      font-weight: 300;
+      margin: 1.5rem 0 2.5rem;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+    .hero-subtitle strong { color: var(--text); font-weight: 500; }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* Profile card flottante */
+    .hero-profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.75rem 1.5rem;
+      width: 240px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      position: relative;
+    }
+    .hero-profile-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), transparent 60%);
+      pointer-events: none;
+    }
+    .profile-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem; font-weight: 800; color: white;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.15), 0 0 0 6px rgba(59,130,246,0.06);
+    }
+    .profile-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      text-align: center;
+    }
+    .profile-tags {
+      display: flex; flex-direction: column; gap: 0.4rem; width: 100%;
+    }
+    .profile-tag {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; color: var(--text-muted); font-weight: 400;
+    }
+    .profile-tag-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+    }
+    .profile-divider { width: 100%; border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      animation: bounce 2s ease infinite;
+    }
+    .scroll-hint span { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
+    .scroll-arrow { width: 20px; height: 20px; color: var(--text-dim); }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── SECTION PRÉSENTATION ─────────────────────── */
+    .section-présentation {
+      padding: 6rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .présentation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .présentation-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+    .présentation-label::before {
+      content: '';
+      display: block;
+      width: 28px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .présentation-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .présentation-title em { color: var(--accent); font-style: normal; }
+
+    .présentation-body p {
+      color: var(--text-muted);
+      font-size: 0.97rem;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .présentation-body p strong { color: var(--text); font-weight: 500; }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .skill-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.65rem 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      transition: all var(--transition);
+    }
+    .skill-pill:hover { border-color: rgba(59,130,246,0.35); color: var(--text); }
+    .skill-pill-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0; opacity: 0.7;
+    }
+
+    /* ── TIMELINE PARCOURS ────────────────────────── */
+    .section-parcours {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2.5rem;
+    }
+    .parcours-inner { max-width: 1100px; margin: 0 auto; }
+
+    .parcours-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 3.5rem;
+    }
+    .parcours-header h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 20px; left: 20px; right: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+      opacity: 0.3;
+    }
+
+    .step-item {
+      padding: 0 1.25rem;
+      position: relative;
+    }
+    .step-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg-alt);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .step-date {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .step-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+    .step-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .step-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      background: rgba(59,130,246,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(59,130,246,0.2);
+      margin-top: 0.4rem;
+    }
+
+    /* ── FORMATION ECOLE + BTS ───────────────────── */
+    .section-formation {
+      padding: 6rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .formation-header {
+      margin-bottom: 3rem;
+    }
+
+    .formation-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
     }
-    .formation-card {
+
+    /* Carte école */
+    .ecole-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+    }
+    .ecole-card:hover { border-color: rgba(59,130,246,0.3); transform: translateY(-3px); }
+
+    .ecole-card-banner {
+      background: linear-gradient(135deg, #e91e8c 0%, #ff5500 50%, #9c27b0 100%);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 140px;
+    }
+    .ecole-logo {
+      width: 100px; height: 100px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .ecole-card-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+    .ecole-card-body h3 { font-size: 1.05rem; }
+    .ecole-card-body p { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
+    .ecole-meta { display: flex; flex-direction: column; gap: 0.35rem; }
+    .ecole-meta-row { font-size: 0.82rem; color: var(--text-dim); display: flex; align-items: center; gap: 0.4rem; }
+
+    /* Carte BTS */
+    .bts-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
       padding: 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
+      transition: all var(--transition);
     }
-    .school-card {
-      border-top: 3px solid transparent;
-      border-image: linear-gradient(90deg, #e91e8c, #3b82f6) 1;
-      border-radius: var(--radius-lg);
-    }
-    .school-logo-wrap {
+    .bts-card:hover { border-color: rgba(59,130,246,0.3); transform: translateY(-3px); }
+
+    .bts-card-header {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
+      gap: 0.75rem;
     }
-    .school-logo {
-      width: 72px;
-      height: 72px;
+    .bts-icon {
+      width: 48px; height: 48px;
       border-radius: 12px;
-      object-fit: cover;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
       flex-shrink: 0;
     }
-    .school-logo-wrap h3 { margin: 0; font-size: 1rem; }
-    .school-info p { color: var(--text-muted); font-size: 0.92rem; font-weight: 300; margin-bottom: 0.6rem; }
-    .school-info p strong { color: var(--text); font-weight: 500; }
-    .school-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
-    .school-meta span { font-size: 0.82rem; color: var(--text-dim); }
+    .bts-card-header h3 { font-size: 1.1rem; line-height: 1.25; }
+    .bts-card-header span { font-size: 0.82rem; color: var(--text-dim); }
 
-    .bts-card { border-top: 3px solid var(--accent); }
-    .bts-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem; }
-    .bts-badge {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 100px;
+    .bts-desc { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
+
+    .bts-modules {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      list-style: none; padding: 0;
     }
-    .bts-option {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: rgba(59,130,246,0.1);
-      border: 1px solid rgba(59,130,246,0.25);
-      padding: 0.25rem 0.7rem;
-      border-radius: 100px;
-    }
-    .bts-card h3 { margin-bottom: 0.25rem; }
-    .bts-card p { color: var(--text-muted); font-size: 0.92rem; font-weight: 300; margin-bottom: 0.6rem; }
-    .bts-card p strong { color: var(--text); font-weight: 500; }
-    .bts-topics {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
-    }
-    .bts-topics li {
-      font-size: 0.88rem;
+    .bts-modules li {
+      font-size: 0.85rem;
       color: var(--text-muted);
-      padding-left: 1.2rem;
-      position: relative;
+      font-weight: 300;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border-left: 3px solid var(--accent);
+      transition: all var(--transition);
     }
-    .bts-topics li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.78rem;
-    }
-    .bts-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .bts-meta-item {
-      font-size: 0.8rem;
-      font-weight: 500;
+    .bts-modules li:hover { color: var(--text); background: rgba(59,130,246,0.08); }
+
+    .bts-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.25rem; }
+    .bts-chip {
+      font-size: 0.75rem;
+      font-weight: 600;
       padding: 0.3rem 0.75rem;
       border-radius: 100px;
-      background: var(--surface-2);
+      background: rgba(59,130,246,0.1);
+      color: var(--accent);
+      border: 1px solid rgba(59,130,246,0.2);
+    }
+
+    /* ── LYCÉE JEAN PERRIN ───────────────────────── */
+    .section-lycee {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 5rem 2.5rem;
+    }
+    .lycee-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .lycee-visual {
+      background: var(--surface);
       border: 1px solid var(--border);
-      color: var(--text-muted);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
-
-    /* ---- About grid ---- */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .about-photo-wrap { margin-bottom: 1.25rem; }
-    .about-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(59,130,246,0.3); }
-    .about-text p { color: var(--text-muted); margin-bottom: 1rem; font-weight: 300; }
-    .about-text p strong { color: var(--text); font-weight: 500; }
-
-    /* ---- Badge alternance ---- */
-    .badge-alt {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+    .lycee-badge {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2));
+      border: 2px solid rgba(59,130,246,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem; font-weight: 800;
+      color: var(--accent);
+    }
+    .lycee-visual h3 { font-size: 1.15rem; }
+    .lycee-visual p { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; }
+    .lycee-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .lycee-stat {
+      background: var(--surface-2);
+      border-radius: 10px;
+      padding: 0.85rem;
+      text-align: center;
+    }
+    .lycee-stat-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem; font-weight: 800;
+      color: var(--accent);
+      display: block;
+    }
+    .lycee-stat-label {
+      font-size: 0.72rem;
+      color: var(--text-dim);
       text-transform: uppercase;
-      background: rgba(34,197,94,0.12);
-      color: #4ade80;
-      border: 1px solid rgba(34,197,94,0.25);
-      border-radius: 100px;
-      padding: 0.15rem 0.55rem;
-      margin-left: 0.5rem;
-      vertical-align: middle;
+      letter-spacing: 0.07em;
+      font-weight: 600;
     }
 
-    @media (max-width: 900px) {
-      .formation-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .lycee-content .présentation-label { margin-bottom: 1rem; }
+    .lycee-content h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1.25rem; }
+    .lycee-content p { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; line-height: 1.8; margin-bottom: 0.9rem; }
+    .lycee-content p strong { color: var(--text); font-weight: 500; }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 1000px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-profile-card { display: none; }
+      .hero-eyebrow, .hero-actions { justify-content: center; }
+      .présentation-grid, .formation-split, .lycee-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .steps-row { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .steps-row::before { display: none; }
+      .parcours-header { flex-direction: column; gap: 0.5rem; }
+    }
+    @media (max-width: 600px) {
+      .hero-full, .section-présentation, .section-parcours, .section-formation, .section-lycee { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .steps-row { grid-template-columns: 1fr; }
+      .skill-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="navbar">
     <a href="index.html" class="nav-logo" aria-label="Accueil">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -153,175 +529,242 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- ═══════════════════════════════════════════════
+       HERO FULLSCREEN
+  ════════════════════════════════════════════════ -->
+  <section class="hero-full">
     <div class="hero-bg-grid"></div>
-    <div class="hero-content">
-      <span class="hero-tag">BTS SIO · Option SISR</span>
-      <h1 class="hero-title">Découvrez<br><em>mon Univers</em></h1>
-      <p class="hero-desc">Bienvenue sur mon portfolio personnel. Je suis <strong>Antonin Briet</strong>, étudiant en BTS SIO SISR en alternance chez <strong>V2SI</strong>, passionné par les réseaux et l'infrastructure. Explorez mes projets et découvrez mon parcours.</p>
-      <div class="hero-cta">
-        <a href="realisations.html" class="btn btn-primary">Voir mes réalisations</a>
-        <a href="certifications.html" class="btn btn-outline">Certifications</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <div class="profile-img-wrap">
-        <div class="profile-img-placeholder">AB</div>
-      </div>
-      <div class="info-block">
-        <div class="info-item">
-          <span class="info-label">École</span>
-          <span class="info-value">PSTB Paris</span>
+    <div class="hero-inner">
+      <div class="hero-text-block">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span>Portfolio · BTS SIO SISR</span>
         </div>
-        <div class="info-item">
-          <span class="info-label">Adresse</span>
-          <span class="info-value">41 Rue Chanzy, 75011 Paris</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">Tél.</span>
-          <span class="info-value">01 86 47 93 66</span>
+        <h1 class="hero-name">
+          Antonin
+          <span class="line-dim">Briet.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Étudiant en <strong>BTS SIO option SISR</strong> à la PSTB Paris,
+          en alternance chez <strong>V2SI</strong>. Passionné par les réseaux,
+          l'administration systèmes et la cybersécurité.
+        </p>
+        <div class="hero-actions">
+          <a href="realisations.html" class="btn btn-primary">Mes réalisations</a>
+          <a href="cv_antonin_briet.pdf" download class="btn btn-outline">⬇️ Télécharger mon CV</a>
         </div>
       </div>
-      <a href="cv_antonin_briet.pdf" download class="btn btn-primary btn-full">⬇️ Télécharger mon CV</a>
-    </div>
-  </section>
 
-  <!-- À PROPOS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Qui suis-je ?</span>
-        <h2>À propos de moi</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <div class="about-photo-wrap">
-            <img src="photo.jpg" alt="Antonin Briet" class="about-photo" onerror="this.style.display='none'">
+      <div class="hero-profile-card">
+        <div class="profile-avatar">AB</div>
+        <div class="profile-name">Antonin Briet</div>
+        <hr class="profile-divider">
+        <div class="profile-tags">
+          <div class="profile-tag">
+            <div class="profile-tag-dot"></div>
+            <span>BTS SIO — Option SISR</span>
           </div>
-          <p>Je suis <strong>Antonin Briet</strong>, étudiant en BTS SIO option SISR à l'école PSTB Paris, en alternance chez <strong>V2SI</strong>.</p>
-          <p>Titulaire d'un <strong>Bac Pro SN RISC mention Bien</strong> obtenu au lycée Jean Perrin de Saint-Ouen-l'Aumône, j'ai effectué deux stages chez V2SI durant mes années de lycée. Ces expériences concluantes m'ont permis de décrocher une alternance dès l'entrée en BTS SIO SISR — une continuité professionnelle dont je suis fier.</p>
-          <p>Passionné par les réseaux, l'infrastructure et la cybersécurité, je mets en pratique au quotidien les compétences acquises en cours grâce à mon environnement professionnel chez V2SI.</p>
-        </div>
-        <div class="skills-wrap">
-          <h3>Compétences clés</h3>
-          <div class="skill-list">
-            <div class="skill-item">
-              <span class="skill-name">Administration réseau</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Windows Server</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Linux / Debian</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Cisco / VLAN</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Cybersécurité</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Virtualisation (Proxmox)</span>
-              <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
-            </div>
+          <div class="profile-tag">
+            <div class="profile-tag-dot"></div>
+            <span>PSTB Paris</span>
+          </div>
+          <div class="profile-tag">
+            <div class="profile-tag-dot"></div>
+            <span>Alternance chez V2SI</span>
+          </div>
+          <div class="profile-tag">
+            <div class="profile-tag-dot"></div>
+            <span>Paris, France</span>
           </div>
         </div>
+        <a href="cv_antonin_briet.pdf" download class="btn btn-primary btn-full btn-sm">⬇️ CV</a>
       </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
     </div>
   </section>
 
-  <!-- ÉCOLE & FORMATION -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Ma formation</span>
-        <h2>Mon école & mon <em>BTS SIO SISR</em></h2>
+  <!-- ═══════════════════════════════════════════════
+       PRÉSENTATION PERSONNELLE
+  ════════════════════════════════════════════════ -->
+  <div class="section-présentation">
+    <div class="présentation-grid">
+      <div>
+        <div class="présentation-label">Qui suis-je</div>
+        <h2 class="présentation-title">
+          Un profil<br><em>réseau & infra</em><br>ancré dans le terrain
+        </h2>
       </div>
-      <div class="formation-grid">
+      <div>
+        <div class="présentation-body">
+          <p>Je suis <strong>Antonin Briet</strong>, étudiant en 2ème année de BTS SIO SISR à la PSTB Paris. Mon parcours est construit sur une continuité rare : deux stages chez V2SI pendant mon Bac Pro, puis une alternance dans la même entreprise dès le début du BTS.</p>
+          <p>Cette immersion professionnelle précoce m'a permis de <strong>travailler sur des infrastructures réelles</strong> dès mes débuts : administration réseau, support N1/N2, déploiement de postes, gestion du parc informatique et supervision avec des outils professionnels.</p>
+          <p>Passionné par la <strong>cybersécurité</strong> et les architectures réseau, je m'appuie sur une veille technologique régulière pour rester à jour sur les évolutions du secteur.</p>
+        </div>
+        <div class="skill-grid">
+          <div class="skill-pill"><div class="skill-pill-dot"></div>Administration réseau</div>
+          <div class="skill-pill"><div class="skill-pill-dot"></div>Windows Server / AD</div>
+          <div class="skill-pill"><div class="skill-pill-dot"></div>Linux / Debian</div>
+          <div class="skill-pill"><div class="skill-pill-dot"></div>Cisco / VLAN</div>
+          <div class="skill-pill"><div class="skill-pill-dot"></div>pfSense / Firewall</div>
+          <div class="skill-pill"><div class="skill-pill-dot"></div>Virtualisation Proxmox</div>
+          <div class="skill-pill"><div class="skill-pill-dot"></div>Zabbix / Supervision</div>
+          <div class="skill-pill"><div class="skill-pill-dot"></div>Cybersécurité</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- PSTB -->
-        <div class="formation-card school-card">
-          <div class="school-logo-wrap">
-            <img src="pstb_logo.jpg" alt="Logo PSTB" class="school-logo">
-            <h3>PSTB — Paris School of<br>Technology & Business</h3>
-          </div>
-          <div class="school-info">
-            <p>La <strong>PSTB</strong> est une école parisienne spécialisée dans les formations technologiques et numériques. Elle propose des cursus alliant théorie et pratique professionnelle, en particulier dans les domaines de l'informatique, des réseaux et du digital.</p>
-            <p>Implantée dans le <strong>11e arrondissement de Paris</strong>, l'école accompagne ses étudiants vers une insertion rapide dans le monde professionnel grâce à des formations en alternance et des partenariats avec des entreprises du secteur IT.</p>
-            <div class="school-meta">
-              <span>📍 41 Rue Chanzy, 75011 Paris</span>
-              <span>📞 01 86 47 93 66</span>
-            </div>
-          </div>
+  <!-- ═══════════════════════════════════════════════
+       TIMELINE PARCOURS
+  ════════════════════════════════════════════════ -->
+  <section class="section-parcours">
+    <div class="parcours-inner">
+      <div class="parcours-header">
+        <div class="présentation-label" style="margin-bottom:0">Mon parcours</div>
+        <h2>Formation & <em>Expériences</em></h2>
+      </div>
+
+      <div class="steps-row">
+
+        <div class="step-item">
+          <div class="step-dot"></div>
+          <div class="step-date">2021 — 2024</div>
+          <div class="step-title">Bac Pro SN RISC</div>
+          <div class="step-desc">Lycée Jean Perrin · Saint-Ouen-l'Aumône. Systèmes Numériques option Réseaux Informatiques et Systèmes Communicants.</div>
+          <span class="step-badge">Mention Bien</span>
         </div>
 
-        <!-- BTS SIO SISR -->
-        <div class="formation-card bts-card">
-          <div class="bts-header">
-            <div class="bts-badge">BTS SIO</div>
-            <span class="bts-option">Option SISR</span>
-          </div>
-          <h3>Services Informatiques aux Organisations</h3>
-          <p>Le <strong>BTS SIO</strong> est un diplôme Bac+2 qui forme des techniciens supérieurs capables d'assurer les services informatiques d'une organisation.</p>
-          <p>L'option <strong>SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux) se concentre sur la conception, l'installation et la maintenance des infrastructures. Elle couvre :</p>
-          <ul class="bts-topics">
-            <li>Administration des systèmes (Windows Server, Linux)</li>
-            <li>Conception et gestion des réseaux (VLAN, routage, VPN)</li>
-            <li>Cybersécurité et protection des infrastructures</li>
-            <li>Supervision et monitoring des équipements</li>
-            <li>Virtualisation et cloud computing</li>
-          </ul>
-          <div class="bts-meta">
-            <span class="bts-meta-item">📅 2 ans</span>
-            <span class="bts-meta-item">🏢 En alternance</span>
-            <span class="bts-meta-item">🎓 Bac+2</span>
-            <span class="bts-meta-item">🗓️ 2024 — 2026</span>
-          </div>
+        <div class="step-item">
+          <div class="step-dot"></div>
+          <div class="step-date">2022 — 2024</div>
+          <div class="step-title">2 Stages chez V2SI</div>
+          <div class="step-desc">Support technique, administration réseau et gestion du parc informatique. Première immersion en entreprise en conditions réelles.</div>
+          <span class="step-badge">Infogérance</span>
+        </div>
+
+        <div class="step-item">
+          <div class="step-dot"></div>
+          <div class="step-date">Sept. 2024 — Juil. 2026</div>
+          <div class="step-title">BTS SIO SISR</div>
+          <div class="step-desc">PSTB Paris. Infrastructure, systèmes et réseaux. Alternance chez V2SI en parallèle de la formation.</div>
+          <span class="step-badge">En alternance</span>
+        </div>
+
+        <div class="step-item">
+          <div class="step-dot"></div>
+          <div class="step-date">2024 — Aujourd'hui</div>
+          <div class="step-title">Alternance V2SI</div>
+          <div class="step-desc">Support N1/N2, NinjaOne, GLPI, Acronis → Action1. Administration quotidienne de parcs informatiques.</div>
+          <span class="step-badge">Actuel</span>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- PARCOURS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Mon parcours</span>
-        <h2>Formation & Expériences</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">Sept. 2024 — Juil. 2026</span>
-            <h3>BTS SIO — Option SISR <span class="badge-alt">En alternance</span></h3>
-            <p>PSTB Paris · En alternance chez <strong>V2SI</strong></p>
-          </div>
+  <!-- ═══════════════════════════════════════════════
+       ÉCOLE PSTB + BTS SIO
+  ════════════════════════════════════════════════ -->
+  <div class="section-formation">
+    <div class="formation-header">
+      <div class="présentation-label">Ma formation actuelle</div>
+      <h2 class="présentation-title">L'école & <em>le diplôme</em></h2>
+    </div>
+
+    <div class="formation-split">
+
+      <!-- PSTB -->
+      <div class="ecole-card">
+        <div class="ecole-card-banner">
+          <img src="pstb_logo.jpg" alt="Logo PSTB" class="ecole-logo">
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">2024</span>
-            <h3>Baccalauréat Professionnel SN RISC — Mention Bien</h3>
-            <p>Lycée Jean Perrin · Saint-Ouen-l'Aumône</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">2022 — 2024</span>
-            <h3>2 Stages en entreprise</h3>
-            <p>Réseaux & infrastructure · <strong>V2SI</strong></p>
+        <div class="ecole-card-body">
+          <h3>PSTB — Paris School of Technology & Business</h3>
+          <p>La <strong>PSTB</strong> est une école parisienne spécialisée dans les formations technologiques et numériques. Elle propose des cursus alliant théorie et pratique, notamment dans l'informatique, les réseaux et le digital.</p>
+          <p>L'école favorise l'insertion professionnelle via des formations en alternance et des partenariats avec des entreprises du secteur IT.</p>
+          <div class="ecole-meta">
+            <div class="ecole-meta-row">📍 41 Rue Chanzy, 75011 Paris</div>
+            <div class="ecole-meta-row">📞 01 86 47 93 66</div>
+            <div class="ecole-meta-row">🎓 BTS · Licence · Bachelor</div>
           </div>
         </div>
       </div>
+
+      <!-- BTS SIO SISR -->
+      <div class="bts-card">
+        <div class="bts-card-header">
+          <div class="bts-icon">🌐</div>
+          <div>
+            <h3>BTS SIO — Option SISR</h3>
+            <span>Services Informatiques aux Organisations</span>
+          </div>
+        </div>
+        <p class="bts-desc">Le <strong>BTS SIO SISR</strong> forme des techniciens supérieurs en infrastructure, systèmes et réseaux. En 2 ans (Bac+2), il couvre l'ensemble des compétences nécessaires à l'administration d'une infrastructure informatique en entreprise.</p>
+        <ul class="bts-modules">
+          <li>Administration des systèmes (Windows Server, Linux)</li>
+          <li>Conception et gestion des réseaux (VLAN, routage, VPN)</li>
+          <li>Cybersécurité et protection des infrastructures</li>
+          <li>Supervision et monitoring des équipements</li>
+          <li>Virtualisation et infrastructures cloud</li>
+        </ul>
+        <div class="bts-chips">
+          <span class="bts-chip">Bac+2</span>
+          <span class="bts-chip">2 ans</span>
+          <span class="bts-chip">Alternance</span>
+          <span class="bts-chip">Coefficient 4 — E6</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       LYCÉE JEAN PERRIN
+  ════════════════════════════════════════════════ -->
+  <section class="section-lycee">
+    <div class="lycee-inner">
+
+      <div class="lycee-visual">
+        <div class="lycee-badge">JP</div>
+        <h3>Lycée Jean Perrin</h3>
+        <p>Saint-Ouen-l'Aumône · Val-d'Oise (95)</p>
+        <div class="lycee-stats">
+          <div class="lycee-stat">
+            <span class="lycee-stat-val">Bac Pro</span>
+            <span class="lycee-stat-label">Diplôme</span>
+          </div>
+          <div class="lycee-stat">
+            <span class="lycee-stat-val">SN RISC</span>
+            <span class="lycee-stat-label">Option</span>
+          </div>
+          <div class="lycee-stat">
+            <span class="lycee-stat-val">Bien</span>
+            <span class="lycee-stat-label">Mention</span>
+          </div>
+          <div class="lycee-stat">
+            <span class="lycee-stat-val">2024</span>
+            <span class="lycee-stat-label">Obtention</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lycee-content">
+        <div class="présentation-label">Mon lycée</div>
+        <h2>Lycée Jean Perrin,<br><em>point de départ</em></h2>
+        <p>C'est au <strong>lycée Jean Perrin à Saint-Ouen-l'Aumône</strong> que j'ai posé les bases de mon parcours en informatique. J'y ai préparé et obtenu mon <strong>Baccalauréat Professionnel SN RISC</strong> (Systèmes Numériques option Réseaux Informatiques et Systèmes Communicants) avec la mention Bien.</p>
+        <p>Cette formation m'a apporté les fondements en électronique, câblage réseau, configuration d'équipements et administration systèmes. C'est également dans ce cadre que j'ai réalisé mes <strong>deux premiers stages chez V2SI</strong>, qui ont orienté définitivement mon projet professionnel vers les réseaux et l'infrastructure.</p>
+        <p>La rigueur et la culture technique acquises au Bac Pro constituent aujourd'hui un socle solide pour ma formation BTS et mon alternance.</p>
+        <div style="margin-top:1.5rem">
+          <a href="realisations.html" class="btn btn-outline">Voir mes réalisations →</a>
+        </div>
+      </div>
+
     </div>
   </section>
 

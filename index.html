@@ -7,12 +7,141 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- Formation section ---- */
+    .formation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .formation-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .school-card {
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(90deg, #e91e8c, #3b82f6) 1;
+      border-radius: var(--radius-lg);
+    }
+    .school-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .school-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .school-logo-wrap h3 { margin: 0; font-size: 1rem; }
+    .school-info p { color: var(--text-muted); font-size: 0.92rem; font-weight: 300; margin-bottom: 0.6rem; }
+    .school-info p strong { color: var(--text); font-weight: 500; }
+    .school-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .school-meta span { font-size: 0.82rem; color: var(--text-dim); }
+
+    .bts-card { border-top: 3px solid var(--accent); }
+    .bts-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem; }
+    .bts-badge {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+    }
+    .bts-option {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+    }
+    .bts-card h3 { margin-bottom: 0.25rem; }
+    .bts-card p { color: var(--text-muted); font-size: 0.92rem; font-weight: 300; margin-bottom: 0.6rem; }
+    .bts-card p strong { color: var(--text); font-weight: 500; }
+    .bts-topics {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .bts-topics li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .bts-topics li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.78rem;
+    }
+    .bts-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .bts-meta-item {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    /* ---- About grid ---- */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-photo-wrap { margin-bottom: 1.25rem; }
+    .about-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(59,130,246,0.3); }
+    .about-text p { color: var(--text-muted); margin-bottom: 1rem; font-weight: 300; }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+
+    /* ---- Badge alternance ---- */
+    .badge-alt {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(34,197,94,0.12);
+      color: #4ade80;
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 100px;
+      padding: 0.15rem 0.55rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 900px) {
+      .formation-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="navbar">
-    <a href="index.html" class="nav-logo">AB</a>
+    <a href="index.html" class="nav-logo" aria-label="Accueil">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+        <polyline points="9 21 9 12 15 12 15 21"/>
+      </svg>
+    </a>
     <button class="nav-burger" id="burger" aria-label="Menu">&#9776;</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">À propos</a></li>
@@ -98,7 +227,7 @@
               <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-name">Virtualisation (VMware)</span>
+              <span class="skill-name">Virtualisation (Proxmox)</span>
               <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
             </div>
           </div>
@@ -107,8 +236,61 @@
     </div>
   </section>
 
-  <!-- PARCOURS -->
+  <!-- ÉCOLE & FORMATION -->
   <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Ma formation</span>
+        <h2>Mon école & mon <em>BTS SIO SISR</em></h2>
+      </div>
+      <div class="formation-grid">
+
+        <!-- PSTB -->
+        <div class="formation-card school-card">
+          <div class="school-logo-wrap">
+            <img src="pstb_logo.jpg" alt="Logo PSTB" class="school-logo">
+            <h3>PSTB — Paris School of<br>Technology & Business</h3>
+          </div>
+          <div class="school-info">
+            <p>La <strong>PSTB</strong> est une école parisienne spécialisée dans les formations technologiques et numériques. Elle propose des cursus alliant théorie et pratique professionnelle, en particulier dans les domaines de l'informatique, des réseaux et du digital.</p>
+            <p>Implantée dans le <strong>11e arrondissement de Paris</strong>, l'école accompagne ses étudiants vers une insertion rapide dans le monde professionnel grâce à des formations en alternance et des partenariats avec des entreprises du secteur IT.</p>
+            <div class="school-meta">
+              <span>📍 41 Rue Chanzy, 75011 Paris</span>
+              <span>📞 01 86 47 93 66</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BTS SIO SISR -->
+        <div class="formation-card bts-card">
+          <div class="bts-header">
+            <div class="bts-badge">BTS SIO</div>
+            <span class="bts-option">Option SISR</span>
+          </div>
+          <h3>Services Informatiques aux Organisations</h3>
+          <p>Le <strong>BTS SIO</strong> est un diplôme Bac+2 qui forme des techniciens supérieurs capables d'assurer les services informatiques d'une organisation.</p>
+          <p>L'option <strong>SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux) se concentre sur la conception, l'installation et la maintenance des infrastructures. Elle couvre :</p>
+          <ul class="bts-topics">
+            <li>Administration des systèmes (Windows Server, Linux)</li>
+            <li>Conception et gestion des réseaux (VLAN, routage, VPN)</li>
+            <li>Cybersécurité et protection des infrastructures</li>
+            <li>Supervision et monitoring des équipements</li>
+            <li>Virtualisation et cloud computing</li>
+          </ul>
+          <div class="bts-meta">
+            <span class="bts-meta-item">📅 2 ans</span>
+            <span class="bts-meta-item">🏢 En alternance</span>
+            <span class="bts-meta-item">🎓 Bac+2</span>
+            <span class="bts-meta-item">🗓️ 2024 — 2026</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Mon parcours</span>

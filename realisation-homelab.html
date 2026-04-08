@@ -230,6 +230,53 @@
       .hl-hero, .hw-strip-inner, .hl-section-label, .stack-wrap, .services-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
       .service-card { grid-template-columns: 1fr; gap: 1.5rem; }
     }
+
+    /* ── Sources ── */
+    .hl-sources {
+      margin-top: 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .hl-sources-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 1.1rem;
+    }
+    .hl-sources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.6rem;
+    }
+    .hl-source-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .hl-source-item:hover {
+      border-color: rgba(59,130,246,0.35);
+      background: rgba(59,130,246,0.05);
+    }
+    .hl-source-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .hl-source-desc {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
   </style>
 </head>
 <body>
@@ -258,10 +305,61 @@
     <div class="hl-tag">🏠 Projet personnel · En production</div>
     <h1>Homelab &amp; Cloud<br><em style="color:var(--accent);font-style:normal">Self-hosted</em></h1>
     <p>
-      Déploiement d'un serveur cloud personnel sur matériel existant, visant la souveraineté des données
-      et le remplacement des services cloud propriétaires. Stack complète en production sous Debian 13,
-      sécurisée via Tailscale et accessible via domaine personnalisé avec certificats Let's Encrypt automatiques.
+      Face à la dépendance croissante aux services cloud propriétaires (Google, Apple, Microsoft), j'ai choisi
+      de <strong style="color:var(--text);font-weight:500">reprendre le contrôle de mes données personnelles</strong>
+      en déployant mon propre serveur cloud à domicile sur du matériel recyclé.
     </p>
+    <p style="margin-top:1rem">
+      L'objectif était triple : <strong style="color:var(--text);font-weight:500">souveraineté des données</strong>
+      (aucune donnée personnelle sur des serveurs tiers), <strong style="color:var(--text);font-weight:500">sécurité maximale</strong>
+      (zéro port ouvert sur internet, accès uniquement via VPN WireGuard), et
+      <strong style="color:var(--text);font-weight:500">haute disponibilité</strong>
+      (stratégie de sauvegarde 3-2-1, redémarrage automatique, monitoring continu).
+      Le tout sur un ancien PC de bureau reconverti en serveur, fonctionnant 24h/24 en consommation minimale.
+    </p>
+    <p style="margin-top:1rem">
+      Ce projet m'a permis d'appliquer concrètement les concepts vus en BTS SISR —
+      réseaux, sécurité, administration Linux, virtualisation de services — dans un environnement
+      réel et entièrement géré de façon autonome.
+    </p>
+
+    <div class="hl-sources">
+      <div class="hl-sources-title">📚 Sources & ressources utilisées</div>
+      <div class="hl-sources-grid">
+        <a href="https://www.it-connect.fr" target="_blank" class="hl-source-item">
+          <span class="hl-source-name">IT-Connect</span>
+          <span class="hl-source-desc">Tutoriels Linux, Docker, Debian, sécurité</span>
+        </a>
+        <a href="https://www.linuxtricks.fr" target="_blank" class="hl-source-item">
+          <span class="hl-source-name">LinuxTricks</span>
+          <span class="hl-source-desc">Administration Linux et services réseau</span>
+        </a>
+        <a href="https://caddyserver.com/docs" target="_blank" class="hl-source-item">
+          <span class="hl-source-name">Caddy Docs</span>
+          <span class="hl-source-desc">Documentation officielle reverse proxy</span>
+        </a>
+        <a href="https://tailscale.com/kb" target="_blank" class="hl-source-item">
+          <span class="hl-source-name">Tailscale KB</span>
+          <span class="hl-source-desc">Base de connaissances VPN WireGuard</span>
+        </a>
+        <a href="https://www.reddit.com/r/selfhosted" target="_blank" class="hl-source-item">
+          <span class="hl-source-name">r/selfhosted</span>
+          <span class="hl-source-desc">Communauté self-hosting & retours d'expérience</span>
+        </a>
+        <a href="https://docs.docker.com" target="_blank" class="hl-source-item">
+          <span class="hl-source-name">Docker Docs</span>
+          <span class="hl-source-desc">Documentation officielle Docker & Compose</span>
+        </a>
+        <a href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank" class="hl-source-item">
+          <span class="hl-source-name">Awesome Self-Hosted</span>
+          <span class="hl-source-desc">Référentiel de logiciels auto-hébergeables</span>
+        </a>
+        <a href="https://www.cert.ssi.gouv.fr" target="_blank" class="hl-source-item">
+          <span class="hl-source-name">CERT-FR (ANSSI)</span>
+          <span class="hl-source-desc">Recommandations de sécurité pour Linux</span>
+        </a>
+      </div>
+    </div>
   </div>
 
   <!-- HARDWARE -->
@@ -277,7 +375,7 @@
       <div class="hw-item"><div class="hw-label">Stockage Data</div><div class="hw-value">Kingston SSD 240 Go</div></div>
       <div class="hw-item"><div class="hw-label">Stockage Backup</div><div class="hw-value">Seagate HDD 1 To</div></div>
       <div class="hw-item"><div class="hw-label">OS</div><div class="hw-value">Debian 13 (Trixie)</div></div>
-      <div class="hw-item"><div class="hw-label">IP locale fixe</div><div class="hw-value">192.168.x.xxx</div></div>
+      <div class="hw-item"><div class="hw-label">IP locale fixe</div><div class="hw-value">192.168.1.42</div></div>
     </div>
   </div>
 
@@ -395,7 +493,7 @@
       <div class="sc-meta">
         <div class="sc-num">03 / 08</div>
         <div class="sc-icon">🌐</div>
-        <div class="sc-title">Caddy + domaine perso</div>
+        <div class="sc-title">Caddy + votredomaine.dev</div>
         <div class="sc-tags">
           <span class="sc-tag prod">Production</span>
           <span class="sc-tag">Reverse Proxy</span>
@@ -404,7 +502,7 @@
         </div>
       </div>
       <div class="sc-content">
-        <p class="sc-desc">Reverse proxy HTTPS unifiant l'accès à tous les services sous un domaine personnalisé, avec certificats Let's Encrypt générés automatiquement via challenge DNS Cloudflare. Les services sont accessibles via sous-domaines, exclusivement depuis le réseau Tailscale.</p>
+        <p class="sc-desc">Reverse proxy HTTPS unifiant l'accès à tous les services sous un domaine personnalisé (<code>votredomaine.dev</code>), avec certificats Let's Encrypt générés automatiquement via challenge DNS Cloudflare. Les services sont accessibles via sous-domaines, exclusivement depuis le réseau Tailscale.</p>
         <div class="sc-block">
           <div class="sc-block-title">Contraintes</div>
           <div class="sc-block-body"><ul>

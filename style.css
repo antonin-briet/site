@@ -1358,3 +1358,29 @@ em { font-style: normal; color: var(--accent); }
 @media (max-width: 900px) {
   .formation-grid { grid-template-columns: 1fr; }
 }
+
+/* ── CARD FEATURED (Homelab) ── */
+.card-featured {
+  border-color: rgba(99,102,241,0.25);
+  background: linear-gradient(135deg, var(--surface) 80%, rgba(99,102,241,0.05));
+  position: relative;
+  overflow: hidden;
+}
+.card-featured::after {
+  content: '★ Projet phare';
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #818cf8;
+  background: rgba(99,102,241,0.12);
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 100px;
+  padding: 0.2rem 0.6rem;
+}
+.card-featured:hover {
+  border-color: rgba(99,102,241,0.5);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.15), 0 0 0 1px rgba(99,102,241,0.15);
+}

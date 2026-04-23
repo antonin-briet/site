@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="detail.css">
+  <script src="gantt.js" defer></script>
 </head>
 <body>
 
@@ -168,7 +169,13 @@
               <span>B4 — Infrastructure</span>
               <span>B5 — Sécurité</span>
             </div>
+          
+          <div class="detail-block">
+            <h2>📅 Planning — contexte dans la formation</h2>
+            <div id="gantt-windows"></div>
           </div>
+
+        </div>
         </aside>
 
       </div>
@@ -180,5 +187,8 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => renderGantt('gantt-windows', 'windows'));
+  </script>
 </body>
 </html>

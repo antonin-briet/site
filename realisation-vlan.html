@@ -111,6 +111,7 @@
       .detail-sidebar { position: static; }
     }
   </style>
+  <script src="gantt.js" defer></script>
 </head>
 <body>
 
@@ -273,5 +274,8 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => renderGantt('gantt-vlan', 'vlan'));
+  </script>
 </body>
 </html>

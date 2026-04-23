@@ -33,29 +33,35 @@
     <div class="page-hero-content">
       <span class="hero-tag">Portfolio</span>
       <h1>Mes <em>Réalisations</em></h1>
-      <p>L'ensemble des projets réalisés durant ma formation BTS SIO SISR, en TP, en stage et en autonomie.</p>
+      <p>L'ensemble des projets réalisés durant ma formation BTS SIO SISR, en TP, en alternance et en autonomie.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
+
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">Tous</button>
         <button class="filter-btn" data-filter="reseau">Réseau</button>
         <button class="filter-btn" data-filter="serveur">Serveur</button>
         <button class="filter-btn" data-filter="secu">Sécurité</button>
         <button class="filter-btn" data-filter="stage">Stage</button>
-        <button class="filter-btn" data-filter="perso">Perso</button>
+        <button class="filter-btn" data-filter="homelab">Homelab</button>
+      </div>
+
+      <!-- ── PROJETS SCOLAIRES ── -->
+      <div class="realisations-group-label">
+        <span>Travaux pratiques · École</span>
       </div>
 
       <div class="cards-grid" id="cardsGrid">
 
-        <a href="realisation-vlan.html" class="card" data-cat="reseau">
+        <a href="realisation-vlan.html" data-num="01" class="card" data-cat="reseau">
           <div class="card-icon">🌐</div>
           <div class="card-body">
             <span class="card-tag">Réseau</span>
             <h3>Configuration VLAN & Routage inter-VLAN</h3>
-            <p>Mise en place d'une architecture réseau segmentée avec des VLANs sur des switchs Cisco Catalyst. Configuration du routage inter-VLAN via un routeur.</p>
+            <p>Architecture réseau segmentée avec VLANs sur switchs Cisco Catalyst et routage inter-VLAN en mode router-on-a-stick.</p>
             <div class="card-techs">
               <span>Cisco IOS</span><span>VLAN</span><span>802.1Q</span>
             </div>
@@ -63,80 +69,142 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <a href="realisation-windows-server.html" class="card" data-cat="serveur">
+        <a href="realisation-windows-server.html" data-num="02" class="card" data-cat="serveur">
           <div class="card-icon">🖥️</div>
           <div class="card-body">
             <span class="card-tag">Serveur</span>
-            <h3>Installation Active Directory Windows Server</h3>
-            <p>Déploiement d'un contrôleur de domaine sous Windows Server 2022, création de GPO, gestion des utilisateurs et des groupes.</p>
+            <h3>Active Directory Windows Server</h3>
+            <p>Déploiement d'un contrôleur de domaine sous Windows Server 2022, GPO, gestion des utilisateurs, DNS et DHCP sur Proxmox.</p>
             <div class="card-techs">
-              <span>Windows Server</span><span>Active Directory</span><span>GPO</span>
+              <span>Windows Server</span><span>Active Directory</span><span>GPO</span><span>Proxmox</span>
             </div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <a href="realisation-apache.html" class="card" data-cat="serveur">
+        <a href="realisation-apache.html" data-num="03" class="card" data-cat="serveur">
           <div class="card-icon">🐧</div>
           <div class="card-body">
             <span class="card-tag">Serveur</span>
             <h3>Serveur Web Apache sous Debian</h3>
-            <p>Installation et configuration d'un serveur Apache sur Debian, mise en place de virtual hosts, configuration HTTPS avec certificat auto-signé.</p>
+            <p>Installation Apache sur Debian, virtual hosts multiples et sécurisation HTTPS avec certificat auto-signé OpenSSL.</p>
             <div class="card-techs">
-              <span>Linux</span><span>Apache</span><span>HTTPS</span>
+              <span>Debian</span><span>Apache2</span><span>HTTPS</span><span>OpenSSL</span>
             </div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <a href="realisation-pfsense.html" class="card" data-cat="secu">
+        <a href="realisation-pfsense.html" data-num="04" class="card" data-cat="secu">
           <div class="card-icon">🔒</div>
           <div class="card-body">
             <span class="card-tag">Sécurité</span>
-            <h3>Mise en place d'un pare-feu pfSense</h3>
-            <p>Configuration d'un pare-feu pfSense pour sécuriser un réseau d'entreprise : règles de filtrage, NAT, VPN et supervision du trafic.</p>
+            <h3>Pare-feu pfSense</h3>
+            <p>Configuration d'un pare-feu pfSense : zones LAN/WAN/DMZ, règles de filtrage, NAT et tunnel VPN IPsec site-à-site.</p>
             <div class="card-techs">
-              <span>pfSense</span><span>Firewall</span><span>VPN</span>
+              <span>pfSense</span><span>Firewall</span><span>NAT</span><span>VPN IPsec</span>
             </div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <a href="realisation-zabbix.html" class="card" data-cat="reseau">
-          <div class="card-icon">📡</div>
-          <div class="card-body">
-            <span class="card-tag">Réseau</span>
-            <h3>Supervision réseau avec Zabbix</h3>
-            <p>Déploiement d'une solution de supervision avec Zabbix. Monitoring des équipements réseau, création d'alertes et de tableaux de bord.</p>
-            <div class="card-techs">
-              <span>Zabbix</span><span>SNMP</span><span>Linux</span>
-            </div>
-          </div>
-          <span class="card-link">Voir le détail →</span>
-        </a>
-
-        <a href="realisation-v2si.html" class="card" data-cat="stage">
+        <a href="realisation-v2si.html" data-num="05" class="card" data-cat="stage">
           <div class="card-icon">🏢</div>
           <div class="card-body">
             <span class="card-tag">Alternance / Stage</span>
             <h3>V2SI — Alternance & Stages</h3>
-            <p>2 stages réalisés durant le Bac Pro SN RISC, suivis d'une alternance BTS SIO SISR. Support N1/N2, administration réseau, déploiement de postes, gestion du parc informatique.</p>
+            <p>2 stages Bac Pro + alternance BTS SIO SISR. Support N1/N2, administration réseau, NinjaOne, GLPI, gestion de parc.</p>
             <div class="card-techs">
-              <span>Support N1/N2</span><span>Active Directory</span><span>GLPI</span><span>V2SI</span>
+              <span>Support N1/N2</span><span>Active Directory</span><span>NinjaOne</span><span>GLPI</span>
             </div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <a href="realisation-homelab.html" class="card card-featured" data-cat="perso">
-          <div class="card-icon">🏠</div>
+      </div>
+
+      <!-- ── HOMELAB ── -->
+      <div class="realisations-group-label" style="margin-top:3rem">
+        <span>🏠 Homelab · Projet personnel en production</span>
+      </div>
+
+      <div class="homelab-intro-card">
+        <div class="homelab-intro-text">
+          <h3>Serveur cloud self-hosted sur HP Pavilion 590</h3>
+          <p>Déploiement d'une stack complète en production sous Debian 13 — souveraineté des données, zéro port ouvert sur internet, accès uniquement via VPN WireGuard. Cliquez sur chaque service pour voir le détail.</p>
+        </div>
+        <div class="homelab-intro-techs">
+          <span class="card-techs" style="display:flex;flex-wrap:wrap;gap:0.4rem">
+            <span>Debian 13</span><span>Docker</span><span>Tailscale</span><span>Caddy</span><span>Let's Encrypt</span><span>Zero Trust</span>
+          </span>
+        </div>
+        <a href="realisation-homelab.html" class="btn btn-outline btn-sm" style="align-self:flex-start">Vue d'ensemble →</a>
+      </div>
+
+      <div class="cards-grid">
+
+        <a href="homelab-vaultwarden.html" data-num="06" class="card card-homelab" data-cat="homelab">
+          <div class="card-icon">🔐</div>
           <div class="card-body">
-            <span class="card-tag" style="color:#818cf8;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.25)">Projet personnel</span>
-            <h3>Homelab & Cloud Self-hosted</h3>
-            <p>Déploiement d'un serveur cloud personnel sur matériel existant. Stack complète en production : Vaultwarden, AdGuard, Caddy, Tailscale, sauvegardes 3-2-1 — zéro port ouvert sur internet.</p>
-            <div class="card-techs">
-              <span>Debian</span><span>Docker</span><span>Tailscale</span><span>Caddy</span><span>Vaultwarden</span><span>Zero Trust</span>
-            </div>
+            <span class="card-tag" style="color:#818cf8;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2)">Homelab</span>
+            <h3>Vaultwarden</h3>
+            <p>Gestionnaire de mots de passe self-hosted compatible Bitwarden. Accès Tailscale uniquement, 2FA TOTP, token hashé Argon2.</p>
+            <div class="card-techs"><span>Docker</span><span>Bitwarden</span><span>2FA</span><span>Argon2</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <a href="homelab-adguard.html" data-num="07" class="card card-homelab" data-cat="homelab">
+          <div class="card-icon">🛡️</div>
+          <div class="card-body">
+            <span class="card-tag" style="color:#818cf8;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2)">Homelab</span>
+            <h3>AdGuard Home</h3>
+            <p>Serveur DNS récursif avec blocage de publicités et trackers pour tous les appareils du réseau Tailscale. ~21% de requêtes bloquées.</p>
+            <div class="card-techs"><span>DNS</span><span>DoH</span><span>Docker</span><span>Quad9</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <a href="homelab-caddy.html" data-num="08" class="card card-homelab" data-cat="homelab">
+          <div class="card-icon">🌐</div>
+          <div class="card-body">
+            <span class="card-tag" style="color:#818cf8;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2)">Homelab</span>
+            <h3>Caddy + DNS Cloudflare</h3>
+            <p>Reverse proxy HTTPS avec certificats Let's Encrypt automatiques via challenge DNS Cloudflare. Accès unifié par sous-domaines.</p>
+            <div class="card-techs"><span>Caddy</span><span>Let's Encrypt</span><span>Cloudflare</span><span>HTTPS</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <a href="homelab-tailscale.html" data-num="09" class="card card-homelab" data-cat="homelab">
+          <div class="card-icon">🔒</div>
+          <div class="card-body">
+            <span class="card-tag" style="color:#818cf8;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2)">Homelab</span>
+            <h3>Tailscale VPN Zero Trust</h3>
+            <p>VPN mesh WireGuard reliant tous les appareils. Seule porte d'entrée vers l'infrastructure — aucun port ouvert sur internet.</p>
+            <div class="card-techs"><span>WireGuard</span><span>Zero Trust</span><span>MagicDNS</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <a href="homelab-backup.html" data-num="10" class="card card-homelab" data-cat="homelab">
+          <div class="card-icon">💾</div>
+          <div class="card-body">
+            <span class="card-tag" style="color:#818cf8;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2)">Homelab</span>
+            <h3>Backup 3-2-1</h3>
+            <p>Sauvegardes locales chiffrées Backrest/Restic + sync nuit vers Backblaze B2 via Rclone. 4 dépôts distincts, snapshots Timeshift.</p>
+            <div class="card-techs"><span>Restic</span><span>Backblaze B2</span><span>Rclone</span><span>3-2-1</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <a href="homelab-securite.html" data-num="11" class="card card-homelab" data-cat="homelab">
+          <div class="card-icon">🔥</div>
+          <div class="card-body">
+            <span class="card-tag" style="color:#818cf8;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2)">Homelab</span>
+            <h3>Sécurité réseau</h3>
+            <p>Durcissement Linux : UFW restreint à tailscale0, Fail2ban, SSH par clés uniquement, mises à jour automatiques de sécurité.</p>
+            <div class="card-techs"><span>UFW</span><span>Fail2ban</span><span>SSH</span><span>Debian</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>

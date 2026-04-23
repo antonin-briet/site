@@ -1384,3 +1384,73 @@ em { font-style: normal; color: var(--accent); }
   border-color: rgba(99,102,241,0.5);
   box-shadow: 0 12px 32px rgba(99,102,241,0.15), 0 0 0 1px rgba(99,102,241,0.15);
 }
+
+/* ── REALISATIONS GROUPS ── */
+.realisations-group-label {
+  margin: 1.5rem 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.realisations-group-label span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.realisations-group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── HOMELAB INTRO CARD ── */
+.homelab-intro-card {
+  background: linear-gradient(135deg, var(--surface) 70%, rgba(99,102,241,0.06));
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.homelab-intro-text { flex: 1; min-width: 240px; }
+.homelab-intro-text h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+.homelab-intro-text p { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; line-height: 1.6; margin: 0; }
+
+/* ── HOMELAB CARDS ── */
+.card-homelab {
+  border-color: rgba(99,102,241,0.15);
+}
+.card-homelab:hover {
+  border-color: rgba(99,102,241,0.4);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.12);
+}
+
+/* ── CARD NUMBER BADGE ── */
+.card[data-num] { position: relative; }
+.card[data-num]::before {
+  content: attr(data-num);
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.15rem 0.5rem;
+  line-height: 1.4;
+}
+.card-homelab[data-num]::before {
+  color: #818cf8;
+  background: rgba(99,102,241,0.08);
+  border-color: rgba(99,102,241,0.2);
+}

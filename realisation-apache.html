@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Serveur Web Apache sous Debian — Antonin Briet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,7 @@
   <script src="gantt.js" defer></script>
 </head>
 <body>
+
   <nav class="navbar">
     <a href="index.html" class="nav-logo" aria-label="Accueil">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -28,81 +29,103 @@
       <li><a href="certifications.html">Certifications</a></li>
     </ul>
   </nav>
-  <section class="section" style="padding-top: 6rem;">
+
+  <section class="section" style="padding-top:6rem">
     <div class="container">
       <a href="realisations.html" class="back-btn">← Retour aux réalisations</a>
       <div class="page-title-wrap">
         <span class="card-tag">Serveur</span>
         <h1>Serveur Web Apache<br><em>sous Debian</em></h1>
-        <p class="hero-desc">Installation et configuration d'un serveur Apache sur Debian, virtual hosts et HTTPS avec certificat auto-signé.</p>
-        <div class="card-techs" style="margin-top:1rem">
-          <span>Debian</span><span>Apache2</span><span>HTTPS</span><span>Virtual Hosts</span><span>OpenSSL</span>
-        </div>
+        <p class="hero-desc">Déploiement d'Apache sur Debian, configuration de virtual hosts multiples et sécurisation HTTPS avec certificat auto-signé OpenSSL.</p>
+        <div class="card-techs" style="margin-top:1rem"><span>Debian</span><span>Apache2</span><span>HTTPS</span><span>Virtual Hosts</span><span>OpenSSL</span></div>
       </div>
-      <div class="detail-layout" style="margin-top: 2.5rem;">
+
+      <div class="detail-layout" style="margin-top:2.5rem">
         <div class="detail-main">
           <div class="detail-block">
             <h2>📋 Contexte & objectifs</h2>
-            <p>Ce TP avait pour but de déployer un serveur web fonctionnel sous Linux Debian. L'objectif était d'héberger plusieurs sites web sur une même machine grâce aux <strong>virtual hosts</strong> Apache, et de sécuriser les échanges avec un certificat HTTPS.</p>
-            <p>Ce type de configuration est très courant en entreprise pour héberger des applications internes ou des sites intranet accessibles uniquement depuis le réseau local.</p>
+            <p>Déploiement d'un serveur web fonctionnel sous Linux Debian avec hébergement de plusieurs sites via les virtual hosts Apache, et sécurisation des échanges en HTTPS.</p>
+            <p>Ce type de configuration est courant en entreprise pour héberger des applications internes ou des sites intranet accessibles depuis le réseau local.</p>
           </div>
+
           <div class="detail-block">
-            <h2>🛠️ Déroulement & étapes</h2>
+            <h2>🛠️ Déroulement</h2>
             <ul class="steps-list">
-              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Installation du serveur Debian</h4><p>Déploiement d'une VM Debian sur Proxmox, configuration réseau (IP fixe, passerelle, DNS), mise à jour du système.</p></div></li>
-              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Installation d'Apache2</h4><p>Installation du paquet Apache2, vérification du service, test de la page d'accueil par défaut depuis un navigateur.</p></div></li>
-              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Configuration des Virtual Hosts</h4><p>Création de deux virtual hosts distincts (site1.local, site2.local), configuration des fichiers de conf Apache, activation avec <code>a2ensite</code>.</p></div></li>
-              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>Mise en place du HTTPS</h4><p>Génération d'un certificat auto-signé avec OpenSSL, activation du module SSL Apache, redirection HTTP vers HTTPS.</p></div></li>
-              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Tests et validation</h4><p>Accès aux deux sites depuis un poste client, vérification du certificat HTTPS, contrôle des logs Apache en cas d'erreur.</p></div></li>
+              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Installation Debian</h4><p>Déploiement VM Debian sur Proxmox, configuration réseau (IP fixe, passerelle, DNS), mise à jour du système.</p></div></li>
+              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Installation Apache2</h4><p>Installation du paquet Apache2, vérification du service, test de la page d'accueil par défaut.</p></div></li>
+              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Virtual Hosts</h4><p>Création de deux virtual hosts distincts (site1.local, site2.local), configuration des fichiers de conf Apache.</p></div></li>
+              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>HTTPS & certificat</h4><p>Génération d'un certificat auto-signé avec OpenSSL, activation du module SSL, redirection HTTP vers HTTPS.</p></div></li>
+              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Tests & logs</h4><p>Accès aux deux sites depuis un poste client, vérification du certificat, analyse des logs Apache.</p></div></li>
             </ul>
           </div>
+
           <div class="detail-block">
             <h2>⚠️ Difficultés rencontrées</h2>
-            <ul class="problems-list">
-              <li class="problem-item">Erreur 403 Forbidden due à des droits insuffisants sur le répertoire web (<code>chmod</code> et propriétaire <code>www-data</code> à corriger)</li>
-              <li class="problem-item">Alerte de sécurité du navigateur sur le certificat auto-signé — compréhension de la différence avec un certificat signé par une CA</li>
-              <li class="problem-item">Résolution DNS des noms de domaine locaux — ajout manuel dans le fichier <code>/etc/hosts</code> des postes clients</li>
+<ul class="problems-list">
+            <li class="problem-item">Erreur 403 Forbidden — droits insuffisants sur le répertoire web (chmod et propriétaire www-data à corriger).</li>
+            <li class="problem-item">Alerte de sécurité navigateur sur le certificat auto-signé — compréhension de la différence avec une CA reconnue.</li>
+            <li class="problem-item">Résolution DNS des noms locaux — ajout manuel dans /etc/hosts des postes clients.</li>
             </ul>
           </div>
+
           <div class="detail-block">
             <h2>✅ Résultats obtenus</h2>
-            <ul class="problems-list">
-              <li class="result-item">Deux sites web accessibles via des noms de domaine distincts sur le même serveur</li>
-              <li class="result-item">Connexions sécurisées en HTTPS avec certificat auto-signé opérationnel</li>
-              <li class="result-item">Bonne compréhension de la gestion des services sous Linux et des fichiers de configuration Apache</li>
+<ul class="problems-list">
+            <li class="result-item">Deux sites web accessibles via noms de domaine distincts sur le même serveur.</li>
+            <li class="result-item">Connexions sécurisées HTTPS avec certificat auto-signé opérationnel.</li>
+            <li class="result-item">Maîtrise de la gestion des services Linux et des fichiers de configuration Apache.</li>
             </ul>
           </div>
+
           <div class="detail-block">
             <h2>💡 Ce que j'ai appris</h2>
-            <p>Ce TP m'a permis de maîtriser les bases de l'administration d'un serveur web Linux. La gestion des <strong>virtual hosts</strong> et du <strong>HTTPS</strong> sont des compétences directement applicables en entreprise pour héberger des applications internes.</p>
-            <p>J'ai également mieux compris la chaîne de confiance des certificats SSL et les enjeux de sécurité liés au chiffrement des communications web.</p>
+            <p>Ce TP m'a permis de maîtriser les bases de l'administration d'un serveur web Linux. La gestion des virtual hosts et du HTTPS sont des compétences directement applicables en entreprise. J'ai également mieux compris la chaîne de confiance SSL et les enjeux du chiffrement web.</p>
           </div>
+
         </div>
         <aside class="detail-sidebar">
           <div class="sidebar-card">
             <h3>Informations</h3>
+
             <div class="meta-row"><span class="meta-label">Catégorie</span><span class="meta-value">Serveur</span></div>
             <hr class="meta-divider">
             <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">TP — PSTB Paris</span></div>
             <hr class="meta-divider">
-            <div class="meta-row"><span class="meta-label">Période</span><span class="meta-value">2025</span></div>
+            <div class="meta-row"><span class="meta-label">Période</span><span class="meta-value">Fév. 2025</span></div>
             <hr class="meta-divider">
             <div class="meta-row"><span class="meta-label">Environnement</span><span class="meta-value">Proxmox (infra école)</span></div>
           </div>
           <div class="sidebar-card">
             <h3>Technologies</h3>
-            <div class="card-techs" style="margin:0"><span>Debian</span><span>Apache2</span><span>HTTPS</span><span>OpenSSL</span><span>Virtual Hosts</span></div>
+            <div class="card-techs" style="margin:0"><span>Debian</span><span>Apache2</span><span>HTTPS</span><span>OpenSSL</span></div>
           </div>
           <div class="sidebar-card">
             <h3>Compétences BTS SIO</h3>
             <div class="card-techs" style="margin:0"><span>B2 — Patrimoine</span><span>B3 — Administration</span><span>B4 — Infrastructure</span></div>
-
-        </div>
+          </div>
         </aside>
       </div>
     </div>
   </section>
-  <footer class="footer"><p>© 2026 Antonin Briet · BTS SIO SISR · PSTB Paris</p></footer>
+
+
+  <section class="section section-alt" style="padding-top:2.5rem;padding-bottom:3rem">
+    <div class="container">
+      <div style="margin-bottom:1.25rem">
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning du projet</span>
+        <h2 style="font-size:1.4rem;margin-top:0.3rem">Déroulement & <em>phases</em></h2>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="overflow-x:auto;padding:0.75rem 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" style="width:100%;display:block"><line x1="192.0" y1="20" x2="192.0" y2="252" stroke="rgba(255,255,255,0.12)" stroke-width="1"/><text x="194.0" y="14" font-size="8" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" font-weight="600">Début</text><line x1="301.3" y1="20" x2="301.3" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="410.7" y1="20" x2="410.7" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="520.0" y1="20" x2="520.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="629.3" y1="20" x2="629.3" y2="252" stroke="rgba(255,255,255,0.12)" stroke-width="1"/><text x="631.3" y="14" font-size="8" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" font-weight="600">S4</text><line x1="738.7" y1="20" x2="738.7" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="848.0" y1="20" x2="848.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><rect x="0" y="20" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="56.0" x2="848" y2="56.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="38.0" r="4" fill="#3b82f6"/><text x="28" y="42.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Installation & configuration Debian</text><rect x="192" y="35.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="192.0" y="28.0" width="109.3" height="20" fill="#3b82f6" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="192.0" y="28.0" width="109.3" height="20" fill="#3b82f6" rx="4"/><text x="199.0" y="42.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="92.0" x2="848" y2="92.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="74.0" r="4" fill="#06b6d4"/><text x="28" y="78.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Installation Apache2</text><rect x="192" y="71.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="301.3" y="64.0" width="109.3" height="20" fill="#06b6d4" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="301.3" y="64.0" width="109.3" height="20" fill="#06b6d4" rx="4"/><text x="308.3" y="78.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><rect x="0" y="92" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="128.0" x2="848" y2="128.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="110.0" r="4" fill="#8b5cf6"/><text x="28" y="114.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Configuration Virtual Hosts</text><rect x="192" y="107.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="410.7" y="100.0" width="109.3" height="20" fill="#8b5cf6" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="410.7" y="100.0" width="109.3" height="20" fill="#8b5cf6" rx="4"/><text x="417.7" y="114.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="164.0" x2="848" y2="164.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="146.0" r="4" fill="#f97316"/><text x="28" y="150.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Mise en place HTTPS</text><rect x="192" y="143.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="520.0" y="136.0" width="109.3" height="20" fill="#f97316" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="520.0" y="136.0" width="109.3" height="20" fill="#f97316" rx="4"/><text x="527.0" y="150.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><rect x="0" y="164" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="200.0" x2="848" y2="200.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="182.0" r="4" fill="#f59e0b"/><text x="28" y="186.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Tests & corrections</text><rect x="192" y="179.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="629.3" y="172.0" width="109.3" height="20" fill="#f59e0b" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="629.3" y="172.0" width="109.3" height="20" fill="#f59e0b" rx="4"/><text x="636.3" y="186.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="236.0" x2="848" y2="236.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="218.0" r="4" fill="#22c55e"/><text x="28" y="222.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Documentation</text><rect x="192" y="215.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="738.7" y="208.0" width="109.3" height="20" fill="#22c55e" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="738.7" y="208.0" width="109.3" height="20" fill="#22c55e" rx="4"/><text x="745.7" y="222.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs></svg></div>
+        <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.75rem 1.5rem"><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#3b82f6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Installation & configuration Debian</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#06b6d4;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Installation Apache2</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#8b5cf6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Configuration Virtual Hosts</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f97316;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Mise en place HTTPS</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Tests & corrections</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Documentation</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
   <script src="script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => renderGantt('gantt-apache', 'apache'));

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vaultwarden — Antonin Briet</title>
+  <title>Vaultwarden — Gestionnaire de mots de passe — Antonin Briet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -11,6 +11,7 @@
   <script src="gantt.js" defer></script>
 </head>
 <body>
+
   <nav class="navbar">
     <a href="index.html" class="nav-logo" aria-label="Accueil">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -32,79 +33,99 @@
   <section class="section" style="padding-top:6rem">
     <div class="container">
       <a href="realisations.html" class="back-btn">← Retour aux réalisations</a>
-      <div style="margin-bottom:0.5rem">
-        <span class="card-tag" style="color:#818cf8;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.25);display:inline-block;margin-bottom:0.75rem">Réalisation</span>
-      </div>
       <div class="page-title-wrap">
-        <h1>🔐 <em>Vaultwarden</em></h1>
-        <p class="hero-desc">Gestionnaire de mots de passe self-hosted compatible Bitwarden, accessible uniquement via Tailscale avec authentification 2FA et partage de collection en lecture seule.</p>
+        <span class="card-tag">Sécurité</span>
+        <h1>Vaultwarden —<br><em>Gestionnaire de mots de passe</em></h1>
+        <p class="hero-desc">Déploiement d'une instance Bitwarden self-hosted sur serveur Linux, accessible uniquement via réseau VPN avec authentification 2FA et partage sécurisé.</p>
         <div class="card-techs" style="margin-top:1rem"><span>Docker</span><span>Vaultwarden</span><span>Bitwarden</span><span>HTTPS</span><span>2FA TOTP</span><span>Argon2</span></div>
       </div>
 
       <div class="detail-layout" style="margin-top:2.5rem">
         <div class="detail-main">
-
           <div class="detail-block">
             <h2>📋 Contexte & objectifs</h2>
-            <p>J'ai déployé <strong>Vaultwarden</strong>, une implémentation open-source légère et compatible Bitwarden, pour remplacer un gestionnaire de mots de passe propriétaire. L'objectif était d'héberger mes mots de passe sur mon propre serveur Linux et de les synchroniser sur tous mes appareils sans dépendre d'un service tiers.</p><p>L'instance est accessible uniquement depuis le réseau VPN, ce qui garantit qu'aucun accès n'est possible depuis internet.</p>
+            <p>Déploiement de <strong>Vaultwarden</strong>, une implémentation open-source légère compatible Bitwarden, pour héberger mes mots de passe sur mon propre serveur Linux et les synchroniser sur tous mes appareils sans dépendre d'un service tiers.</p>
+            <p>L'instance est accessible uniquement depuis un réseau VPN privé — aucun accès possible depuis internet, même en cas de compromission du serveur.</p>
           </div>
 
           <div class="detail-block">
-            <h2>⚠️ Contraintes</h2>
-            <ul class="problems-list"><li class="result-item">Accès strictement limité au réseau VPN Tailscale</li><li class="result-item">HTTPS obligatoire (imposé par le domaine .dev)</li><li class="result-item">Gestion de plusieurs utilisateurs avec droits distincts</li><li class="result-item">Migration depuis un gestionnaire existant via export/import CSV</li></ul>
+            <h2>🛠️ Déroulement</h2>
+            <ul class="steps-list">
+              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Déploiement Docker</h4><p>Création du docker-compose, configuration des volumes et des variables d'environnement, premier démarrage.</p></div></li>
+              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Sécurisation du token admin</h4><p>Hash du token admin via Argon2, désactivation des inscriptions publiques.</p></div></li>
+              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Intégration HTTPS</h4><p>Configuration du reverse proxy Caddy avec certificat Let's Encrypt via challenge DNS Cloudflare.</p></div></li>
+              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>2FA & utilisateurs</h4><p>Activation du 2FA TOTP, création des comptes, partage d'une collection en lecture seule pour un second utilisateur.</p></div></li>
+              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Migration des données</h4><p>Export depuis l'ancien gestionnaire, import CSV dans Vaultwarden, vérification de l'intégrité.</p></div></li>
+            </ul>
           </div>
 
           <div class="detail-block">
-            <h2>🔧 Difficultés rencontrées</h2>
-            <ul class="problems-list"><li class="problem-item">Certificats TLS initialement gérés via Tailscale, migrés vers Let's Encrypt via Caddy</li><li class="problem-item">Sécurisation du token admin — passage en hash Argon2 obligatoire</li><li class="problem-item">Restriction de création d'organisations aux seuls administrateurs</li></ul>
+            <h2>⚠️ Difficultés rencontrées</h2>
+<ul class="problems-list">
+            <li class="problem-item">Certificats TLS initialement gérés via Tailscale, migrés vers Let's Encrypt via Caddy pour plus de robustesse.</li>
+            <li class="problem-item">Sécurisation du token admin — le hash Argon2 est obligatoire pour la production.</li>
+            <li class="problem-item">Restriction de création d'organisations aux seuls administrateurs — paramètre non documenté clairement.</li>
+            </ul>
           </div>
 
           <div class="detail-block">
-            <h2>✅ Solutions apportées</h2>
-            <div style="border-left:3px solid rgba(99,102,241,0.5);padding-left:1rem;font-size:0.92rem;color:var(--text-muted);font-weight:300;line-height:1.8">Reverse proxy Caddy avec DNS challenge Cloudflare pour Let's Encrypt. Token admin hashé via <strong>Argon2</strong>, signups désactivés, 2FA via application TOTP. Organisation partagée avec collection en <strong>lecture seule</strong> pour l'utilisateur secondaire.</div>
+            <h2>✅ Résultats obtenus</h2>
+<ul class="problems-list">
+            <li class="result-item">Instance Vaultwarden opérationnelle en HTTPS avec certificat Let's Encrypt valide.</li>
+            <li class="result-item">2FA actif sur tous les comptes, token admin hashé Argon2.</li>
+            <li class="result-item">Migration complète des mots de passe depuis l'ancien gestionnaire sans perte de données.</li>
+            </ul>
           </div>
 
           <div class="detail-block">
             <h2>💡 Ce que j'ai appris</h2>
-            <p>Ce projet m'a concrètement montré comment sécuriser un service sensible en couches : réseau isolé + HTTPS + 2FA + hash des secrets. La gestion des droits multi-utilisateurs dans Vaultwarden m'a également familiarisé avec les concepts de contrôle d'accès applicatif.</p>
+            <p>Ce projet m'a concrètement montré comment sécuriser un service sensible en couches : réseau isolé + HTTPS + 2FA + hash des secrets. La gestion des droits multi-utilisateurs m'a familiarisé avec les concepts de contrôle d'accès applicatif.</p>
           </div>
 
         </div>
         <aside class="detail-sidebar">
           <div class="sidebar-card">
             <h3>Informations</h3>
-            <div class="meta-row"><span class="meta-label">Catégorie</span><span class="meta-value">Projet personnel</span></div>
+
+            <div class="meta-row"><span class="meta-label">Catégorie</span><span class="meta-value">Sécurité</span></div>
             <hr class="meta-divider">
-            <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">Projet personnel</span></div>
+            <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">Sécurité</span></div>
             <hr class="meta-divider">
-            <div class="meta-row"><span class="meta-label">Statut</span><span class="meta-value">En production</span></div>
+            <div class="meta-row"><span class="meta-label">Période</span><span class="meta-value">Oct. — Nov. 2024</span></div>
             <hr class="meta-divider">
-            <div class="meta-row"><span class="meta-label">Serveur</span><span class="meta-value">HP Pavilion 590 · Debian 13</span></div>
+            <div class="meta-row"><span class="meta-label">Serveur</span><span class="meta-value">Debian 13 / Docker</span></div>
           </div>
+          <div class="sidebar-card">
+            <h3>Technologies</h3>
+            <div class="card-techs" style="margin:0"><span>Docker</span><span>Vaultwarden</span><span>HTTPS</span><span>2FA</span><span>Argon2</span></div>
           </div>
           <div class="sidebar-card">
             <h3>Compétences BTS SIO</h3>
-            <div class="card-techs" style="margin:0"><span>B3 — Administration</span><span>B4 — Infrastructure</span><span>B5 — Sécurité</span></div>
-
-        </div>
+            <div class="card-techs" style="margin:0"><span>B3 — Administration</span><span>B5 — Sécurité</span></div>
+          </div>
         </aside>
       </div>
     </div>
   </section>
 
+
   <section class="section section-alt" style="padding-top:2.5rem;padding-bottom:3rem">
     <div class="container">
       <div style="margin-bottom:1.25rem">
-        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning</span>
-        <h2 style="font-size:1.4rem;margin-top:0.3rem">Contexte dans la <em>formation</em></h2>
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning du projet</span>
+        <h2 style="font-size:1.4rem;margin-top:0.3rem">Déroulement & <em>phases</em></h2>
       </div>
-      <div id="gantt-vaultwarden"></div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="overflow-x:auto;padding:0.75rem 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" style="width:100%;display:block"><line x1="192.0" y1="20" x2="192.0" y2="252" stroke="rgba(255,255,255,0.12)" stroke-width="1"/><text x="194.0" y="14" font-size="8" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" font-weight="600">Début</text><line x1="301.3" y1="20" x2="301.3" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="410.7" y1="20" x2="410.7" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="520.0" y1="20" x2="520.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="629.3" y1="20" x2="629.3" y2="252" stroke="rgba(255,255,255,0.12)" stroke-width="1"/><text x="631.3" y="14" font-size="8" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" font-weight="600">S4</text><line x1="738.7" y1="20" x2="738.7" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="848.0" y1="20" x2="848.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><rect x="0" y="20" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="56.0" x2="848" y2="56.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="38.0" r="4" fill="#ec4899"/><text x="28" y="42.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Déploiement Docker</text><rect x="192" y="35.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="192.0" y="28.0" width="109.3" height="20" fill="#ec4899" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="192.0" y="28.0" width="109.3" height="20" fill="#ec4899" rx="4"/><text x="199.0" y="42.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="92.0" x2="848" y2="92.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="74.0" r="4" fill="#ef4444"/><text x="28" y="78.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Sécurisation admin</text><rect x="192" y="71.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="301.3" y="64.0" width="109.3" height="20" fill="#ef4444" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="301.3" y="64.0" width="109.3" height="20" fill="#ef4444" rx="4"/><text x="308.3" y="78.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><rect x="0" y="92" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="128.0" x2="848" y2="128.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="110.0" r="4" fill="#f97316"/><text x="28" y="114.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Intégration HTTPS</text><rect x="192" y="107.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="410.7" y="100.0" width="109.3" height="20" fill="#f97316" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="410.7" y="100.0" width="109.3" height="20" fill="#f97316" rx="4"/><text x="417.7" y="114.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="164.0" x2="848" y2="164.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="146.0" r="4" fill="#8b5cf6"/><text x="28" y="150.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">2FA & utilisateurs</text><rect x="192" y="143.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="520.0" y="136.0" width="109.3" height="20" fill="#8b5cf6" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="520.0" y="136.0" width="109.3" height="20" fill="#8b5cf6" rx="4"/><text x="527.0" y="150.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><rect x="0" y="164" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="200.0" x2="848" y2="200.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="182.0" r="4" fill="#06b6d4"/><text x="28" y="186.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Migration des données</text><rect x="192" y="179.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="629.3" y="172.0" width="109.3" height="20" fill="#06b6d4" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="629.3" y="172.0" width="109.3" height="20" fill="#06b6d4" rx="4"/><text x="636.3" y="186.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="236.0" x2="848" y2="236.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="218.0" r="4" fill="#22c55e"/><text x="28" y="222.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Tests & validation</text><rect x="192" y="215.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="738.7" y="208.0" width="109.3" height="20" fill="#22c55e" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="738.7" y="208.0" width="109.3" height="20" fill="#22c55e" rx="4"/><text x="745.7" y="222.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs></svg></div>
+        <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.75rem 1.5rem"><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#ec4899;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Déploiement Docker</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#ef4444;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Sécurisation admin</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f97316;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Intégration HTTPS</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#8b5cf6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">2FA & utilisateurs</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#06b6d4;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Migration des données</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Tests & validation</span></div></div>
+      </div>
     </div>
   </section>
 
   <footer class="footer">
     <p>© 2026 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
   </footer>
+
   <script src="script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => renderGantt('gantt-vaultwarden', 'vaultwarden'));

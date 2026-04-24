@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pare-feu pfSense — Antonin Briet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,7 @@
   <script src="gantt.js" defer></script>
 </head>
 <body>
+
   <nav class="navbar">
     <a href="index.html" class="nav-logo" aria-label="Accueil">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -28,65 +29,69 @@
       <li><a href="certifications.html">Certifications</a></li>
     </ul>
   </nav>
-  <section class="section" style="padding-top: 6rem;">
+
+  <section class="section" style="padding-top:6rem">
     <div class="container">
       <a href="realisations.html" class="back-btn">← Retour aux réalisations</a>
       <div class="page-title-wrap">
         <span class="card-tag">Sécurité</span>
         <h1>Pare-feu<br><em>pfSense</em></h1>
-        <p class="hero-desc">Configuration d'un pare-feu pfSense pour sécuriser un réseau d'entreprise : règles de filtrage, NAT et VPN IPsec.</p>
-        <div class="card-techs" style="margin-top:1rem">
-          <span>pfSense</span><span>Firewall</span><span>NAT</span><span>VPN IPsec</span><span>Règles de filtrage</span>
-        </div>
+        <p class="hero-desc">Architecture LAN/WAN/DMZ sécurisée avec pfSense : règles de filtrage, NAT, port forwarding et tunnel VPN IPsec site-à-site.</p>
+        <div class="card-techs" style="margin-top:1rem"><span>pfSense</span><span>Firewall</span><span>NAT</span><span>VPN IPsec</span><span>DMZ</span></div>
       </div>
-      <div class="detail-layout" style="margin-top: 2.5rem;">
+
+      <div class="detail-layout" style="margin-top:2.5rem">
         <div class="detail-main">
           <div class="detail-block">
             <h2>📋 Contexte & objectifs</h2>
-            <p>L'objectif de ce TP était de déployer une solution de sécurité périmétrique avec <strong>pfSense</strong>, un pare-feu open source basé sur FreeBSD très utilisé dans les PME. Il s'agissait de sécuriser les flux entrants et sortants d'un réseau simulé.</p>
-            <p>Le scénario reproduisait une infrastructure avec une zone LAN, une zone WAN et une zone DMZ hébergeant un serveur web. Des règles de filtrage devaient contrôler précisément les communications entre chaque zone.</p>
+            <p>Déploiement d'un pare-feu pfSense pour sécuriser un réseau simulé avec trois zones distinctes : LAN (réseau interne), WAN (internet) et DMZ (serveur web exposé).</p>
+            <p>L'objectif était de contrôler précisément les flux entre chaque zone et de mettre en place un accès distant sécurisé via VPN IPsec.</p>
           </div>
+
           <div class="detail-block">
-            <h2>🛠️ Déroulement & étapes</h2>
+            <h2>🛠️ Déroulement</h2>
             <ul class="steps-list">
-              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Installation de pfSense sur VM</h4><p>Déploiement de pfSense sur une VM Proxmox avec trois interfaces réseau (WAN, LAN, DMZ), configuration de base via l'assistant.</p></div></li>
-              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Définition des règles de filtrage</h4><p>Création des règles de firewall pour chaque interface : autorisation des flux légitimes, blocage par défaut des accès non autorisés entre les zones.</p></div></li>
-              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Configuration du NAT</h4><p>Mise en place du NAT sortant pour les machines du LAN, règles de port forwarding pour rendre le serveur web de la DMZ accessible depuis l'extérieur.</p></div></li>
-              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>Mise en place d'un VPN IPsec</h4><p>Configuration d'un tunnel VPN IPsec site-à-site pour sécuriser les accès distants, paramétrage des phases IKE et des politiques de chiffrement.</p></div></li>
-              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Tests et analyse des logs</h4><p>Vérification des règles par des tests de connectivité, analyse des logs de firewall pour identifier les flux bloqués et ajuster les règles.</p></div></li>
+              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Installation pfSense</h4><p>Déploiement sur VM Proxmox avec trois interfaces réseau (WAN, LAN, DMZ), configuration via l'assistant.</p></div></li>
+              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Règles de filtrage</h4><p>Création des règles firewall par interface : autorisation des flux légitimes, blocage par défaut inter-zones.</p></div></li>
+              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>NAT & port forwarding</h4><p>NAT sortant pour les machines LAN, règles de port forwarding pour le serveur web en DMZ.</p></div></li>
+              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>VPN IPsec</h4><p>Configuration d'un tunnel VPN IPsec site-à-site, paramétrage des phases IKE et politiques de chiffrement.</p></div></li>
+              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Tests & analyse logs</h4><p>Vérification des règles par tests de connectivité, analyse des logs de firewall pour ajuster les règles.</p></div></li>
             </ul>
           </div>
+
           <div class="detail-block">
             <h2>⚠️ Difficultés rencontrées</h2>
-            <ul class="problems-list">
-              <li class="problem-item">Ordre des règles de filtrage pfSense — la première règle correspondante est appliquée, ce qui causait des comportements inattendus</li>
-              <li class="problem-item">Configuration du VPN IPsec — correspondance des paramètres de chiffrement entre les deux extrémités du tunnel</li>
-              <li class="problem-item">NAT et règles de firewall en interaction : il faut créer à la fois une règle NAT et une règle de firewall pour autoriser le trafic entrant</li>
+<ul class="problems-list">
+            <li class="problem-item">Ordre des règles pfSense — la première règle correspondante est appliquée, causant des comportements inattendus.</li>
+            <li class="problem-item">Configuration VPN IPsec — correspondance des paramètres de chiffrement entre les deux extrémités du tunnel.</li>
+            <li class="problem-item">NAT et règles de firewall en interaction — il faut créer à la fois une règle NAT et une règle firewall pour le trafic entrant.</li>
             </ul>
           </div>
+
           <div class="detail-block">
             <h2>✅ Résultats obtenus</h2>
-            <ul class="problems-list">
-              <li class="result-item">Infrastructure réseau sécurisée avec isolation LAN / WAN / DMZ opérationnelle</li>
-              <li class="result-item">Tunnel VPN IPsec fonctionnel entre deux sites</li>
-              <li class="result-item">Serveur web de la DMZ accessible depuis l'extérieur via port forwarding, tout en restant isolé du LAN</li>
-              <li class="result-item">Bonne maîtrise de l'interface pfSense et de la logique de filtrage réseau</li>
+<ul class="problems-list">
+            <li class="result-item">Infrastructure réseau sécurisée avec isolation LAN/WAN/DMZ opérationnelle.</li>
+            <li class="result-item">Tunnel VPN IPsec fonctionnel entre deux sites.</li>
+            <li class="result-item">Serveur web DMZ accessible depuis l'extérieur via port forwarding tout en restant isolé du LAN.</li>
             </ul>
           </div>
+
           <div class="detail-block">
             <h2>💡 Ce que j'ai appris</h2>
-            <p>Ce TP m'a fait comprendre la logique de <strong>défense en profondeur</strong> et l'importance de bien définir les zones réseau. pfSense est un outil puissant que l'on retrouve fréquemment en entreprise et dont je maîtrise maintenant les fonctions essentielles.</p>
-            <p>La configuration du <strong>VPN IPsec</strong> m'a également initié aux protocoles de chiffrement réseau, un sujet directement lié à ma veille technologique sur la cybersécurité.</p>
+            <p>Ce TP m'a fait comprendre la logique de défense en profondeur et l'importance de bien définir les zones réseau. pfSense est un outil que l'on retrouve fréquemment en entreprise. La configuration du VPN IPsec m'a initié aux protocoles de chiffrement réseau, directement lié à ma veille technologique.</p>
           </div>
+
         </div>
         <aside class="detail-sidebar">
           <div class="sidebar-card">
             <h3>Informations</h3>
+
             <div class="meta-row"><span class="meta-label">Catégorie</span><span class="meta-value">Sécurité</span></div>
             <hr class="meta-divider">
             <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">TP — PSTB Paris</span></div>
             <hr class="meta-divider">
-            <div class="meta-row"><span class="meta-label">Période</span><span class="meta-value">2025</span></div>
+            <div class="meta-row"><span class="meta-label">Période</span><span class="meta-value">Avr. 2025</span></div>
             <hr class="meta-divider">
             <div class="meta-row"><span class="meta-label">Environnement</span><span class="meta-value">Proxmox (infra école)</span></div>
           </div>
@@ -97,13 +102,30 @@
           <div class="sidebar-card">
             <h3>Compétences BTS SIO</h3>
             <div class="card-techs" style="margin:0"><span>B4 — Infrastructure</span><span>B5 — Sécurité</span></div>
-
-        </div>
+          </div>
         </aside>
       </div>
     </div>
   </section>
-  <footer class="footer"><p>© 2026 Antonin Briet · BTS SIO SISR · PSTB Paris</p></footer>
+
+
+  <section class="section section-alt" style="padding-top:2.5rem;padding-bottom:3rem">
+    <div class="container">
+      <div style="margin-bottom:1.25rem">
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning du projet</span>
+        <h2 style="font-size:1.4rem;margin-top:0.3rem">Déroulement & <em>phases</em></h2>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="overflow-x:auto;padding:0.75rem 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" style="width:100%;display:block"><line x1="192.0" y1="20" x2="192.0" y2="252" stroke="rgba(255,255,255,0.12)" stroke-width="1"/><text x="194.0" y="14" font-size="8" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" font-weight="600">Début</text><line x1="274.0" y1="20" x2="274.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="356.0" y1="20" x2="356.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="438.0" y1="20" x2="438.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="520.0" y1="20" x2="520.0" y2="252" stroke="rgba(255,255,255,0.12)" stroke-width="1"/><text x="522.0" y="14" font-size="8" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" font-weight="600">S4</text><line x1="602.0" y1="20" x2="602.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="684.0" y1="20" x2="684.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="766.0" y1="20" x2="766.0" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="848.0" y1="20" x2="848.0" y2="252" stroke="rgba(255,255,255,0.12)" stroke-width="1"/><text x="850.0" y="14" font-size="8" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" font-weight="600">S8</text><rect x="0" y="20" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="56.0" x2="848" y2="56.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="38.0" r="4" fill="#3b82f6"/><text x="28" y="42.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Installation & config de base</text><rect x="192" y="35.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="192.0" y="28.0" width="82.0" height="20" fill="#3b82f6" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="192.0" y="28.0" width="82.0" height="20" fill="#3b82f6" rx="4"/><text x="199.0" y="42.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="92.0" x2="848" y2="92.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="74.0" r="4" fill="#ef4444"/><text x="28" y="78.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Règles de filtrage</text><rect x="192" y="71.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="274.0" y="64.0" width="164.0" height="20" fill="#ef4444" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="274.0" y="64.0" width="164.0" height="20" fill="#ef4444" rx="4"/><text x="281.0" y="78.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">2 sem.</text><rect x="0" y="92" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="128.0" x2="848" y2="128.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="110.0" r="4" fill="#f97316"/><text x="28" y="114.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">NAT & port forwarding</text><rect x="192" y="107.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="438.0" y="100.0" width="82.0" height="20" fill="#f97316" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="438.0" y="100.0" width="82.0" height="20" fill="#f97316" rx="4"/><text x="445.0" y="114.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="164.0" x2="848" y2="164.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="146.0" r="4" fill="#8b5cf6"/><text x="28" y="150.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">VPN IPsec</text><rect x="192" y="143.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="520.0" y="136.0" width="164.0" height="20" fill="#8b5cf6" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="520.0" y="136.0" width="164.0" height="20" fill="#8b5cf6" rx="4"/><text x="527.0" y="150.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">2 sem.</text><rect x="0" y="164" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="180" y1="200.0" x2="848" y2="200.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="182.0" r="4" fill="#f59e0b"/><text x="28" y="186.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Tests & analyse logs</text><rect x="192" y="179.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="684.0" y="172.0" width="82.0" height="20" fill="#f59e0b" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="684.0" y="172.0" width="82.0" height="20" fill="#f59e0b" rx="4"/><text x="691.0" y="186.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><line x1="180" y1="236.0" x2="848" y2="236.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="18" cy="218.0" r="4" fill="#22c55e"/><text x="28" y="222.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Documentation</text><rect x="192" y="215.0" width="656" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="766.0" y="208.0" width="82.0" height="20" fill="#22c55e" fill-opacity="0.25" rx="4" filter="url(#glow)"/><rect x="766.0" y="208.0" width="82.0" height="20" fill="#22c55e" rx="4"/><text x="773.0" y="222.0" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="700" font-family="DM Sans,sans-serif">1 sem.</text><defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs></svg></div>
+        <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.75rem 1.5rem"><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#3b82f6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Installation & config de base</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#ef4444;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Règles de filtrage</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f97316;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">NAT & port forwarding</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#8b5cf6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">VPN IPsec</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Tests & analyse logs</span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Documentation</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
   <script src="script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => renderGantt('gantt-pfsense', 'pfsense'));

@@ -7,14 +7,14 @@ const GANTT_DATA = [
   { id: 'v2si',        num:'01', label: 'V2SI — Alternance & Stages',   start:[2024,9],  end:[2026,7],  color:'#22c55e' },
   { id: 'vlan',        num:'02', label: 'VLAN & Routage inter-VLAN',    start:[2024,10], end:[2024,10], color:'#3b82f6' },
   { id: 'windows',     num:'03', label: 'Windows Server / AD',          start:[2024,11], end:[2025,1],  color:'#8b5cf6' },
-  { id: 'apache',      num:'04', label: 'Serveur Web Apache',           start:[2025,2],  end:[2025,2],  color:'#06b6d4' },
-  { id: 'pfsense',     num:'05', label: 'Pare-feu pfSense',             start:[2025,4],  end:[2025,4],  color:'#f59e0b' },
-  { id: 'vaultwarden', num:'06', label: 'Vaultwarden',                  start:[2026,3],  end:[2026,4],  color:'#ec4899' },
-  { id: 'adguard',     num:'07', label: 'AdGuard Home',                 start:[2026,3],  end:[2026,4],  color:'#10b981' },
-  { id: 'caddy',       num:'08', label: 'Caddy + DNS Cloudflare',       start:[2026,3],  end:[2026,4],  color:'#f97316' },
-  { id: 'tailscale',   num:'09', label: 'Tailscale VPN Zero Trust',     start:[2026,3],  end:[2026,4],  color:'#6366f1' },
-  { id: 'backup',      num:'10', label: 'Backup 3-2-1',                 start:[2026,3],  end:[2026,4],  color:'#14b8a6' },
-  { id: 'securite',    num:'11', label: 'Sécurité réseau Linux',        start:[2026,3],  end:[2026,4],  color:'#ef4444' },
+  { id: 'vaultwarden', num:'04', label: 'Vaultwarden',                  start:[2024,10], end:[2024,11], color:'#ec4899' },
+  { id: 'apache',      num:'05', label: 'Serveur Web Apache',           start:[2025,2],  end:[2025,2],  color:'#06b6d4' },
+  { id: 'adguard',     num:'06', label: 'AdGuard Home',                 start:[2025,1],  end:[2025,2],  color:'#10b981' },
+  { id: 'pfsense',     num:'07', label: 'Pare-feu pfSense',             start:[2025,4],  end:[2025,4],  color:'#f59e0b' },
+  { id: 'tailscale',   num:'08', label: 'Tailscale VPN Zero Trust',     start:[2025,3],  end:[2025,4],  color:'#6366f1' },
+  { id: 'caddy',       num:'09', label: 'Caddy + DNS Cloudflare',       start:[2025,5],  end:[2025,6],  color:'#f97316' },
+  { id: 'backup',      num:'10', label: 'Backup 3-2-1',                 start:[2025,9],  end:[2025,10], color:'#14b8a6' },
+  { id: 'securite',    num:'11', label: 'Sécurité réseau Linux',        start:[2025,11], end:[2025,12], color:'#ef4444' },
 ];
 
 const MONTHS_FR = ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'];
@@ -107,9 +107,9 @@ function renderGantt(containerId, currentId) {
     svgContent += `<line x1="${LBL}" y1="${rowY + ROW_H}" x2="${W - PAD}" y2="${rowY + ROW_H}" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>`;
 
     // Num badge
-    svgContent += `<text x="${8}" y="${midY + 4}" font-size="9"
-      fill="${isCurrent ? proj.color : 'rgba(255,255,255,0.2)'}"
-      font-weight="800" font-family="Syne, sans-serif">${proj.num}</text>`;
+    svgContent += `<text x="${8}" y="${midY + 4}" font-size="10"
+      fill="${isCurrent ? proj.color : 'rgba(255,255,255,0.3)'}"
+      font-weight="600" font-family="DM Sans, sans-serif">${proj.num}</text>`;
 
     // Label
     const maxLblChars = 24;

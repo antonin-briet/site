@@ -8,7 +8,6 @@ if (burger && navLinks) {
   burger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
-  // Close on link click
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => navLinks.classList.remove('open'));
   });
@@ -18,57 +17,59 @@ if (burger && navLinks) {
 // SCROLL: NAVBAR SHADOW
 // ===========================
 const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    navbar.style.boxShadow = '0 2px 32px rgba(0,0,0,0.5)';
-  } else {
-    navbar.style.boxShadow = 'none';
-  }
-});
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.style.boxShadow = window.scrollY > 10
+      ? '0 2px 32px rgba(0,0,0,0.5)'
+      : 'none';
+  });
+}
 
 // ===========================
 // FILTER BUTTONS (réalisations)
 // ===========================
-const filterBtns = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('#cardsGrid .card');
+const cardsGrid = document.getElementById('cardsGrid');
+if (cardsGrid) {
+  const filterBtns = document.querySelectorAll('.filter-btn');
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    const filter = btn.dataset.filter;
-    cards.forEach(card => {
-      const ctx = card.dataset.ctx || '';
-      const match = filter === 'all' || ctx.includes(filter);
-      if (match) {
-        card.classList.remove('hidden');
-        card.style.animation = 'none';
-        card.offsetHeight;
-        card.style.animation = 'fadeUp 0.4s ease both';
-      } else {
-        card.classList.add('hidden');
-      }
+      const filter = btn.dataset.filter;
+      cardsGrid.querySelectorAll('.card').forEach(card => {
+        const ctx = card.dataset.ctx || '';
+        const match = filter === 'all' || ctx.includes(filter);
+        card.classList.toggle('hidden', !match);
+        // reset opacity so filtered-in cards are always visible
+        if (match) {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }
+      });
     });
   });
-});
+}
 
 // ===========================
-// SCROLL REVEAL
+// SCROLL REVEAL (pages sans filtre uniquement)
 // ===========================
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
-    }
+if (!cardsGrid) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.card, .veille-card, .cert-card, .sps-card, .bloc-card, .timeline-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
   });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.card, .veille-card, .cert-card, .sps-card, .bloc-card, .timeline-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
-});
+}

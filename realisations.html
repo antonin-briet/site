@@ -244,29 +244,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    const cards = document.querySelectorAll('.card[data-ctx]');
-    let activeFilter = 'all';
-
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeFilter = btn.dataset.filter;
-        cards.forEach(card => {
-          const ctx = card.dataset.ctx || '';
-          const match = activeFilter === 'all' || ctx.includes(activeFilter);
-          if (match) {
-            card.classList.remove('hidden');
-            card.style.animation = 'none';
-            card.offsetHeight;
-            card.style.animation = 'fadeUp 0.4s ease both';
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>

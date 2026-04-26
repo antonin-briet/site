@@ -30,7 +30,7 @@ window.addEventListener('scroll', () => {
 // FILTER BUTTONS (réalisations)
 // ===========================
 const filterBtns = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll('#cardsGrid .card');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -39,10 +39,12 @@ filterBtns.forEach(btn => {
 
     const filter = btn.dataset.filter;
     cards.forEach(card => {
-      if (filter === 'all' || card.dataset.cat === filter) {
+      const ctx = card.dataset.ctx || '';
+      const match = filter === 'all' || ctx.includes(filter);
+      if (match) {
         card.classList.remove('hidden');
         card.style.animation = 'none';
-        card.offsetHeight; // reflow
+        card.offsetHeight;
         card.style.animation = 'fadeUp 0.4s ease both';
       } else {
         card.classList.add('hidden');

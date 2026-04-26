@@ -40,31 +40,41 @@
   <section class="section">
     <div class="container">
 
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Tous</button>
-        <button class="filter-btn" data-filter="reseau">Réseau</button>
-        <button class="filter-btn" data-filter="serveur">Serveur</button>
-        <button class="filter-btn" data-filter="secu">Sécurité</button>
-        <button class="filter-btn" data-filter="infra">Infrastructure</button>
-        <button class="filter-btn" data-filter="stage">Stage</button>
+      <!-- Filtres catégorie -->
+      <div class="filter-group-label">Catégorie</div>
+      <div class="filter-bar" id="filterCat">
+        <button class="filter-btn active" data-filter="all" data-group="cat">Toutes</button>
+        <button class="filter-btn" data-filter="reseau" data-group="cat">Réseau</button>
+        <button class="filter-btn" data-filter="serveur" data-group="cat">Serveur</button>
+        <button class="filter-btn" data-filter="secu" data-group="cat">Sécurité</button>
+        <button class="filter-btn" data-filter="infra" data-group="cat">Infrastructure</button>
+        <button class="filter-btn" data-filter="stage" data-group="cat">Stage</button>
       </div>
 
-      <div class="cards-grid" id="cardsGrid">
+      <!-- Filtres contexte -->
+      <div class="filter-group-label" style="margin-top:1rem">Contexte</div>
+      <div class="filter-bar" id="filterCtx">
+        <button class="filter-btn active" data-filter="all" data-group="ctx">Tous</button>
+        <button class="filter-btn" data-filter="scolaire" data-group="ctx">Scolaire</button>
+        <button class="filter-btn" data-filter="professionnel" data-group="ctx">Professionnel</button>
+      </div>
 
-        <!-- 01 — Sécurité réseau (Mars 2026) -->
-        <a href="realisation-securite.html" class="card" data-cat="secu" data-num="11">
+      <div class="cards-grid" style="margin-top:2rem" id="cardsGrid">
+
+        <!-- 11 · Sécurité réseau Linux · Professionnel · Infra (Jan-Fév 2026) -->
+        <a href="realisation-securite.html" class="card" data-cat="infra" data-ctx="professionnel" data-num="11">
           <div class="card-icon">🔥</div>
           <div class="card-body">
-            <span class="card-tag">Sécurité</span>
+            <span class="card-tag">Infrastructure</span>
             <h3>Sécurité réseau Linux</h3>
-            <p>Durcissement complet d'un serveur Debian : UFW restreint à l'interface VPN, Fail2ban, SSH par clés uniquement, mises à jour automatiques.</p>
+            <p>Durcissement d'un serveur Debian : UFW restreint à l'interface VPN, Fail2ban, SSH par clés, mises à jour automatiques.</p>
             <div class="card-techs"><span>UFW</span><span>Fail2ban</span><span>SSH</span><span>Debian</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 02 — Backup 3-2-1 (Mars 2026) -->
-        <a href="realisation-backup.html" class="card" data-cat="infra" data-num="10">
+        <!-- 10 · Backup 3-2-1 · Professionnel · Infra (Nov-Déc 2025) -->
+        <a href="realisation-backup.html" class="card" data-cat="infra" data-ctx="professionnel" data-num="10">
           <div class="card-icon">💾</div>
           <div class="card-body">
             <span class="card-tag">Infrastructure</span>
@@ -75,20 +85,8 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 03 — Tailscale (Mars 2026) -->
-        <a href="realisation-tailscale.html" class="card" data-cat="secu" data-num="08">
-          <div class="card-icon">🔒</div>
-          <div class="card-body">
-            <span class="card-tag">Sécurité</span>
-            <h3>VPN Zero Trust — Tailscale</h3>
-            <p>VPN mesh WireGuard reliant tous les appareils personnels. Seule porte d'entrée vers l'infrastructure — zéro port ouvert sur internet.</p>
-            <div class="card-techs"><span>WireGuard</span><span>Zero Trust</span><span>MagicDNS</span></div>
-          </div>
-          <span class="card-link">Voir le détail →</span>
-        </a>
-
-        <!-- 04 — Caddy (Mars 2026) -->
-        <a href="realisation-caddy.html" class="card" data-cat="serveur" data-num="09">
+        <!-- 09 · Caddy · Professionnel · Serveur (Sept-Oct 2025) -->
+        <a href="realisation-caddy.html" class="card" data-cat="serveur" data-ctx="professionnel" data-num="09">
           <div class="card-icon">🌐</div>
           <div class="card-body">
             <span class="card-tag">Serveur</span>
@@ -99,32 +97,20 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 05 — AdGuard (Mars 2026) -->
-        <a href="realisation-adguard.html" class="card" data-cat="reseau" data-num="06">
-          <div class="card-icon">🛡️</div>
-          <div class="card-body">
-            <span class="card-tag">Infrastructure</span>
-            <h3>AdGuard Home — DNS anti-pub</h3>
-            <p>Serveur DNS récursif avec filtrage de publicités et trackers pour tous les appareils du réseau VPN. ~21% des requêtes bloquées.</p>
-            <div class="card-techs"><span>DNS</span><span>DoH</span><span>Docker</span><span>Quad9</span></div>
-          </div>
-          <span class="card-link">Voir le détail →</span>
-        </a>
-
-        <!-- 06 — Vaultwarden (Mars 2026) -->
-        <a href="realisation-vaultwarden.html" class="card" data-cat="secu" data-num="04">
-          <div class="card-icon">🔐</div>
+        <!-- 08 · Tailscale · Professionnel · Sécurité (Avr-Mai 2025) -->
+        <a href="realisation-tailscale.html" class="card" data-cat="secu" data-ctx="professionnel" data-num="08">
+          <div class="card-icon">🔒</div>
           <div class="card-body">
             <span class="card-tag">Sécurité</span>
-            <h3>Vaultwarden — Gestionnaire de mots de passe</h3>
-            <p>Instance Bitwarden self-hosted accessible uniquement via VPN, avec 2FA TOTP et partage de collection en lecture seule.</p>
-            <div class="card-techs"><span>Docker</span><span>Bitwarden</span><span>2FA</span><span>Argon2</span></div>
+            <h3>VPN Zero Trust — Tailscale</h3>
+            <p>VPN mesh WireGuard reliant tous les appareils personnels. Seule porte d'entrée vers l'infrastructure — zéro port ouvert sur internet.</p>
+            <div class="card-techs"><span>WireGuard</span><span>Zero Trust</span><span>MagicDNS</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 07 — pfSense (Avr. 2025) -->
-        <a href="realisation-pfsense.html" class="card" data-cat="secu" data-num="07">
+        <!-- 07 · pfSense · Scolaire · Sécurité (Mai-Juin 2025) -->
+        <a href="realisation-pfsense.html" class="card" data-cat="secu" data-ctx="scolaire" data-num="07">
           <div class="card-icon">🛡️</div>
           <div class="card-body">
             <span class="card-tag">Sécurité</span>
@@ -135,47 +121,71 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 08 — Apache (Fév. 2025) -->
-        <a href="realisation-apache.html" class="card" data-cat="serveur" data-num="05">
+        <!-- 06 · AdGuard · Professionnel · Réseau (Fév-Mars 2025) -->
+        <a href="realisation-adguard.html" class="card" data-cat="reseau" data-ctx="professionnel" data-num="06">
+          <div class="card-icon">🛡️</div>
+          <div class="card-body">
+            <span class="card-tag">Réseau</span>
+            <h3>AdGuard Home — DNS anti-pub</h3>
+            <p>Serveur DNS récursif avec filtrage publicités et trackers pour tous les appareils du réseau VPN. ~21% des requêtes bloquées.</p>
+            <div class="card-techs"><span>DNS</span><span>DoH</span><span>Docker</span><span>Quad9</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 05 · Apache · Scolaire · Serveur (Fév-Mars 2025) -->
+        <a href="realisation-apache.html" class="card" data-cat="serveur" data-ctx="scolaire" data-num="05">
           <div class="card-icon">🐧</div>
           <div class="card-body">
             <span class="card-tag">Serveur</span>
             <h3>Serveur Web Apache sous Debian</h3>
-            <p>Déploiement Apache sur Debian, configuration de virtual hosts multiples et sécurisation HTTPS avec certificat auto-signé OpenSSL.</p>
+            <p>Installation Apache sur Debian, virtual hosts multiples et sécurisation HTTPS avec certificat auto-signé OpenSSL.</p>
             <div class="card-techs"><span>Debian</span><span>Apache2</span><span>HTTPS</span><span>OpenSSL</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 09 — Windows Server (Nov. 2024 → Jan. 2025) -->
-        <a href="realisation-windows-server.html" class="card" data-cat="serveur" data-num="03">
+        <!-- 04 · Vaultwarden · Professionnel · Sécurité (Nov-Déc 2024) -->
+        <a href="realisation-vaultwarden.html" class="card" data-cat="secu" data-ctx="professionnel" data-num="04">
+          <div class="card-icon">🔐</div>
+          <div class="card-body">
+            <span class="card-tag">Sécurité</span>
+            <h3>Vaultwarden — Gestionnaire de mots de passe</h3>
+            <p>Instance Bitwarden self-hosted accessible uniquement via VPN, avec 2FA TOTP et partage de collection en lecture seule.</p>
+            <div class="card-techs"><span>Docker</span><span>Bitwarden</span><span>2FA</span><span>Argon2</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 03 · Windows Server · Scolaire & Pro · Serveur (Nov 2024-Jan 2025) -->
+        <a href="realisation-windows-server.html" class="card" data-cat="serveur" data-ctx="scolaire professionnel" data-num="03">
           <div class="card-icon">🖥️</div>
           <div class="card-body">
             <span class="card-tag">Serveur</span>
             <h3>Active Directory Windows Server</h3>
-            <p>Contrôleur de domaine sous Windows Server 2022 sur Proxmox : AD DS, GPO, gestion des utilisateurs, DNS et DHCP intégrés.</p>
+            <p>Contrôleur de domaine Windows Server 2022 sur Proxmox : AD DS, GPO, gestion des utilisateurs, DNS et DHCP intégrés.</p>
             <div class="card-techs"><span>Windows Server</span><span>Active Directory</span><span>GPO</span><span>Proxmox</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 10 — VLAN (Oct. 2024) -->
-        <a href="realisation-vlan.html" class="card" data-cat="reseau" data-num="02">
+        <!-- 02 · VLAN · Scolaire · Réseau (Oct 2024) -->
+        <a href="realisation-vlan.html" class="card" data-cat="reseau" data-ctx="scolaire" data-num="02">
           <div class="card-icon">🌐</div>
           <div class="card-body">
             <span class="card-tag">Réseau</span>
             <h3>Configuration VLAN & Routage inter-VLAN</h3>
-            <p>Segmentation réseau avec VLANs sur switchs Cisco Catalyst et routage inter-VLAN en mode router-on-a-stick avec encapsulation 802.1Q.</p>
+            <p>Segmentation réseau avec VLANs sur switchs Cisco Catalyst et routage inter-VLAN en mode router-on-a-stick 802.1Q.</p>
             <div class="card-techs"><span>Cisco IOS</span><span>VLAN</span><span>802.1Q</span><span>Trunk</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 11 — V2SI (Sept. 2024 → aujourd'hui) -->
-        <a href="realisation-v2si.html" class="card" data-cat="stage" data-num="01">
+        <!-- 01 · V2SI · Professionnel · Stage (Sept 2024 → Juil 2026) -->
+        <a href="realisation-v2si.html" class="card" data-cat="stage" data-ctx="professionnel" data-num="01">
           <div class="card-icon">🏢</div>
           <div class="card-body">
-            <span class="card-tag">Alternance / Stage</span>
+            <span class="card-tag">Stage / Alternance</span>
             <h3>V2SI — Alternance & Stages</h3>
             <p>2 stages Bac Pro + alternance BTS SIO SISR. Support N1/N2, administration réseau, gestion de parc avec NinjaOne et GLPI.</p>
             <div class="card-techs"><span>Support N1/N2</span><span>Active Directory</span><span>NinjaOne</span><span>GLPI</span></div>
@@ -192,5 +202,46 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Dual filter system (cat + ctx)
+    let activeCat = 'all';
+    let activeCtx = 'all';
+    const cards = document.querySelectorAll('.card[data-cat]');
+
+    function applyFilters() {
+      cards.forEach(card => {
+        const cat = card.dataset.cat || '';
+        const ctx = card.dataset.ctx || '';
+        const catMatch = activeCat === 'all' || cat === activeCat;
+        const ctxMatch = activeCtx === 'all' || ctx.includes(activeCtx);
+        if (catMatch && ctxMatch) {
+          card.classList.remove('hidden');
+          card.style.animation = 'none';
+          card.offsetHeight;
+          card.style.animation = 'fadeUp 0.4s ease both';
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    document.querySelectorAll('.filter-btn[data-group="cat"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn[data-group="cat"]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll('.filter-btn[data-group="ctx"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn[data-group="ctx"]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCtx = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1376,3 +1376,13 @@ em { font-style: normal; color: var(--accent); }
   padding: 0.2rem 0.55rem;
   line-height: 1.4;
 }
+
+/* ── Filter group label ── */
+.filter-group-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}

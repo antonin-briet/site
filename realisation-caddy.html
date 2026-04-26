@@ -44,18 +44,18 @@
         <div class="detail-main">
           <div class="detail-block">
             <h2>📋 Contexte & objectifs</h2>
-            <p><strong>Caddy</strong> est le reverse proxy qui unifie l'accès à tous les services sous un domaine personnalisé (<code>votredomaine.dev</code>) avec certificats TLS automatiques Let's Encrypt.</p>
-            <p>La difficulté principale : le serveur est derrière un VPN sans IP publique — le challenge HTTP classique est impossible. Solution : <strong>challenge DNS via l'API Cloudflare</strong>.</p>
+            <p><strong>Caddy</strong> unifie l'accès à tous les services sous un domaine personnalisé avec certificats TLS automatiques Let's Encrypt.</p>
+            <p>La difficulté : le serveur est derrière un VPN sans IP publique — le challenge HTTP est impossible. Solution : <strong>challenge DNS via l'API Cloudflare</strong>.</p>
           </div>
 
           <div class="detail-block">
             <h2>🛠️ Déroulement</h2>
             <ul class="steps-list">
-              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Image Caddy personnalisée</h4><p>Build d'une image Caddy avec le plugin cloudflaredns pour le challenge DNS.</p></div></li>
-              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Configuration Caddyfile</h4><p>Déclaration des virtual hosts, configuration des proxys vers chaque service interne.</p></div></li>
+              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Image Caddy personnalisée</h4><p>Build d'une image Caddy avec le plugin cloudflaredns.</p></div></li>
+              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Configuration Caddyfile</h4><p>Déclaration des virtual hosts, configuration des proxys vers chaque service.</p></div></li>
               <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Token API Cloudflare</h4><p>Création d'un token avec droits DNS zone:edit, injection via variable d'environnement.</p></div></li>
-              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>Certificats Let's Encrypt</h4><p>Validation du challenge DNS, obtention et renouvellement automatique des certificats.</p></div></li>
-              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Sécurisation UFW</h4><p>Configuration UFW pour bloquer 80/443 depuis internet, autoriser uniquement l'interface VPN.</p></div></li>
+              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>Certificats Let's Encrypt</h4><p>Validation du challenge DNS, obtention et renouvellement automatique.</p></div></li>
+              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Sécurisation UFW</h4><p>Blocage des ports 80/443 depuis internet, autorisation uniquement sur l'interface VPN.</p></div></li>
             </ul>
           </div>
 
@@ -72,18 +72,18 @@
             <h2>✅ Résultats obtenus</h2>
 <ul class="problems-list">
             <li class="result-item">Tous les services accessibles en HTTPS avec certificat Let's Encrypt valide.</li>
-            <li class="result-item">Renouvellement automatique des certificats sans intervention manuelle.</li>
+            <li class="result-item">Renouvellement automatique des certificats sans intervention.</li>
             <li class="result-item">Ports 80/443 inaccessibles depuis internet — uniquement via VPN.</li>
             </ul>
           </div>
 
           <div class="detail-block">
             <h2>💡 Ce que j'ai appris</h2>
-            <p>La mise en place du challenge DNS m'a fait comprendre le protocole ACME en profondeur. J'ai mieux saisi la notion de HSTS et pourquoi certains domaines imposent HTTPS. Compétence directement applicable en entreprise pour sécuriser des services internes.</p>
+            <p>La mise en place du challenge DNS m'a fait comprendre le protocole ACME en profondeur. J'ai mieux saisi la notion de HSTS et l'importance de sécuriser les règles firewall dès l'installation.</p>
           </div>
 
         </div>
-                        <aside class="detail-sidebar">
+        <aside class="detail-sidebar">
           <div class="sidebar-card">
             <h3>Informations</h3>
             <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">Professionnel</span></div>
@@ -103,7 +103,20 @@
         </aside>
       </div>
     </div>
-  
+  </section>
+
+  <section class="section section-alt" style="padding-top:2.5rem;padding-bottom:3rem">
+    <div class="container">
+      <div style="margin-bottom:1.25rem">
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning du projet</span>
+        <h2 style="font-size:1.4rem;margin-top:0.3rem">Déroulement &amp; <em>phases</em></h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);font-weight:300;margin-top:0.3rem">Durée totale estimée : <strong style="color:var(--text)">20 jours</strong></p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="overflow-x:auto;padding:0.75rem 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 296" style="width:100%;display:block"><defs><filter id="pg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><line x1="202.0" y1="24" x2="202.0" y2="288" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="205.0" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">Début</text><line x1="428.1" y1="24" x2="428.1" y2="288" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="654.2" y1="24" x2="654.2" y2="288" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="657.2" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">J14</text><text x="848" y="17" font-size="8" fill="rgba(255,255,255,0.3)" font-family="DM Sans,sans-serif" text-anchor="end">Total : 20 jours</text><rect x="0" y="24" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="60.0" x2="848" y2="60.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="42.0" r="4" fill="#f97316"/><text x="27" y="46.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Étude & documentation Caddy</text><text x="184" y="46.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="39.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="202.0" y="32.0" width="96.9" height="20" fill="#f97316" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="202.0" y="32.0" width="96.9" height="20" fill="#f97316" rx="4"/><line x1="190" y1="96.0" x2="848" y2="96.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="78.0" r="4" fill="#3b82f6"/><text x="27" y="82.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Build image + plugin DNS</text><text x="184" y="82.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">2j</text><rect x="202" y="75.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="298.9" y="68.0" width="64.6" height="20" fill="#3b82f6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="298.9" y="68.0" width="64.6" height="20" fill="#3b82f6" rx="4"/><rect x="0" y="96" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="132.0" x2="848" y2="132.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="114.0" r="4" fill="#06b6d4"/><text x="27" y="118.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Configuration Caddyfile</text><text x="184" y="118.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">4j</text><rect x="202" y="111.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="363.5" y="104.0" width="129.2" height="20" fill="#06b6d4" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="363.5" y="104.0" width="129.2" height="20" fill="#06b6d4" rx="4"/><line x1="190" y1="168.0" x2="848" y2="168.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="150.0" r="4" fill="#8b5cf6"/><text x="27" y="154.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Token Cloudflare & ACME</text><text x="184" y="154.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="147.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="492.7" y="140.0" width="96.9" height="20" fill="#8b5cf6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="492.7" y="140.0" width="96.9" height="20" fill="#8b5cf6" rx="4"/><rect x="0" y="168" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="204.0" x2="848" y2="204.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="186.0" r="4" fill="#22c55e"/><text x="27" y="190.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Certificats Let's Encrypt</text><text x="184" y="190.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">2j</text><rect x="202" y="183.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="589.6" y="176.0" width="64.6" height="20" fill="#22c55e" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="589.6" y="176.0" width="64.6" height="20" fill="#22c55e" rx="4"/><line x1="190" y1="240.0" x2="848" y2="240.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="222.0" r="4" fill="#ef4444"/><text x="27" y="226.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Sécurisation UFW</text><text x="184" y="226.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="219.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="654.2" y="212.0" width="96.9" height="20" fill="#ef4444" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="654.2" y="212.0" width="96.9" height="20" fill="#ef4444" rx="4"/><rect x="0" y="240" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="276.0" x2="848" y2="276.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="258.0" r="4" fill="#f59e0b"/><text x="27" y="262.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Tests & validation finale</text><text x="184" y="262.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="255.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="751.1" y="248.0" width="96.9" height="20" fill="#f59e0b" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="751.1" y="248.0" width="96.9" height="20" fill="#f59e0b" rx="4"/></svg></div>
+        <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem"><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f97316;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Étude & documentation Caddy <span style="opacity:0.5">(3j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#3b82f6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Build image + plugin DNS <span style="opacity:0.5">(2j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#06b6d4;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Configuration Caddyfile <span style="opacity:0.5">(4j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#8b5cf6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Token Cloudflare & ACME <span style="opacity:0.5">(3j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Certificats Let's Encrypt <span style="opacity:0.5">(2j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#ef4444;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Sécurisation UFW <span style="opacity:0.5">(3j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Tests & validation finale <span style="opacity:0.5">(3j)</span></span></div></div>
+      </div>
+    </div>
   </section>
 
   <footer class="footer">

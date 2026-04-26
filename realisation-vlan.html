@@ -37,23 +37,22 @@
         <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-bottom:0.75rem"><span class="ctx-badge scolaire" style="display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;background:rgba(99,102,241,0.12);color:#818cf8;border:1px solid rgba(99,102,241,0.25)">Scolaire</span></div>
         <h1>Configuration VLAN &<br><em>Routage inter-VLAN</em></h1>
         <p class="hero-desc">Segmentation d'un réseau en VLANs sur switchs Cisco Catalyst avec routage inter-VLAN en mode router-on-a-stick et encapsulation 802.1Q.</p>
-        <div class="card-techs" style="margin-top:1rem"><span>Cisco IOS</span><span>VLAN</span><span>802.1Q</span><span>Trunk</span><span>Packet Tracer</span></div>
+        <div class="card-techs" style="margin-top:1rem"><span>Cisco IOS</span><span>VLAN</span><span>802.1Q</span><span>Trunk</span></div>
       </div>
 
       <div class="detail-layout" style="margin-top:2.5rem">
         <div class="detail-main">
           <div class="detail-block">
             <h2>📋 Contexte & objectifs</h2>
-            <p>Conception et déploiement d'une architecture réseau segmentée pour une entreprise fictive composée de trois départements. L'objectif était d'isoler les flux entre services via des VLANs et de permettre une communication contrôlée grâce au routage inter-VLAN.</p>
-            <p>Ce type d'architecture est fondamental en réseau d'entreprise — il améliore la sécurité et réduit les domaines de broadcast.</p>
+            <p>Conception d'une architecture réseau segmentée pour une entreprise fictive avec trois départements (RH, Informatique, Direction). L'objectif était d'isoler les flux entre services via des VLANs et de permettre une communication contrôlée via le routage inter-VLAN.</p>
           </div>
 
           <div class="detail-block">
             <h2>🛠️ Déroulement</h2>
             <ul class="steps-list">
               <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Plan d'adressage</h4><p>Définition des VLANs (10 RH, 20 Info, 30 Direction), découpage des sous-réseaux et attribution des plages IP.</p></div></li>
-              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Configuration des switchs Cisco</h4><p>Création des VLANs, assignation des ports en mode access, configuration des ports trunk 802.1Q entre équipements.</p></div></li>
-              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Routage inter-VLAN</h4><p>Configuration du routeur en mode router-on-a-stick avec sous-interfaces dédiées à chaque VLAN et encapsulation dot1q.</p></div></li>
+              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Configuration des switchs Cisco</h4><p>Création des VLANs, assignation des ports en mode access, configuration des ports trunk 802.1Q.</p></div></li>
+              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Routage inter-VLAN</h4><p>Configuration du routeur en mode router-on-a-stick avec sous-interfaces et encapsulation dot1q.</p></div></li>
               <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>Tests & validation</h4><p>Vérification de l'isolation entre VLANs, validation du routage inter-VLAN via ping et traceroute.</p></div></li>
             </ul>
           </div>
@@ -61,9 +60,9 @@
           <div class="detail-block">
             <h2>⚠️ Difficultés rencontrées</h2>
 <ul class="problems-list">
-            <li class="problem-item">Mauvaise configuration initiale du port trunk — oubli de l'encapsulation dot1q avant le passage en mode trunk.</li>
+            <li class="problem-item">Oubli de l'encapsulation dot1q avant le passage du port trunk en mode trunk.</li>
             <li class="problem-item">Conflit d'adressage sur le VLAN natif entraînant une perte de connectivité.</li>
-            <li class="problem-item">Compréhension du mécanisme router-on-a-stick et de la notion de sous-interfaces logiques.</li>
+            <li class="problem-item">Compréhension du mécanisme router-on-a-stick et des sous-interfaces logiques.</li>
             </ul>
           </div>
 
@@ -78,11 +77,11 @@
 
           <div class="detail-block">
             <h2>💡 Ce que j'ai appris</h2>
-            <p>Ce TP m'a permis de comprendre en profondeur le fonctionnement des VLANs. La notion de trunk 802.1Q et de router-on-a-stick était nouvelle — résoudre les erreurs de configuration m'a permis de l'assimiler concrètement.</p>
+            <p>Ce TP m'a permis de comprendre en profondeur les VLANs et le trunk 802.1Q. La notion de router-on-a-stick était nouvelle — résoudre les erreurs de configuration m'a permis de l'assimiler concrètement.</p>
           </div>
 
         </div>
-                        <aside class="detail-sidebar">
+        <aside class="detail-sidebar">
           <div class="sidebar-card">
             <h3>Informations</h3>
             <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">Scolaire</span></div>
@@ -102,7 +101,20 @@
         </aside>
       </div>
     </div>
-  
+  </section>
+
+  <section class="section section-alt" style="padding-top:2.5rem;padding-bottom:3rem">
+    <div class="container">
+      <div style="margin-bottom:1.25rem">
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning du projet</span>
+        <h2 style="font-size:1.4rem;margin-top:0.3rem">Déroulement &amp; <em>phases</em></h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);font-weight:300;margin-top:0.3rem">Durée totale estimée : <strong style="color:var(--text)">18 jours</strong></p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="overflow-x:auto;padding:0.75rem 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 224" style="width:100%;display:block"><defs><filter id="pg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><line x1="202.0" y1="24" x2="202.0" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="205.0" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">Début</text><line x1="453.2" y1="24" x2="453.2" y2="216" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="704.4" y1="24" x2="704.4" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="707.4" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">J14</text><text x="848" y="17" font-size="8" fill="rgba(255,255,255,0.3)" font-family="DM Sans,sans-serif" text-anchor="end">Total : 18 jours</text><rect x="0" y="24" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="60.0" x2="848" y2="60.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="42.0" r="4" fill="#3b82f6"/><text x="27" y="46.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Analyse & plan d'adressage</text><text x="184" y="46.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="39.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="202.0" y="32.0" width="107.7" height="20" fill="#3b82f6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="202.0" y="32.0" width="107.7" height="20" fill="#3b82f6" rx="4"/><line x1="190" y1="96.0" x2="848" y2="96.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="78.0" r="4" fill="#6366f1"/><text x="27" y="82.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Configuration switchs</text><text x="184" y="82.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">5j</text><rect x="202" y="75.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="309.7" y="68.0" width="179.4" height="20" fill="#6366f1" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="309.7" y="68.0" width="179.4" height="20" fill="#6366f1" rx="4"/><rect x="0" y="96" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="132.0" x2="848" y2="132.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="114.0" r="4" fill="#8b5cf6"/><text x="27" y="118.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Routage inter-VLAN</text><text x="184" y="118.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">4j</text><rect x="202" y="111.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="489.1" y="104.0" width="143.6" height="20" fill="#8b5cf6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="489.1" y="104.0" width="143.6" height="20" fill="#8b5cf6" rx="4"/><line x1="190" y1="168.0" x2="848" y2="168.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="150.0" r="4" fill="#f59e0b"/><text x="27" y="154.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Tests & débogage</text><text x="184" y="154.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="147.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="632.7" y="140.0" width="107.7" height="20" fill="#f59e0b" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="632.7" y="140.0" width="107.7" height="20" fill="#f59e0b" rx="4"/><rect x="0" y="168" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="204.0" x2="848" y2="204.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="186.0" r="4" fill="#22c55e"/><text x="27" y="190.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Documentation</text><text x="184" y="190.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="183.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="740.3" y="176.0" width="107.7" height="20" fill="#22c55e" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="740.3" y="176.0" width="107.7" height="20" fill="#22c55e" rx="4"/></svg></div>
+        <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem"><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#3b82f6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Analyse & plan d'adressage <span style="opacity:0.5">(3j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#6366f1;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Configuration switchs <span style="opacity:0.5">(5j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#8b5cf6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Routage inter-VLAN <span style="opacity:0.5">(4j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Tests & débogage <span style="opacity:0.5">(3j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Documentation <span style="opacity:0.5">(3j)</span></span></div></div>
+      </div>
+    </div>
   </section>
 
   <footer class="footer">

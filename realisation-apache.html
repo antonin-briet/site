@@ -44,14 +44,14 @@
         <div class="detail-main">
           <div class="detail-block">
             <h2>📋 Contexte & objectifs</h2>
-            <p>Déploiement d'un serveur web fonctionnel sous Linux Debian avec hébergement de plusieurs sites via les virtual hosts Apache et sécurisation HTTPS.</p>
+            <p>Déploiement d'un serveur web fonctionnel sous Debian avec hébergement de plusieurs sites via les virtual hosts Apache et sécurisation HTTPS.</p>
             <p>Ce type de configuration est courant pour héberger des applications internes ou des sites intranet accessibles depuis le réseau local.</p>
           </div>
 
           <div class="detail-block">
             <h2>🛠️ Déroulement</h2>
             <ul class="steps-list">
-              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Installation Debian</h4><p>Déploiement VM Debian sur Proxmox, configuration réseau, mise à jour du système.</p></div></li>
+              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Installation Debian</h4><p>Déploiement VM sur Proxmox, configuration réseau, mise à jour du système.</p></div></li>
               <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Installation Apache2</h4><p>Installation du paquet, vérification du service, test de la page par défaut.</p></div></li>
               <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Virtual Hosts</h4><p>Création de deux virtual hosts distincts, configuration des fichiers de conf Apache, activation avec a2ensite.</p></div></li>
               <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>HTTPS & certificat</h4><p>Génération d'un certificat auto-signé OpenSSL, activation du module SSL, redirection HTTP vers HTTPS.</p></div></li>
@@ -62,16 +62,16 @@
           <div class="detail-block">
             <h2>⚠️ Difficultés rencontrées</h2>
 <ul class="problems-list">
-            <li class="problem-item">Erreur 403 Forbidden — droits insuffisants sur le répertoire web (chmod et propriétaire www-data à corriger).</li>
-            <li class="problem-item">Alerte de sécurité navigateur sur le certificat auto-signé — différence avec une CA reconnue.</li>
-            <li class="problem-item">Résolution DNS des noms locaux — ajout manuel dans /etc/hosts des postes clients.</li>
+            <li class="problem-item">Erreur 403 Forbidden — droits insuffisants sur le répertoire web (chmod et propriétaire www-data).</li>
+            <li class="problem-item">Alerte de sécurité navigateur sur le certificat auto-signé.</li>
+            <li class="problem-item">Résolution DNS des noms locaux — ajout dans /etc/hosts des postes clients.</li>
             </ul>
           </div>
 
           <div class="detail-block">
             <h2>✅ Résultats obtenus</h2>
 <ul class="problems-list">
-            <li class="result-item">Deux sites web accessibles via noms de domaine distincts sur le même serveur.</li>
+            <li class="result-item">Deux sites accessibles via noms de domaine distincts sur le même serveur.</li>
             <li class="result-item">Connexions sécurisées HTTPS opérationnelles.</li>
             <li class="result-item">Maîtrise de la gestion des services Linux et des fichiers de configuration Apache.</li>
             </ul>
@@ -79,11 +79,11 @@
 
           <div class="detail-block">
             <h2>💡 Ce que j'ai appris</h2>
-            <p>Ce TP m'a permis de maîtriser l'administration d'un serveur web Linux. Virtual hosts et HTTPS sont des compétences directement applicables en entreprise. J'ai mieux compris la chaîne de confiance SSL.</p>
+            <p>Ce TP m'a permis de maîtriser l'administration d'un serveur web Linux. Virtual hosts et HTTPS sont des compétences directement applicables en entreprise.</p>
           </div>
 
         </div>
-                        <aside class="detail-sidebar">
+        <aside class="detail-sidebar">
           <div class="sidebar-card">
             <h3>Informations</h3>
             <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">Scolaire</span></div>
@@ -103,7 +103,20 @@
         </aside>
       </div>
     </div>
-  
+  </section>
+
+  <section class="section section-alt" style="padding-top:2.5rem;padding-bottom:3rem">
+    <div class="container">
+      <div style="margin-bottom:1.25rem">
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning du projet</span>
+        <h2 style="font-size:1.4rem;margin-top:0.3rem">Déroulement &amp; <em>phases</em></h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);font-weight:300;margin-top:0.3rem">Durée totale estimée : <strong style="color:var(--text)">16 jours</strong></p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="overflow-x:auto;padding:0.75rem 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 224" style="width:100%;display:block"><defs><filter id="pg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><line x1="202.0" y1="24" x2="202.0" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="205.0" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">Début</text><line x1="484.6" y1="24" x2="484.6" y2="216" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="767.2" y1="24" x2="767.2" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="770.2" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">J14</text><text x="848" y="17" font-size="8" fill="rgba(255,255,255,0.3)" font-family="DM Sans,sans-serif" text-anchor="end">Total : 16 jours</text><rect x="0" y="24" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="60.0" x2="848" y2="60.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="42.0" r="4" fill="#3b82f6"/><text x="27" y="46.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Installation Debian & Apache</text><text x="184" y="46.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="39.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="202.0" y="32.0" width="121.1" height="20" fill="#3b82f6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="202.0" y="32.0" width="121.1" height="20" fill="#3b82f6" rx="4"/><line x1="190" y1="96.0" x2="848" y2="96.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="78.0" r="4" fill="#06b6d4"/><text x="27" y="82.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Configuration Virtual Hosts</text><text x="184" y="82.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">4j</text><rect x="202" y="75.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="323.1" y="68.0" width="161.5" height="20" fill="#06b6d4" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="323.1" y="68.0" width="161.5" height="20" fill="#06b6d4" rx="4"/><rect x="0" y="96" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="132.0" x2="848" y2="132.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="114.0" r="4" fill="#f97316"/><text x="27" y="118.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Mise en place HTTPS</text><text x="184" y="118.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="111.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="484.6" y="104.0" width="121.1" height="20" fill="#f97316" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="484.6" y="104.0" width="121.1" height="20" fill="#f97316" rx="4"/><line x1="190" y1="168.0" x2="848" y2="168.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="150.0" r="4" fill="#f59e0b"/><text x="27" y="154.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Tests & corrections</text><text x="184" y="154.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="147.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="605.8" y="140.0" width="121.1" height="20" fill="#f59e0b" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="605.8" y="140.0" width="121.1" height="20" fill="#f59e0b" rx="4"/><rect x="0" y="168" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="204.0" x2="848" y2="204.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="186.0" r="4" fill="#22c55e"/><text x="27" y="190.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Documentation</text><text x="184" y="190.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">3j</text><rect x="202" y="183.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="726.9" y="176.0" width="121.1" height="20" fill="#22c55e" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="726.9" y="176.0" width="121.1" height="20" fill="#22c55e" rx="4"/></svg></div>
+        <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem"><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#3b82f6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Installation Debian & Apache <span style="opacity:0.5">(3j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#06b6d4;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Configuration Virtual Hosts <span style="opacity:0.5">(4j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f97316;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Mise en place HTTPS <span style="opacity:0.5">(3j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Tests & corrections <span style="opacity:0.5">(3j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Documentation <span style="opacity:0.5">(3j)</span></span></div></div>
+      </div>
+    </div>
   </section>
 
   <footer class="footer">

@@ -8,36 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .ctx-badges {
-      display: flex;
-      gap: 0.35rem;
-      margin-bottom: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .ctx-badge {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
-    }
-    .ctx-badge.scolaire {
-      background: rgba(99,102,241,0.12);
-      color: #818cf8;
-      border: 1px solid rgba(99,102,241,0.25);
-    }
-    .ctx-badge.professionnel {
-      background: rgba(34,197,94,0.1);
-      color: #4ade80;
-      border: 1px solid rgba(34,197,94,0.25);
-    }
-    .filter-ctx-bar {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-    }
+    .ctx-badges { display:flex; gap:0.35rem; flex-wrap:wrap; margin-bottom:0.5rem; }
+    .ctx-badge { font-size:0.65rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:100px; }
+    .ctx-badge.scolaire     { background:rgba(99,102,241,0.12); color:#818cf8; border:1px solid rgba(99,102,241,0.25); }
+    .ctx-badge.professionnel{ background:rgba(34,197,94,0.1);   color:#4ade80; border:1px solid rgba(34,197,94,0.25); }
+    .ctx-badge.e6           { background:rgba(251,146,60,0.12); color:#fb923c; border:1px solid rgba(251,146,60,0.25); }
+    .filter-bar { display:flex; gap:0.5rem; margin-bottom:2.5rem; flex-wrap:wrap; }
   </style>
 </head>
 <body>
@@ -72,15 +48,31 @@
   <section class="section">
     <div class="container">
 
-      <div class="filter-ctx-bar">
+      <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">Tous</button>
-        <button class="filter-btn ctx-btn-scolaire" data-filter="scolaire">Scolaire</button>
-        <button class="filter-btn ctx-btn-professionnel" data-filter="professionnel">Professionnel</button>
+        <button class="filter-btn" data-filter="scolaire"      style="--hover-color:rgba(99,102,241,0.2);--active-color:#818cf8">Scolaire</button>
+        <button class="filter-btn" data-filter="professionnel" style="--hover-color:rgba(34,197,94,0.15);--active-color:#4ade80">Professionnel</button>
+        <button class="filter-btn" data-filter="e6"            style="--hover-color:rgba(251,146,60,0.15);--active-color:#fb923c">E6</button>
       </div>
 
       <div class="cards-grid" id="cardsGrid">
 
-        <!-- 11 · Sécurité réseau Linux · Professionnel -->
+        <!-- 12 · GLPI · Scolaire · E6 · Jan-Mars 2026 -->
+        <a href="realisation-glpi.html" class="card" data-ctx="scolaire e6" data-num="12">
+          <div class="card-icon">🗂️</div>
+          <div class="card-body">
+            <div class="ctx-badges">
+              <span class="ctx-badge scolaire">Scolaire</span>
+              <span class="ctx-badge e6">E6</span>
+            </div>
+            <h3>Installation et configuration de GLPI</h3>
+            <p>Déploiement GLPI sur Debian : inventaire du parc, helpdesk, gestion des tickets et intégration LDAP avec Active Directory.</p>
+            <div class="card-techs"><span>GLPI</span><span>Debian</span><span>MySQL</span><span>LDAP</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 11 · Sécurité réseau · Professionnel · Jan-Fév 2026 -->
         <a href="realisation-securite.html" class="card" data-ctx="professionnel" data-num="11">
           <div class="card-icon">🔥</div>
           <div class="card-body">
@@ -94,7 +86,7 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 10 · Backup 3-2-1 · Professionnel -->
+        <!-- 10 · Backup · Professionnel · Nov-Déc 2025 -->
         <a href="realisation-backup.html" class="card" data-ctx="professionnel" data-num="10">
           <div class="card-icon">💾</div>
           <div class="card-body">
@@ -108,7 +100,7 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 09 · Caddy · Professionnel -->
+        <!-- 09 · Caddy · Professionnel · Sept-Oct 2025 -->
         <a href="realisation-caddy.html" class="card" data-ctx="professionnel" data-num="09">
           <div class="card-icon">🌐</div>
           <div class="card-body">
@@ -122,22 +114,8 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 08 · Tailscale · Professionnel -->
-        <a href="realisation-tailscale.html" class="card" data-ctx="professionnel" data-num="08">
-          <div class="card-icon">🔒</div>
-          <div class="card-body">
-            <div class="ctx-badges">
-              <span class="ctx-badge professionnel">Professionnel</span>
-            </div>
-            <h3>VPN Zero Trust — Tailscale</h3>
-            <p>VPN mesh WireGuard reliant tous les appareils. Seule porte d'entrée vers l'infrastructure — zéro port ouvert sur internet.</p>
-            <div class="card-techs"><span>WireGuard</span><span>Zero Trust</span><span>MagicDNS</span></div>
-          </div>
-          <span class="card-link">Voir le détail →</span>
-        </a>
-
-        <!-- 07 · pfSense · Scolaire -->
-        <a href="realisation-pfsense.html" class="card" data-ctx="scolaire" data-num="07">
+        <!-- 08 · pfSense · Scolaire · Mai-Juin 2025 -->
+        <a href="realisation-pfsense.html" class="card" data-ctx="scolaire" data-num="08">
           <div class="card-icon">🛡️</div>
           <div class="card-body">
             <div class="ctx-badges">
@@ -150,7 +128,21 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 06 · AdGuard · Professionnel -->
+        <!-- 07 · Tailscale · Professionnel · Avr-Mai 2025 -->
+        <a href="realisation-tailscale.html" class="card" data-ctx="professionnel" data-num="07">
+          <div class="card-icon">🔒</div>
+          <div class="card-body">
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
+            <h3>VPN Zero Trust — Tailscale</h3>
+            <p>VPN mesh WireGuard reliant tous les appareils. Seule porte d'entrée vers l'infrastructure — zéro port ouvert sur internet.</p>
+            <div class="card-techs"><span>WireGuard</span><span>Zero Trust</span><span>MagicDNS</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 06 · AdGuard · Professionnel · Fév-Mars 2025 -->
         <a href="realisation-adguard.html" class="card" data-ctx="professionnel" data-num="06">
           <div class="card-icon">🛡️</div>
           <div class="card-body">
@@ -164,7 +156,7 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 05 · Apache · Scolaire -->
+        <!-- 05 · Apache · Scolaire · Fév-Mars 2025 -->
         <a href="realisation-apache.html" class="card" data-ctx="scolaire" data-num="05">
           <div class="card-icon">🐧</div>
           <div class="card-body">
@@ -178,7 +170,7 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 04 · Vaultwarden · Professionnel -->
+        <!-- 04 · Vaultwarden · Professionnel · Nov-Déc 2024 -->
         <a href="realisation-vaultwarden.html" class="card" data-ctx="professionnel" data-num="04">
           <div class="card-icon">🔐</div>
           <div class="card-body">
@@ -192,13 +184,14 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 03 · Windows Server · Scolaire & Professionnel -->
-        <a href="realisation-windows-server.html" class="card" data-ctx="scolaire professionnel" data-num="03">
+        <!-- 03 · Windows Server · Scolaire & Pro · E6 · Nov 2024-Jan 2025 -->
+        <a href="realisation-windows-server.html" class="card" data-ctx="scolaire professionnel e6" data-num="03">
           <div class="card-icon">🖥️</div>
           <div class="card-body">
             <div class="ctx-badges">
               <span class="ctx-badge scolaire">Scolaire</span>
               <span class="ctx-badge professionnel">Professionnel</span>
+              <span class="ctx-badge e6">E6</span>
             </div>
             <h3>Active Directory Windows Server</h3>
             <p>Contrôleur de domaine Windows Server 2022 sur Proxmox : AD DS, GPO, gestion des utilisateurs, DNS et DHCP intégrés.</p>
@@ -207,7 +200,7 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 02 · VLAN · Scolaire -->
+        <!-- 02 · VLAN · Scolaire · Oct 2024 -->
         <a href="realisation-vlan.html" class="card" data-ctx="scolaire" data-num="02">
           <div class="card-icon">🌐</div>
           <div class="card-body">
@@ -221,7 +214,7 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 01 · V2SI · Professionnel -->
+        <!-- 01 · V2SI · Professionnel · Sept 2024 → -->
         <a href="realisation-v2si.html" class="card" data-ctx="professionnel" data-num="01">
           <div class="card-icon">🏢</div>
           <div class="card-body">

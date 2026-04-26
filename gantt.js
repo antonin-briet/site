@@ -15,6 +15,7 @@ const GANTT_DATA = [
   { id: 'caddy',       num:'09', label: 'Caddy + DNS Cloudflare',       start:[2025,9],  end:[2025,10], color:'#f97316' },
   { id: 'backup',      num:'10', label: 'Backup 3-2-1',                 start:[2025,11], end:[2025,12], color:'#14b8a6' },
   { id: 'securite',    num:'11', label: 'Sécurité réseau Linux',        start:[2026,1],  end:[2026,2],  color:'#ef4444' },
+  { id: 'glpi',        num:'12', label: 'Installation GLPI',            start:[2026,1],  end:[2026,3],  color:'#a855f7' },
 ];
 
 const MONTHS_FR = ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'];

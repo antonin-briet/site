@@ -7,6 +7,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .ctx-badges {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .ctx-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+    .ctx-badge.scolaire {
+      background: rgba(99,102,241,0.12);
+      color: #818cf8;
+      border: 1px solid rgba(99,102,241,0.25);
+    }
+    .ctx-badge.professionnel {
+      background: rgba(34,197,94,0.1);
+      color: #4ade80;
+      border: 1px solid rgba(34,197,94,0.25);
+    }
+    .filter-ctx-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+  </style>
 </head>
 <body>
 
@@ -40,32 +72,21 @@
   <section class="section">
     <div class="container">
 
-      <!-- Filtres catégorie -->
-      <div class="filter-group-label">Catégorie</div>
-      <div class="filter-bar" id="filterCat">
-        <button class="filter-btn active" data-filter="all" data-group="cat">Toutes</button>
-        <button class="filter-btn" data-filter="reseau" data-group="cat">Réseau</button>
-        <button class="filter-btn" data-filter="serveur" data-group="cat">Serveur</button>
-        <button class="filter-btn" data-filter="secu" data-group="cat">Sécurité</button>
-        <button class="filter-btn" data-filter="infra" data-group="cat">Infrastructure</button>
-        <button class="filter-btn" data-filter="stage" data-group="cat">Stage</button>
+      <div class="filter-ctx-bar">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn ctx-btn-scolaire" data-filter="scolaire">Scolaire</button>
+        <button class="filter-btn ctx-btn-professionnel" data-filter="professionnel">Professionnel</button>
       </div>
 
-      <!-- Filtres contexte -->
-      <div class="filter-group-label" style="margin-top:1rem">Contexte</div>
-      <div class="filter-bar" id="filterCtx">
-        <button class="filter-btn active" data-filter="all" data-group="ctx">Tous</button>
-        <button class="filter-btn" data-filter="scolaire" data-group="ctx">Scolaire</button>
-        <button class="filter-btn" data-filter="professionnel" data-group="ctx">Professionnel</button>
-      </div>
+      <div class="cards-grid" id="cardsGrid">
 
-      <div class="cards-grid" style="margin-top:2rem" id="cardsGrid">
-
-        <!-- 11 · Sécurité réseau Linux · Professionnel · Infra (Jan-Fév 2026) -->
-        <a href="realisation-securite.html" class="card" data-cat="infra" data-ctx="professionnel" data-num="11">
+        <!-- 11 · Sécurité réseau Linux · Professionnel -->
+        <a href="realisation-securite.html" class="card" data-ctx="professionnel" data-num="11">
           <div class="card-icon">🔥</div>
           <div class="card-body">
-            <span class="card-tag">Infrastructure</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
             <h3>Sécurité réseau Linux</h3>
             <p>Durcissement d'un serveur Debian : UFW restreint à l'interface VPN, Fail2ban, SSH par clés, mises à jour automatiques.</p>
             <div class="card-techs"><span>UFW</span><span>Fail2ban</span><span>SSH</span><span>Debian</span></div>
@@ -73,47 +94,55 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 10 · Backup 3-2-1 · Professionnel · Infra (Nov-Déc 2025) -->
-        <a href="realisation-backup.html" class="card" data-cat="infra" data-ctx="professionnel" data-num="10">
+        <!-- 10 · Backup 3-2-1 · Professionnel -->
+        <a href="realisation-backup.html" class="card" data-ctx="professionnel" data-num="10">
           <div class="card-icon">💾</div>
           <div class="card-body">
-            <span class="card-tag">Infrastructure</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
             <h3>Stratégie de sauvegarde 3-2-1</h3>
-            <p>Sauvegardes locales chiffrées Backrest/Restic synchronisées chaque nuit vers Backblaze B2 via Rclone. 4 dépôts distincts par service.</p>
+            <p>Sauvegardes locales chiffrées Backrest/Restic synchronisées chaque nuit vers Backblaze B2 via Rclone. 4 dépôts distincts.</p>
             <div class="card-techs"><span>Restic</span><span>Backblaze B2</span><span>Rclone</span><span>3-2-1</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 09 · Caddy · Professionnel · Serveur (Sept-Oct 2025) -->
-        <a href="realisation-caddy.html" class="card" data-cat="serveur" data-ctx="professionnel" data-num="09">
+        <!-- 09 · Caddy · Professionnel -->
+        <a href="realisation-caddy.html" class="card" data-ctx="professionnel" data-num="09">
           <div class="card-icon">🌐</div>
           <div class="card-body">
-            <span class="card-tag">Serveur</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
             <h3>Reverse Proxy Caddy + DNS Cloudflare</h3>
-            <p>Certificats Let's Encrypt automatiques via challenge DNS Cloudflare depuis une IP privée. Accès unifié aux services par sous-domaines HTTPS.</p>
+            <p>Certificats Let's Encrypt automatiques via challenge DNS Cloudflare depuis une IP privée. Accès unifié par sous-domaines HTTPS.</p>
             <div class="card-techs"><span>Caddy</span><span>Let's Encrypt</span><span>Cloudflare</span><span>HTTPS</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 08 · Tailscale · Professionnel · Sécurité (Avr-Mai 2025) -->
-        <a href="realisation-tailscale.html" class="card" data-cat="secu" data-ctx="professionnel" data-num="08">
+        <!-- 08 · Tailscale · Professionnel -->
+        <a href="realisation-tailscale.html" class="card" data-ctx="professionnel" data-num="08">
           <div class="card-icon">🔒</div>
           <div class="card-body">
-            <span class="card-tag">Sécurité</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
             <h3>VPN Zero Trust — Tailscale</h3>
-            <p>VPN mesh WireGuard reliant tous les appareils personnels. Seule porte d'entrée vers l'infrastructure — zéro port ouvert sur internet.</p>
+            <p>VPN mesh WireGuard reliant tous les appareils. Seule porte d'entrée vers l'infrastructure — zéro port ouvert sur internet.</p>
             <div class="card-techs"><span>WireGuard</span><span>Zero Trust</span><span>MagicDNS</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 07 · pfSense · Scolaire · Sécurité (Mai-Juin 2025) -->
-        <a href="realisation-pfsense.html" class="card" data-cat="secu" data-ctx="scolaire" data-num="07">
+        <!-- 07 · pfSense · Scolaire -->
+        <a href="realisation-pfsense.html" class="card" data-ctx="scolaire" data-num="07">
           <div class="card-icon">🛡️</div>
           <div class="card-body">
-            <span class="card-tag">Sécurité</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge scolaire">Scolaire</span>
+            </div>
             <h3>Pare-feu pfSense</h3>
             <p>Architecture LAN/WAN/DMZ avec pfSense : règles de filtrage, NAT, port forwarding et tunnel VPN IPsec site-à-site.</p>
             <div class="card-techs"><span>pfSense</span><span>Firewall</span><span>NAT</span><span>VPN IPsec</span></div>
@@ -121,11 +150,13 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 06 · AdGuard · Professionnel · Réseau (Fév-Mars 2025) -->
-        <a href="realisation-adguard.html" class="card" data-cat="reseau" data-ctx="professionnel" data-num="06">
+        <!-- 06 · AdGuard · Professionnel -->
+        <a href="realisation-adguard.html" class="card" data-ctx="professionnel" data-num="06">
           <div class="card-icon">🛡️</div>
           <div class="card-body">
-            <span class="card-tag">Réseau</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
             <h3>AdGuard Home — DNS anti-pub</h3>
             <p>Serveur DNS récursif avec filtrage publicités et trackers pour tous les appareils du réseau VPN. ~21% des requêtes bloquées.</p>
             <div class="card-techs"><span>DNS</span><span>DoH</span><span>Docker</span><span>Quad9</span></div>
@@ -133,11 +164,13 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 05 · Apache · Scolaire · Serveur (Fév-Mars 2025) -->
-        <a href="realisation-apache.html" class="card" data-cat="serveur" data-ctx="scolaire" data-num="05">
+        <!-- 05 · Apache · Scolaire -->
+        <a href="realisation-apache.html" class="card" data-ctx="scolaire" data-num="05">
           <div class="card-icon">🐧</div>
           <div class="card-body">
-            <span class="card-tag">Serveur</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge scolaire">Scolaire</span>
+            </div>
             <h3>Serveur Web Apache sous Debian</h3>
             <p>Installation Apache sur Debian, virtual hosts multiples et sécurisation HTTPS avec certificat auto-signé OpenSSL.</p>
             <div class="card-techs"><span>Debian</span><span>Apache2</span><span>HTTPS</span><span>OpenSSL</span></div>
@@ -145,11 +178,13 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 04 · Vaultwarden · Professionnel · Sécurité (Nov-Déc 2024) -->
-        <a href="realisation-vaultwarden.html" class="card" data-cat="secu" data-ctx="professionnel" data-num="04">
+        <!-- 04 · Vaultwarden · Professionnel -->
+        <a href="realisation-vaultwarden.html" class="card" data-ctx="professionnel" data-num="04">
           <div class="card-icon">🔐</div>
           <div class="card-body">
-            <span class="card-tag">Sécurité</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
             <h3>Vaultwarden — Gestionnaire de mots de passe</h3>
             <p>Instance Bitwarden self-hosted accessible uniquement via VPN, avec 2FA TOTP et partage de collection en lecture seule.</p>
             <div class="card-techs"><span>Docker</span><span>Bitwarden</span><span>2FA</span><span>Argon2</span></div>
@@ -157,11 +192,14 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 03 · Windows Server · Scolaire & Pro · Serveur (Nov 2024-Jan 2025) -->
-        <a href="realisation-windows-server.html" class="card" data-cat="serveur" data-ctx="scolaire professionnel" data-num="03">
+        <!-- 03 · Windows Server · Scolaire & Professionnel -->
+        <a href="realisation-windows-server.html" class="card" data-ctx="scolaire professionnel" data-num="03">
           <div class="card-icon">🖥️</div>
           <div class="card-body">
-            <span class="card-tag">Serveur</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge scolaire">Scolaire</span>
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
             <h3>Active Directory Windows Server</h3>
             <p>Contrôleur de domaine Windows Server 2022 sur Proxmox : AD DS, GPO, gestion des utilisateurs, DNS et DHCP intégrés.</p>
             <div class="card-techs"><span>Windows Server</span><span>Active Directory</span><span>GPO</span><span>Proxmox</span></div>
@@ -169,11 +207,13 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 02 · VLAN · Scolaire · Réseau (Oct 2024) -->
-        <a href="realisation-vlan.html" class="card" data-cat="reseau" data-ctx="scolaire" data-num="02">
+        <!-- 02 · VLAN · Scolaire -->
+        <a href="realisation-vlan.html" class="card" data-ctx="scolaire" data-num="02">
           <div class="card-icon">🌐</div>
           <div class="card-body">
-            <span class="card-tag">Réseau</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge scolaire">Scolaire</span>
+            </div>
             <h3>Configuration VLAN & Routage inter-VLAN</h3>
             <p>Segmentation réseau avec VLANs sur switchs Cisco Catalyst et routage inter-VLAN en mode router-on-a-stick 802.1Q.</p>
             <div class="card-techs"><span>Cisco IOS</span><span>VLAN</span><span>802.1Q</span><span>Trunk</span></div>
@@ -181,11 +221,13 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 01 · V2SI · Professionnel · Stage (Sept 2024 → Juil 2026) -->
-        <a href="realisation-v2si.html" class="card" data-cat="stage" data-ctx="professionnel" data-num="01">
+        <!-- 01 · V2SI · Professionnel -->
+        <a href="realisation-v2si.html" class="card" data-ctx="professionnel" data-num="01">
           <div class="card-icon">🏢</div>
           <div class="card-body">
-            <span class="card-tag">Stage / Alternance</span>
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
             <h3>V2SI — Alternance & Stages</h3>
             <p>2 stages Bac Pro + alternance BTS SIO SISR. Support N1/N2, administration réseau, gestion de parc avec NinjaOne et GLPI.</p>
             <div class="card-techs"><span>Support N1/N2</span><span>Active Directory</span><span>NinjaOne</span><span>GLPI</span></div>
@@ -203,43 +245,26 @@
 
   <script src="script.js"></script>
   <script>
-    // Dual filter system (cat + ctx)
-    let activeCat = 'all';
-    let activeCtx = 'all';
-    const cards = document.querySelectorAll('.card[data-cat]');
+    const cards = document.querySelectorAll('.card[data-ctx]');
+    let activeFilter = 'all';
 
-    function applyFilters() {
-      cards.forEach(card => {
-        const cat = card.dataset.cat || '';
-        const ctx = card.dataset.ctx || '';
-        const catMatch = activeCat === 'all' || cat === activeCat;
-        const ctxMatch = activeCtx === 'all' || ctx.includes(activeCtx);
-        if (catMatch && ctxMatch) {
-          card.classList.remove('hidden');
-          card.style.animation = 'none';
-          card.offsetHeight;
-          card.style.animation = 'fadeUp 0.4s ease both';
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-
-    document.querySelectorAll('.filter-btn[data-group="cat"]').forEach(btn => {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn[data-group="cat"]').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        activeCat = btn.dataset.filter;
-        applyFilters();
-      });
-    });
-
-    document.querySelectorAll('.filter-btn[data-group="ctx"]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn[data-group="ctx"]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeCtx = btn.dataset.filter;
-        applyFilters();
+        activeFilter = btn.dataset.filter;
+        cards.forEach(card => {
+          const ctx = card.dataset.ctx || '';
+          const match = activeFilter === 'all' || ctx.includes(activeFilter);
+          if (match) {
+            card.classList.remove('hidden');
+            card.style.animation = 'none';
+            card.offsetHeight;
+            card.style.animation = 'fadeUp 0.4s ease both';
+          } else {
+            card.classList.add('hidden');
+          }
+        });
       });
     });
   </script>

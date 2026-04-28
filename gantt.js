@@ -8,7 +8,7 @@ const GANTT_DATA = [
   { id: 'macrium',     num:'02', label: 'Sauvegarde & clonage Macrium',  start:[2024,9],  end:[2026,7],  color:'#16a34a' },
   { id: 'scripts',     num:'03', label: 'Scripts PowerShell & BAT',      start:[2024,10], end:[2026,7],  color:'#4ade80' },
   { id: 'vlan',        num:'04', label: 'VLAN & Routage inter-VLAN',    start:[2024,10], end:[2024,10], color:'#3b82f6' },
-  { id: 'windows',     num:'05', label: 'Windows Server / AD',          start:[2025,9],  end:[2026,1],  color:'#8b5cf6' },
+  { id: 'windows',     num:'10', label: 'Windows Server / AD',          start:[2025,9],  end:[2026,1],  color:'#8b5cf6' },
   { id: 'vaultwarden', num:'03', label: 'Vaultwarden',                  start:[2024,11], end:[2024,12], color:'#ec4899' },
   { id: 'apache',      num:'04', label: 'Serveur Web Apache',           start:[2025,2],  end:[2025,3],  color:'#06b6d4' },
   { id: 'adguard',     num:'05', label: 'AdGuard Home',                 start:[2025,2],  end:[2025,3],  color:'#10b981' },

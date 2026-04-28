@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scripts PowerShell & BAT — Déploiement automatisé — Antonin Briet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="detail.css">
+  <script src="gantt.js" defer></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo" aria-label="Accueil">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+        <polyline points="9 21 9 12 15 12 15 21"/>
+      </svg>
+    </a>
+    <button class="nav-burger" id="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">À propos</a></li>
+      <li><a href="realisations.html" class="active">Réalisations</a></li>
+      <li><a href="tableau.html">Tableau de synthèse</a></li>
+      <li><a href="veille.html">Veille technologique</a></li>
+      <li><a href="e6.html">E6</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <section class="section" style="padding-top:6rem">
+    <div class="container">
+      <a href="realisations.html" class="back-btn">← Retour aux réalisations</a>
+      <div class="page-title-wrap">
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-bottom:0.75rem"><span class="ctx-badge professionnel" style="display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;background:rgba(34,197,94,0.1);color:#4ade80;border:1px solid rgba(34,197,94,0.25)">Professionnel</span></div>
+        <h1>Scripts PowerShell &amp; BAT<br><em>Déploiement automatisé</em></h1>
+        <p class="hero-desc">Développement de scripts d'automatisation pour l'installation et la configuration des postes clients, déployés via une clé USB bootable en environnement professionnel.</p>
+        <div class="card-techs" style="margin-top:1rem"><span>PowerShell</span><span>Batch (.bat)</span><span>Windows</span><span>Automatisation</span><span>Clé USB</span></div>
+      </div>
+
+      <div class="detail-layout" style="margin-top:2.5rem">
+        <div class="detail-main">
+          <div class="detail-block">
+            <h2>📋 Contexte & objectifs</h2>
+            <p>Dans le cadre de l'alternance chez V2SI, la préparation et le déploiement des postes clients revenait fréquemment. Pour gagner du temps et garantir une configuration homogène, j'ai participé à la réalisation de scripts d'automatisation regroupés sur une <strong>clé USB de déploiement</strong>.</p>
+            <p>Ces scripts couvrent l'installation silencieuse de logiciels, la configuration système, l'application des paramètres réseau et la personnalisation de l'environnement utilisateur selon le profil client.</p>
+          </div>
+
+          <div class="detail-block">
+            <h2>🛠️ Déroulement</h2>
+            <ul class="steps-list">
+              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Analyse des besoins récurrents</h4><p>Identification des tâches répétitives lors des déploiements : installation des logiciels métier, configuration des imprimantes, paramètres réseau, désactivation de fonctionnalités Windows.</p></div></li>
+              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Développement des scripts BAT</h4><p>Scripts batch pour les tâches simples : montage de lecteurs réseau, copie de fichiers, configuration des associations de fichiers.</p></div></li>
+              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Scripts PowerShell avancés</h4><p>Automatisation de l'installation silencieuse de logiciels (NinjaOne, suite Office, antivirus), configuration des stratégies locales, jonction au domaine Active Directory.</p></div></li>
+              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>Packaging sur clé USB</h4><p>Organisation des scripts et des installeurs sur la clé USB avec un menu d'exécution, tests sur postes de référence avant déploiement terrain.</p></div></li>
+              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Tests & déploiement terrain</h4><p>Validation sur différentes configurations matérielles clients, ajustements selon les retours et les cas particuliers rencontrés.</p></div></li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>⚠️ Difficultés rencontrées</h2>
+<ul class="problems-list">
+            <li class="problem-item">Gestion des droits d'exécution PowerShell — nécessité de contourner la politique d'exécution (Execution Policy) sur les postes clients sans compromettre la sécurité.</li>
+            <li class="problem-item">Compatibilité des scripts entre différentes versions de Windows 10 et 11 — comportements différents selon les builds.</li>
+            <li class="problem-item">Installations silencieuses — chaque logiciel a ses propres paramètres /silent ou /quiet, nécessitant une documentation précise.</li>
+            <li class="problem-item">Gestion des erreurs et des cas d'échec — ajout de logs et de vérifications pour tracer les installations échouées.</li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>✅ Résultats obtenus</h2>
+<ul class="problems-list">
+            <li class="result-item">Temps de déploiement d'un poste réduit significativement — les tâches manuelles répétitives sont automatisées.</li>
+            <li class="result-item">Homogénéité des configurations clients — chaque poste est configuré de façon identique et reproductible.</li>
+            <li class="result-item">Clé USB de déploiement opérationnelle et utilisée en intervention terrain.</li>
+            <li class="result-item">Documentation des scripts maintenue pour faciliter les évolutions futures.</li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>💡 Ce que j'ai appris</h2>
+            <p>Ce projet m'a initié à l'automatisation système en conditions réelles. La rigueur nécessaire pour écrire un script fiable sur des dizaines de configurations différentes m'a appris à anticiper les cas limites et à documenter rigoureusement. PowerShell est un outil central en administration Windows — cette expérience m'a permis de le maîtriser dans un contexte professionnel concret.</p>
+          </div>
+
+        </div>
+        <aside class="detail-sidebar">
+          <div class="sidebar-card">
+            <h3>Informations</h3>
+            <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">Professionnel</span></div>
+            <hr class="meta-divider">
+            <div class="meta-row"><span class="meta-label">Période</span><span class="meta-value">Octobre 2024 — en cours</span></div>
+            <hr class="meta-divider">
+            <a href="doc_scripts.pdf" download class="btn btn-outline btn-sm" style="margin-top:0.25rem;width:100%;justify-content:center;display:inline-flex">⬇️ Télécharger la documentation</a>
+          </div>
+          <div class="sidebar-card">
+            <h3>Technologies</h3>
+            <div class="card-techs" style="margin:0"><span>PowerShell</span><span>Batch</span><span>Windows</span><span>Automatisation</span></div>
+          </div>
+          <div class="sidebar-card">
+            <h3>Compétences BTS SIO</h3>
+            <div class="card-techs" style="margin:0"><span>B2 — Patrimoine</span><span>B3 — Administration</span><span>B5 — Sécurité</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" style="padding-top:2.5rem;padding-bottom:3rem">
+    <div class="container">
+      <div style="margin-bottom:1.25rem">
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning du projet</span>
+        <h2 style="font-size:1.4rem;margin-top:0.3rem">Déroulement &amp; <em>phases</em></h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);font-weight:300;margin-top:0.3rem">Durée totale estimée : <strong style="color:var(--text)">46 jours</strong></p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="overflow-x:auto;padding:0.75rem 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" style="width:100%;display:block"><defs><filter id="pg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><line x1="202.0" y1="24" x2="202.0" y2="252" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="205.0" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">Début</text><line x1="300.3" y1="24" x2="300.3" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="398.6" y1="24" x2="398.6" y2="252" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="401.6" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">J14</text><line x1="496.9" y1="24" x2="496.9" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="595.2" y1="24" x2="595.2" y2="252" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="598.2" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">J28</text><line x1="693.5" y1="24" x2="693.5" y2="252" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="791.8" y1="24" x2="791.8" y2="252" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="794.8" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">J42</text><text x="848" y="17" font-size="8" fill="rgba(255,255,255,0.3)" font-family="DM Sans,sans-serif" text-anchor="end">Total : 46 jours</text><rect x="0" y="24" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="60.0" x2="848" y2="60.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="42.0" r="4" fill="#6366f1"/><text x="27" y="46.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Analyse des besoins récurrents</text><text x="184" y="46.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">5j</text><rect x="202" y="39.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="202.0" y="32.0" width="70.2" height="20" fill="#6366f1" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="202.0" y="32.0" width="70.2" height="20" fill="#6366f1" rx="4"/><line x1="190" y1="96.0" x2="848" y2="96.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="78.0" r="4" fill="#3b82f6"/><text x="27" y="82.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Développement scripts BAT</text><text x="184" y="82.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">8j</text><rect x="202" y="75.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="272.2" y="68.0" width="112.3" height="20" fill="#3b82f6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="272.2" y="68.0" width="112.3" height="20" fill="#3b82f6" rx="4"/><rect x="0" y="96" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="132.0" x2="848" y2="132.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="114.0" r="4" fill="#8b5cf6"/><text x="27" y="118.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Scripts PowerShell avancés</text><text x="184" y="118.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">12j</text><rect x="202" y="111.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="384.6" y="104.0" width="168.5" height="20" fill="#8b5cf6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="384.6" y="104.0" width="168.5" height="20" fill="#8b5cf6" rx="4"/><line x1="190" y1="168.0" x2="848" y2="168.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="150.0" r="4" fill="#f59e0b"/><text x="27" y="154.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Packaging clé USB</text><text x="184" y="154.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">5j</text><rect x="202" y="147.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="553.1" y="140.0" width="70.2" height="20" fill="#f59e0b" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="553.1" y="140.0" width="70.2" height="20" fill="#f59e0b" rx="4"/><rect x="0" y="168" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="204.0" x2="848" y2="204.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="186.0" r="4" fill="#ef4444"/><text x="27" y="190.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Tests sur postes de référence</text><text x="184" y="190.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">6j</text><rect x="202" y="183.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="623.3" y="176.0" width="84.3" height="20" fill="#ef4444" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="623.3" y="176.0" width="84.3" height="20" fill="#ef4444" rx="4"/><line x1="190" y1="240.0" x2="848" y2="240.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="222.0" r="4" fill="#22c55e"/><text x="27" y="226.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Déploiement terrain & ajustements</text><text x="184" y="226.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">10j</text><rect x="202" y="219.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="707.6" y="212.0" width="140.4" height="20" fill="#22c55e" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="707.6" y="212.0" width="140.4" height="20" fill="#22c55e" rx="4"/></svg></div>
+        <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem"><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#6366f1;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Analyse des besoins récurrents <span style="opacity:0.5">(5j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#3b82f6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Développement scripts BAT <span style="opacity:0.5">(8j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#8b5cf6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Scripts PowerShell avancés <span style="opacity:0.5">(12j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Packaging clé USB <span style="opacity:0.5">(5j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#ef4444;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Tests sur postes de référence <span style="opacity:0.5">(6j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Déploiement terrain & ajustements <span style="opacity:0.5">(10j)</span></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => renderGantt('gantt-scripts', 'scripts'));
+  </script>
+</body>
+</html>

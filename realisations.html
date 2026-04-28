@@ -57,8 +57,8 @@
 
       <div class="cards-grid" id="cardsGrid">
 
-        <!-- 12 · GLPI · Scolaire · E6 · Jan–Mars 2026 -->
-        <a href="realisation-glpi.html" class="card" data-ctx="scolaire e6" data-num="12">
+        <!-- 14 · GLPI E6 · Scolaire · E6 · Jan–Mars 2026 -->
+        <a href="realisation-glpi.html" class="card" data-ctx="scolaire e6" data-num="14">
           <div class="card-icon">🗂️</div>
           <div class="card-body">
             <div class="ctx-badges">
@@ -72,8 +72,8 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 11 · Sécurité réseau · Professionnel · Jan–Fév 2026 -->
-        <a href="realisation-securite.html" class="card" data-ctx="professionnel" data-num="11">
+        <!-- 13 · Sécurité réseau · Professionnel · Jan–Fév 2026 -->
+        <a href="realisation-securite.html" class="card" data-ctx="professionnel" data-num="13">
           <div class="card-icon">🔥</div>
           <div class="card-body">
             <div class="ctx-badges">
@@ -86,7 +86,35 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 10 · Windows Server · Scolaire & Pro · E6 · Sept 2025–Jan 2026 -->
+        <!-- 12 · Backup · Professionnel · Nov–Déc 2025 -->
+        <a href="realisation-backup.html" class="card" data-ctx="professionnel" data-num="12">
+          <div class="card-icon">💾</div>
+          <div class="card-body">
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
+            <h3>Stratégie de sauvegarde 3-2-1</h3>
+            <p>Sauvegardes locales chiffrées Backrest/Restic synchronisées chaque nuit vers Backblaze B2 via Rclone. 4 dépôts distincts.</p>
+            <div class="card-techs"><span>Restic</span><span>Backblaze B2</span><span>Rclone</span><span>3-2-1</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 11 · Caddy · Professionnel · Sept–Oct 2025 -->
+        <a href="realisation-caddy.html" class="card" data-ctx="professionnel" data-num="11">
+          <div class="card-icon">🌐</div>
+          <div class="card-body">
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
+            <h3>Reverse Proxy Caddy + DNS Cloudflare</h3>
+            <p>Certificats Let's Encrypt automatiques via challenge DNS Cloudflare depuis une IP privée. Accès unifié par sous-domaines HTTPS.</p>
+            <div class="card-techs"><span>Caddy</span><span>Let's Encrypt</span><span>Cloudflare</span><span>HTTPS</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 10 · Windows Server E6 · Scolaire & Pro · E6 · Sept 2025–Jan 2026 -->
         <a href="realisation-windows-server.html" class="card" data-ctx="scolaire professionnel e6" data-num="10">
           <div class="card-icon">🖥️</div>
           <div class="card-body">
@@ -102,50 +130,8 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 09 · Backup · Professionnel · Nov–Déc 2025 -->
-        <a href="realisation-backup.html" class="card" data-ctx="professionnel" data-num="09">
-          <div class="card-icon">💾</div>
-          <div class="card-body">
-            <div class="ctx-badges">
-              <span class="ctx-badge professionnel">Professionnel</span>
-            </div>
-            <h3>Stratégie de sauvegarde 3-2-1</h3>
-            <p>Sauvegardes locales chiffrées Backrest/Restic synchronisées chaque nuit vers Backblaze B2 via Rclone. 4 dépôts distincts.</p>
-            <div class="card-techs"><span>Restic</span><span>Backblaze B2</span><span>Rclone</span><span>3-2-1</span></div>
-          </div>
-          <span class="card-link">Voir le détail →</span>
-        </a>
-
-        <!-- 08 · Caddy · Professionnel · Sept–Oct 2025 -->
-        <a href="realisation-caddy.html" class="card" data-ctx="professionnel" data-num="08">
-          <div class="card-icon">🌐</div>
-          <div class="card-body">
-            <div class="ctx-badges">
-              <span class="ctx-badge professionnel">Professionnel</span>
-            </div>
-            <h3>Reverse Proxy Caddy + DNS Cloudflare</h3>
-            <p>Certificats Let's Encrypt automatiques via challenge DNS Cloudflare depuis une IP privée. Accès unifié par sous-domaines HTTPS.</p>
-            <div class="card-techs"><span>Caddy</span><span>Let's Encrypt</span><span>Cloudflare</span><span>HTTPS</span></div>
-          </div>
-          <span class="card-link">Voir le détail →</span>
-        </a>
-
-        <!-- 07 · pfSense · Scolaire · Mai–Juin 2025 -->
-        <a href="realisation-pfsense.html" class="card" data-ctx="scolaire" data-num="07">
-          <div class="card-icon">🛡️</div>
-          <div class="card-body">
-            <div class="ctx-badges">
-              <span class="ctx-badge scolaire">Scolaire</span>
-            </div>
-            <h3>Pare-feu pfSense</h3>
-            <p>Architecture LAN/WAN/DMZ avec pfSense : règles de filtrage, NAT, port forwarding et tunnel VPN IPsec site-à-site.</p>
-            <div class="card-techs"><span>pfSense</span><span>Firewall</span><span>NAT</span><span>VPN IPsec</span></div>
-          </div>
-          <span class="card-link">Voir le détail →</span>
-        </a>
-
-        <!-- 06 · Tailscale · Professionnel · Avr–Mai 2025 -->
-        <a href="realisation-tailscale.html" class="card" data-ctx="professionnel" data-num="06">
+        <!-- 09 · Tailscale · Professionnel · Avr–Mai 2025 -->
+        <a href="realisation-tailscale.html" class="card" data-ctx="professionnel" data-num="09">
           <div class="card-icon">🔒</div>
           <div class="card-body">
             <div class="ctx-badges">
@@ -158,8 +144,8 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 05 · AdGuard · Professionnel · Fév–Mars 2025 -->
-        <a href="realisation-adguard.html" class="card" data-ctx="professionnel" data-num="05">
+        <!-- 08 · AdGuard · Professionnel · Fév–Mars 2025 -->
+        <a href="realisation-adguard.html" class="card" data-ctx="professionnel" data-num="08">
           <div class="card-icon">🛡️</div>
           <div class="card-body">
             <div class="ctx-badges">
@@ -172,8 +158,8 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 04 · Apache · Scolaire · Fév–Mars 2025 -->
-        <a href="realisation-apache.html" class="card" data-ctx="scolaire" data-num="04">
+        <!-- 07 · Apache · Scolaire · Fév–Mars 2025 -->
+        <a href="realisation-apache.html" class="card" data-ctx="scolaire" data-num="07">
           <div class="card-icon">🐧</div>
           <div class="card-body">
             <div class="ctx-badges">
@@ -186,8 +172,8 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 03 · Vaultwarden · Professionnel · Nov–Déc 2024 -->
-        <a href="realisation-vaultwarden.html" class="card" data-ctx="professionnel" data-num="03">
+        <!-- 06 · Vaultwarden · Professionnel · Nov–Déc 2024 -->
+        <a href="realisation-vaultwarden.html" class="card" data-ctx="professionnel" data-num="06">
           <div class="card-icon">🔐</div>
           <div class="card-body">
             <div class="ctx-badges">
@@ -200,8 +186,8 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 02 · VLAN · Scolaire · Oct 2024 -->
-        <a href="realisation-vlan.html" class="card" data-ctx="scolaire" data-num="02">
+        <!-- 05 · Windows Server · Scolaire · Oct 2024 -->
+        <a href="realisation-vlan.html" class="card" data-ctx="scolaire" data-num="05">
           <div class="card-icon">🌐</div>
           <div class="card-body">
             <div class="ctx-badges">
@@ -214,16 +200,58 @@
           <span class="card-link">Voir le détail →</span>
         </a>
 
-        <!-- 01 · V2SI · Professionnel · Sept 2024 → -->
-        <a href="realisation-v2si.html" class="card" data-ctx="professionnel" data-num="01">
-          <div class="card-icon">🏢</div>
+        <!-- 04 · pfSense · Scolaire · Mai–Juin 2025 -->
+        <a href="realisation-pfsense.html" class="card" data-ctx="scolaire" data-num="04">
+          <div class="card-icon">🛡️</div>
+          <div class="card-body">
+            <div class="ctx-badges">
+              <span class="ctx-badge scolaire">Scolaire</span>
+            </div>
+            <h3>Pare-feu pfSense</h3>
+            <p>Architecture LAN/WAN/DMZ avec pfSense : règles de filtrage, NAT, port forwarding et tunnel VPN IPsec site-à-site.</p>
+            <div class="card-techs"><span>pfSense</span><span>Firewall</span><span>NAT</span><span>VPN IPsec</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 03 · Scripts PowerShell & BAT · Professionnel · Oct 2024 → -->
+        <a href="realisation-scripts.html" class="card" data-ctx="professionnel" data-num="03">
+          <div class="card-icon">⚙️</div>
           <div class="card-body">
             <div class="ctx-badges">
               <span class="ctx-badge professionnel">Professionnel</span>
             </div>
-            <h3>V2SI — Alternance & Stages</h3>
-            <p>2 stages Bac Pro + alternance BTS SIO SISR. Support N1/N2, administration réseau, gestion de parc avec NinjaOne et GLPI.</p>
-            <div class="card-techs"><span>Support N1/N2</span><span>Active Directory</span><span>NinjaOne</span><span>GLPI</span></div>
+            <h3>Scripts PowerShell & BAT — Déploiement automatisé</h3>
+            <p>Scripts d'automatisation pour l'installation et la configuration des postes clients, déployés via clé USB en intervention terrain.</p>
+            <div class="card-techs"><span>PowerShell</span><span>Batch</span><span>Windows</span><span>Automatisation</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 02 · Macrium · Professionnel · Sept 2024 → -->
+        <a href="realisation-macrium.html" class="card" data-ctx="professionnel" data-num="02">
+          <div class="card-icon">💿</div>
+          <div class="card-body">
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
+            <h3>Sauvegarde & clonage Macrium Reflect</h3>
+            <p>Sauvegardes systèmes sur disque externe et NAS avant intervention client, et clonage de disques pour remplacement ou migration SSD.</p>
+            <div class="card-techs"><span>Macrium Reflect</span><span>Clonage</span><span>NAS</span><span>Disque externe</span></div>
+          </div>
+          <span class="card-link">Voir le détail →</span>
+        </a>
+
+        <!-- 01 · Hardware · Professionnel · Sept 2024 → -->
+        <a href="realisation-hardware.html" class="card" data-ctx="professionnel" data-num="01">
+          <div class="card-icon">🔧</div>
+          <div class="card-body">
+            <div class="ctx-badges">
+              <span class="ctx-badge professionnel">Professionnel</span>
+            </div>
+            <h3>Intégration matérielle — Postes & serveurs</h3>
+            <p>Interventions d'upgrade matériel chez les clients V2SI : ajout RAM, remplacement disques, intégration de composants sur serveurs physiques.</p>
+            <div class="card-techs"><span>Hardware</span><span>RAM</span><span>SSD / HDD</span><span>Serveurs</span></div>
           </div>
           <span class="card-link">Voir le détail →</span>
         </a>

@@ -4,9 +4,11 @@
  */
 
 const GANTT_DATA = [
-  { id: 'v2si',        num:'01', label: 'V2SI — Alternance & Stages',   start:[2024,9],  end:[2026,7],  color:'#22c55e' },
-  { id: 'vlan',        num:'02', label: 'VLAN & Routage inter-VLAN',    start:[2024,10], end:[2024,10], color:'#3b82f6' },
-  { id: 'windows',     num:'10', label: 'Windows Server / AD',          start:[2025,9],  end:[2026,1],  color:'#8b5cf6' },
+  { id: 'hardware',    num:'01', label: 'Intégration matérielle',       start:[2024,9],  end:[2026,7],  color:'#22c55e' },
+  { id: 'macrium',     num:'02', label: 'Sauvegarde & clonage Macrium',  start:[2024,9],  end:[2026,7],  color:'#16a34a' },
+  { id: 'scripts',     num:'03', label: 'Scripts PowerShell & BAT',      start:[2024,10], end:[2026,7],  color:'#4ade80' },
+  { id: 'vlan',        num:'04', label: 'VLAN & Routage inter-VLAN',    start:[2024,10], end:[2024,10], color:'#3b82f6' },
+  { id: 'windows',     num:'05', label: 'Windows Server / AD',          start:[2025,9],  end:[2026,1],  color:'#8b5cf6' },
   { id: 'vaultwarden', num:'03', label: 'Vaultwarden',                  start:[2024,11], end:[2024,12], color:'#ec4899' },
   { id: 'apache',      num:'04', label: 'Serveur Web Apache',           start:[2025,2],  end:[2025,3],  color:'#06b6d4' },
   { id: 'adguard',     num:'05', label: 'AdGuard Home',                 start:[2025,2],  end:[2025,3],  color:'#10b981' },
@@ -14,8 +16,8 @@ const GANTT_DATA = [
   { id: 'pfsense',     num:'07', label: 'Pare-feu pfSense',             start:[2025,5],  end:[2025,6],  color:'#f59e0b' },
   { id: 'caddy',       num:'08', label: 'Caddy + DNS Cloudflare',       start:[2025,9],  end:[2025,10], color:'#f97316' },
   { id: 'backup',      num:'09', label: 'Backup 3-2-1',                 start:[2025,11], end:[2025,12], color:'#14b8a6' },
-  { id: 'securite',    num:'11', label: 'Sécurité réseau Linux',        start:[2026,1],  end:[2026,2],  color:'#ef4444' },
-  { id: 'glpi',        num:'12', label: 'Installation GLPI',            start:[2026,1],  end:[2026,3],  color:'#a855f7' },
+  { id: 'securite',    num:'13', label: 'Sécurité réseau Linux',        start:[2026,1],  end:[2026,2],  color:'#ef4444' },
+  { id: 'glpi',        num:'14', label: 'Installation GLPI',            start:[2026,1],  end:[2026,3],  color:'#a855f7' },
 ];
 
 const MONTHS_FR = ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'];

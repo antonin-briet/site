@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intégration matérielle — Postes & serveurs — Antonin Briet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="detail.css">
+  <script src="gantt.js" defer></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo" aria-label="Accueil">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+        <polyline points="9 21 9 12 15 12 15 21"/>
+      </svg>
+    </a>
+    <button class="nav-burger" id="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">À propos</a></li>
+      <li><a href="realisations.html" class="active">Réalisations</a></li>
+      <li><a href="tableau.html">Tableau de synthèse</a></li>
+      <li><a href="veille.html">Veille technologique</a></li>
+      <li><a href="e6.html">E6</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <section class="section" style="padding-top:6rem">
+    <div class="container">
+      <a href="realisations.html" class="back-btn">← Retour aux réalisations</a>
+      <div class="page-title-wrap">
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-bottom:0.75rem"><span class="ctx-badge professionnel" style="display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;background:rgba(34,197,94,0.1);color:#4ade80;border:1px solid rgba(34,197,94,0.25)">Professionnel</span></div>
+        <h1>Intégration matérielle<br><em>Postes &amp; serveurs clients</em></h1>
+        <p class="hero-desc">Interventions d'intégration et de mise à niveau matérielle chez les clients V2SI : ajout de RAM, remplacement de disques, intégration de composants sur serveurs physiques.</p>
+        <div class="card-techs" style="margin-top:1rem"><span>Hardware</span><span>RAM</span><span>SSD / HDD</span><span>Serveurs</span><span>Diagnostic</span></div>
+      </div>
+
+      <div class="detail-layout" style="margin-top:2.5rem">
+        <div class="detail-main">
+          <div class="detail-block">
+            <h2>📋 Contexte & objectifs</h2>
+            <p>Les interventions matérielles constituent une part importante du travail en infogérance. Chez V2SI, j'ai participé à des opérations d'upgrade et d'intégration matérielle sur des postes clients (stations de travail, laptops) et sur des serveurs physiques.</p>
+            <p>Ces interventions couvrent : l'ajout ou le remplacement de barrettes RAM, le remplacement de disques durs par des SSD, l'intégration de cartes réseau ou d'autres composants, et les opérations de maintenance hardware sur des serveurs en production.</p>
+          </div>
+
+          <div class="detail-block">
+            <h2>🛠️ Déroulement</h2>
+            <ul class="steps-list">
+              <li class="step-item"><span class="step-num">1</span><div class="step-content"><h4>Diagnostic et préparation</h4><p>Analyse des tickets clients, identification des besoins matériels, vérification de la compatibilité des composants (type de RAM, format de disque, slots disponibles).</p></div></li>
+              <li class="step-item"><span class="step-num">2</span><div class="step-content"><h4>Sauvegarde préalable</h4><p>Réalisation systématique d'une sauvegarde via Macrium Reflect avant toute intervention sur le système.</p></div></li>
+              <li class="step-item"><span class="step-num">3</span><div class="step-content"><h4>Intervention matérielle</h4><p>Ajout ou remplacement des composants : RAM (DDR4/DDR5), disques SSD NVMe ou SATA, intégration de cartes d'extension, câblage interne.</p></div></li>
+              <li class="step-item"><span class="step-num">4</span><div class="step-content"><h4>Intégration serveur</h4><p>Sur les serveurs clients : ajout de disques en baie hot-swap, configuration RAID, remplacement de modules mémoire ECC, intégration de cartes réseau supplémentaires.</p></div></li>
+              <li class="step-item"><span class="step-num">5</span><div class="step-content"><h4>Tests post-intervention</h4><p>Vérification du POST, tests de stabilité (Memtest, CrystalDiskMark), validation du démarrage et des performances, documentation dans GLPI.</p></div></li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>⚠️ Difficultés rencontrées</h2>
+<ul class="problems-list">
+            <li class="problem-item">Compatibilité mémoire sur certains serveurs — les barrettes ECC doivent correspondre précisément aux spécifications du constructeur.</li>
+            <li class="problem-item">Interventions en environnement de production — nécessité de minimiser le temps d'arrêt et de planifier les interventions hors heures ouvrées.</li>
+            <li class="problem-item">Laptops avec composants soudés — certaines configurations ne permettent pas d'upgrade (RAM on-board), nécessitant de revoir la solution proposée au client.</li>
+            <li class="problem-item">Gestion des garanties constructeur — s'assurer que les interventions n'invalident pas la garantie existante.</li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>✅ Résultats obtenus</h2>
+<ul class="problems-list">
+            <li class="result-item">Plusieurs dizaines d'interventions réalisées avec succès sur postes et serveurs clients.</li>
+            <li class="result-item">Améliorations de performances mesurables après upgrades RAM et passage HDD → SSD.</li>
+            <li class="result-item">Aucun incident sur les serveurs en production lors des interventions planifiées.</li>
+            <li class="result-item">Inventaire du parc mis à jour dans NinjaOne et GLPI après chaque intervention.</li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h2>💡 Ce que j'ai appris</h2>
+            <p>Ces interventions m'ont apporté une expérience concrète du hardware en environnement professionnel. La rigueur nécessaire pour intervenir sur des serveurs en production — planification, sauvegarde, validation — m'a donné une approche méthodique qui s'applique à toutes les interventions techniques. La connaissance des composants serveur (ECC, RAID, iLO/iDRAC) est un vrai plus pour un technicien SISR.</p>
+          </div>
+
+        </div>
+        <aside class="detail-sidebar">
+          <div class="sidebar-card">
+            <h3>Informations</h3>
+            <div class="meta-row"><span class="meta-label">Contexte</span><span class="meta-value">Professionnel</span></div>
+            <hr class="meta-divider">
+            <div class="meta-row"><span class="meta-label">Période</span><span class="meta-value">Septembre 2024 — en cours</span></div>
+            <hr class="meta-divider">
+            <a href="doc_hardware.pdf" download class="btn btn-outline btn-sm" style="margin-top:0.25rem;width:100%;justify-content:center;display:inline-flex">⬇️ Télécharger la documentation</a>
+          </div>
+          <div class="sidebar-card">
+            <h3>Technologies</h3>
+            <div class="card-techs" style="margin:0"><span>Diagnostic hardware</span><span>RAM</span><span>SSD/HDD</span><span>Serveurs</span></div>
+          </div>
+          <div class="sidebar-card">
+            <h3>Compétences BTS SIO</h3>
+            <div class="card-techs" style="margin:0"><span>B2 — Patrimoine</span><span>B3 — Administration</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" style="padding-top:2.5rem;padding-bottom:3rem">
+    <div class="container">
+      <div style="margin-bottom:1.25rem">
+        <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent)">Planning du projet</span>
+        <h2 style="font-size:1.4rem;margin-top:0.3rem">Déroulement &amp; <em>phases</em></h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);font-weight:300;margin-top:0.3rem">Durée totale estimée : <strong style="color:var(--text)">28 jours</strong></p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <div style="overflow-x:auto;padding:0.75rem 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 224" style="width:100%;display:block"><defs><filter id="pg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><line x1="202.0" y1="24" x2="202.0" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="205.0" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">Début</text><line x1="363.5" y1="24" x2="363.5" y2="216" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="525.0" y1="24" x2="525.0" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="528.0" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">J14</text><line x1="686.5" y1="24" x2="686.5" y2="216" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="848.0" y1="24" x2="848.0" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="851.0" y="17" font-size="8" fill="rgba(255,255,255,0.4)" font-family="DM Sans,sans-serif" font-weight="500">J28</text><text x="848" y="17" font-size="8" fill="rgba(255,255,255,0.3)" font-family="DM Sans,sans-serif" text-anchor="end">Total : 28 jours</text><rect x="0" y="24" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="60.0" x2="848" y2="60.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="42.0" r="4" fill="#3b82f6"/><text x="27" y="46.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Diagnostic & compatibilité</text><text x="184" y="46.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">4j</text><rect x="202" y="39.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="202.0" y="32.0" width="92.3" height="20" fill="#3b82f6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="202.0" y="32.0" width="92.3" height="20" fill="#3b82f6" rx="4"/><line x1="190" y1="96.0" x2="848" y2="96.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="78.0" r="4" fill="#6366f1"/><text x="27" y="82.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Interventions postes clients</text><text x="184" y="82.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">15j</text><rect x="202" y="75.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="294.3" y="68.0" width="346.1" height="20" fill="#6366f1" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="294.3" y="68.0" width="346.1" height="20" fill="#6366f1" rx="4"/><rect x="0" y="96" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="132.0" x2="848" y2="132.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="114.0" r="4" fill="#8b5cf6"/><text x="27" y="118.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Interventions serveurs</text><text x="184" y="118.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">15j</text><rect x="202" y="111.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="432.7" y="104.0" width="346.1" height="20" fill="#8b5cf6" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="432.7" y="104.0" width="346.1" height="20" fill="#8b5cf6" rx="4"/><line x1="190" y1="168.0" x2="848" y2="168.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="150.0" r="4" fill="#f59e0b"/><text x="27" y="154.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Tests & validation</text><text x="184" y="154.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">5j</text><rect x="202" y="147.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="640.4" y="140.0" width="115.4" height="20" fill="#f59e0b" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="640.4" y="140.0" width="115.4" height="20" fill="#f59e0b" rx="4"/><rect x="0" y="168" width="860" height="36" fill="rgba(255,255,255,0.015)"/><line x1="190" y1="204.0" x2="848" y2="204.0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><circle cx="17" cy="186.0" r="4" fill="#22c55e"/><text x="27" y="190.0" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500" font-family="DM Sans,sans-serif">Documentation GLPI/NinjaOne</text><text x="184" y="190.0" font-size="9" fill="rgba(255,255,255,0.35)" font-family="DM Sans,sans-serif" text-anchor="end">4j</text><rect x="202" y="183.0" width="646" height="6" fill="rgba(255,255,255,0.04)" rx="3"/><rect x="755.7" y="176.0" width="92.3" height="20" fill="#22c55e" fill-opacity="0.25" rx="4" filter="url(#pg)"/><rect x="755.7" y="176.0" width="92.3" height="20" fill="#22c55e" rx="4"/></svg></div>
+        <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.5rem 1.5rem"><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#3b82f6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Diagnostic & compatibilité <span style="opacity:0.5">(4j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#6366f1;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Interventions postes clients <span style="opacity:0.5">(15j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#8b5cf6;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Interventions serveurs <span style="opacity:0.5">(15j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Tests & validation <span style="opacity:0.5">(5j)</span></span></div><div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><span style="font-size:0.72rem;color:var(--text-dim)">Documentation GLPI/NinjaOne <span style="opacity:0.5">(4j)</span></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => renderGantt('gantt-hardware', 'hardware'));
+  </script>
+</body>
+</html>

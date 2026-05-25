@@ -8,9 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  .cert-category {
-    margin-bottom: 3rem;
-  }
+  .cert-category { margin-bottom: 3rem; }
 
   .cert-category-title {
     font-family: 'Syne', sans-serif;
@@ -41,9 +39,7 @@
     transition: transform 0.2s;
   }
 
-  .cert-badge-link:hover {
-    transform: translateY(-4px);
-  }
+  .cert-badge-link:hover { transform: translateY(-4px); }
 
   .cert-badge-link img {
     width: 160px;
@@ -58,17 +54,15 @@
     filter: drop-shadow(0 6px 20px rgba(108,99,255,0.35));
   }
 
-  /* Badge SVG inline pour Zyxel */
-  .cert-badge-link .zyxel-badge {
+  .zyxel-badge {
     width: 160px;
     height: 160px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5f5f5;
-    transition: filter 0.2s;
     flex-shrink: 0;
+    transition: filter 0.2s;
   }
 
   .cert-badge-link:hover .zyxel-badge {
@@ -119,17 +113,10 @@
     <div class="cert-category">
       <div class="cert-category-title">Google</div>
       <div class="cert-badges-row">
-        <a
-          href="https://www.skills.google/public_profiles/680295b9-804a-4fa3-af41-0dced6723605/badges/24092884"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cert-badge-link"
-        >
-          <img
-            src="https://cdn.qwiklabs.com/KFb7gLKebthw1KJHf%2F88XmcqyUuizS6TppVyZ1AR9bA%3D"
-            alt="Introduction to Responsible AI"
-            loading="lazy"
-          >
+        <a href="https://www.skills.google/public_profiles/680295b9-804a-4fa3-af41-0dced6723605/badges/24092884"
+           target="_blank" rel="noopener noreferrer" class="cert-badge-link">
+          <img src="https://cdn.qwiklabs.com/KFb7gLKebthw1KJHf%2F88XmcqyUuizS6TppVyZ1AR9bA%3D"
+               alt="Introduction to Responsible AI" loading="lazy">
           <span class="cert-badge-label">Introduction to Responsible AI</span>
         </a>
       </div>
@@ -140,59 +127,67 @@
       <div class="cert-category-title">Zyxel</div>
       <div class="cert-badges-row">
 
-        <!-- ZCNA Security -->
-        <a
-          href="https://mycourse.app/7OpLjr9YJabhVP65N"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cert-badge-link"
-        >
+        <!-- ZCNA Nebula -->
+        <a href="https://mycourse.app/FQRbkPhVLmZtssR4M"
+           target="_blank" rel="noopener noreferrer" class="cert-badge-link">
           <div class="zyxel-badge">
-            <svg viewBox="0 0 200 200" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
-              <!-- Cercle fond orange -->
-              <circle cx="100" cy="100" r="95" fill="#E8440A"/>
-              <!-- Cercle intérieur blanc -->
-              <circle cx="100" cy="100" r="78" fill="white"/>
-              <!-- Texte circulaire haut -->
-              <path id="topArc" d="M 25,100 A 75,75 0 0,1 175,100" fill="none"/>
-              <text font-family="Arial" font-weight="bold" font-size="11" fill="#E8440A" letter-spacing="2">
-                <textPath href="#topArc" startOffset="8%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
+            <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="80" cy="80" r="76" fill="#E8440A"/>
+              <circle cx="80" cy="80" r="62" fill="white"/>
+              <path id="arc1" d="M 18,80 A 62,62 0 0,1 142,80" fill="none"/>
+              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A">
+                <textPath href="#arc1" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
               </text>
-              <!-- ZYXEL texte -->
-              <text x="100" y="88" text-anchor="middle" font-family="Arial" font-weight="900" font-size="22" fill="#E8440A">ZYXEL</text>
-              <!-- CERTIFIED -->
-              <text x="100" y="106" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="#333">CERTIFIED</text>
-              <!-- ZCNA -->
-              <text x="100" y="128" text-anchor="middle" font-family="Arial" font-weight="900" font-size="26" fill="#E8440A">ZCNA</text>
-              <!-- Ligne séparatrice -->
-              <line x1="60" y1="112" x2="140" y2="112" stroke="#E8440A" stroke-width="1.5"/>
+              <text x="80" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="17" fill="#E8440A">ZYXEL</text>
+              <text x="80" y="82" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="#555">CERTIFIED</text>
+              <line x1="48" y1="87" x2="112" y2="87" stroke="#E8440A" stroke-width="1"/>
+              <text x="80" y="100" text-anchor="middle" font-family="Arial" font-weight="900" font-size="20" fill="#E8440A">ZCNA</text>
+              <text x="80" y="114" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="#555">NEBULA</text>
+            </svg>
+          </div>
+          <span class="cert-badge-label">ZCNA — Nebula</span>
+        </a>
+
+        <!-- ZCNA Security -->
+        <a href="https://mycourse.app/7OpLjr9YJabhVP65N"
+           target="_blank" rel="noopener noreferrer" class="cert-badge-link">
+          <div class="zyxel-badge">
+            <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="80" cy="80" r="76" fill="#E8440A"/>
+              <circle cx="80" cy="80" r="62" fill="white"/>
+              <path id="arc2" d="M 18,80 A 62,62 0 0,1 142,80" fill="none"/>
+              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A">
+                <textPath href="#arc2" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
+              </text>
+              <text x="80" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="17" fill="#E8440A">ZYXEL</text>
+              <text x="80" y="82" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="#555">CERTIFIED</text>
+              <line x1="48" y1="87" x2="112" y2="87" stroke="#E8440A" stroke-width="1"/>
+              <text x="80" y="100" text-anchor="middle" font-family="Arial" font-weight="900" font-size="20" fill="#E8440A">ZCNA</text>
+              <text x="80" y="114" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="#555">SECURITY</text>
             </svg>
           </div>
           <span class="cert-badge-label">ZCNA — Security</span>
         </a>
 
-        <!-- ZCNA Nebula -->
-        <a
-          href="https://mycourse.app/FQRbkPhVLmZtssR4M"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cert-badge-link"
-        >
+        <!-- ZCNA Switch -->
+        <a href="https://mycourse.app/ToGDGejH1dpTaliIz"
+           target="_blank" rel="noopener noreferrer" class="cert-badge-link">
           <div class="zyxel-badge">
-            <svg viewBox="0 0 200 200" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="100" cy="100" r="95" fill="#E8440A"/>
-              <circle cx="100" cy="100" r="78" fill="white"/>
-              <path id="topArc2" d="M 25,100 A 75,75 0 0,1 175,100" fill="none"/>
-              <text font-family="Arial" font-weight="bold" font-size="11" fill="#E8440A" letter-spacing="2">
-                <textPath href="#topArc2" startOffset="8%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
+            <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="80" cy="80" r="76" fill="#E8440A"/>
+              <circle cx="80" cy="80" r="62" fill="white"/>
+              <path id="arc3" d="M 18,80 A 62,62 0 0,1 142,80" fill="none"/>
+              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A">
+                <textPath href="#arc3" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
               </text>
-              <text x="100" y="88" text-anchor="middle" font-family="Arial" font-weight="900" font-size="22" fill="#E8440A">ZYXEL</text>
-              <text x="100" y="106" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="11" fill="#333">CERTIFIED</text>
-              <text x="100" y="128" text-anchor="middle" font-family="Arial" font-weight="900" font-size="26" fill="#E8440A">ZCNA</text>
-              <line x1="60" y1="112" x2="140" y2="112" stroke="#E8440A" stroke-width="1.5"/>
+              <text x="80" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="17" fill="#E8440A">ZYXEL</text>
+              <text x="80" y="82" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="#555">CERTIFIED</text>
+              <line x1="48" y1="87" x2="112" y2="87" stroke="#E8440A" stroke-width="1"/>
+              <text x="80" y="100" text-anchor="middle" font-family="Arial" font-weight="900" font-size="20" fill="#E8440A">ZCNA</text>
+              <text x="80" y="114" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="#555">SWITCH</text>
             </svg>
           </div>
-          <span class="cert-badge-label">ZCNA — Nebula</span>
+          <span class="cert-badge-label">ZCNA — Switch</span>
         </a>
 
       </div>

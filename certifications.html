@@ -101,7 +101,7 @@
     border: 1px solid #2a2a3a;
     border-radius: 12px;
     width: 100%;
-    max-width: 720px;
+    max-width: 950px; /* Agrandit la largeur de la modale */
     max-height: 90vh;
     display: flex;
     flex-direction: column;
@@ -143,7 +143,7 @@
 
   .cert-modal-body iframe {
     width: 100%;
-    height: 65vh;
+    height: 75vh; /* Augmenté de 65vh à 75vh pour une preview plus grande */
     border: none;
     display: block;
   }
@@ -219,7 +219,7 @@
 <section class="section">
   <div class="container">
 
-    <!-- CISCO -->
+    <!-- 1. CISCO -->
     <div class="cert-category">
       <div class="cert-category-title">Cisco</div>
       <div class="cert-badges-row">
@@ -232,7 +232,27 @@
       </div>
     </div>
 
-    <!-- GOOGLE -->
+    <!-- 2. FORTINET -->
+    <div class="cert-category">
+      <div class="cert-category-title">Fortinet</div>
+      <div class="cert-badges-row">
+        <!-- Introduction to the Threat Landscape 3.0 -->
+        <button class="cert-badge-link" onclick="openCertModal('modal-fortinet-threat')">
+          <div class="zyxel-badge">
+            <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="160" rx="12" fill="#E30613"/>
+              <text x="80" y="75" text-anchor="middle" font-family="Arial" font-weight="900" font-size="20" fill="white">FORTINET</text>
+              <rect x="30" y="90" width="100" height="2" fill="white" opacity="0.3"/>
+              <text x="80" y="110" text-anchor="middle" font-family="Arial" font-weight="700" font-size="10" fill="white">THREAT</text>
+              <text x="80" y="125" text-anchor="middle" font-family="Arial" font-weight="700" font-size="10" fill="white">LANDSCAPE</text>
+            </svg>
+          </div>
+          <span class="cert-badge-label">Introduction to the Threat Landscape 3.0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. GOOGLE -->
     <div class="cert-category">
       <div class="cert-category-title">Google</div>
       <div class="cert-badges-row">
@@ -269,27 +289,7 @@
       </div>
     </div>
 
-    <!-- FORTINET -->
-    <div class="cert-category">
-      <div class="cert-category-title">Fortinet</div>
-      <div class="cert-badges-row">
-        <!-- Introduction to the Threat Landscape 3.0 -->
-        <button class="cert-badge-link" onclick="openCertModal('modal-fortinet-threat')">
-          <div class="zyxel-badge">
-            <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-              <rect width="160" height="160" rx="12" fill="#E30613"/>
-              <text x="80" y="75" text-anchor="middle" font-family="Arial" font-weight="900" font-size="20" fill="white">FORTINET</text>
-              <rect x="30" y="90" width="100" height="2" fill="white" opacity="0.3"/>
-              <text x="80" y="110" text-anchor="middle" font-family="Arial" font-weight="700" font-size="10" fill="white">THREAT</text>
-              <text x="80" y="125" text-anchor="middle" font-family="Arial" font-weight="700" font-size="10" fill="white">LANDSCAPE</text>
-            </svg>
-          </div>
-          <span class="cert-badge-label">Introduction to the Threat Landscape 3.0</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- ZYXEL -->
+    <!-- 4. ZYXEL -->
     <div class="cert-category">
       <div class="cert-category-title">Zyxel</div>
       <div class="cert-badges-row">
@@ -372,7 +372,9 @@
   </div>
 </section>
 
-<!-- MODAL FORTINET -->
+<!-- MODALS -->
+
+<!-- FORTINET -->
 <div id="modal-fortinet-threat" class="cert-modal-overlay">
   <div class="cert-modal">
     <div class="cert-modal-header">
@@ -393,7 +395,7 @@
   </div>
 </div>
 
-<!-- MODALS ZYXEL -->
+<!-- ZYXEL -->
 <div id="modal-nebula" class="cert-modal-overlay">
   <div class="cert-modal">
     <div class="cert-modal-header">

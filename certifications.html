@@ -269,6 +269,26 @@
       </div>
     </div>
 
+    <!-- FORTINET -->
+    <div class="cert-category">
+      <div class="cert-category-title">Fortinet</div>
+      <div class="cert-badges-row">
+        <!-- Introduction to the Threat Landscape 3.0 -->
+        <button class="cert-badge-link" onclick="openCertModal('modal-fortinet-threat')">
+          <div class="zyxel-badge">
+            <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+              <rect width="160" height="160" rx="12" fill="#E30613"/>
+              <text x="80" y="75" text-anchor="middle" font-family="Arial" font-weight="900" font-size="20" fill="white">FORTINET</text>
+              <rect x="30" y="90" width="100" height="2" fill="white" opacity="0.3"/>
+              <text x="80" y="110" text-anchor="middle" font-family="Arial" font-weight="700" font-size="10" fill="white">THREAT</text>
+              <text x="80" y="125" text-anchor="middle" font-family="Arial" font-weight="700" font-size="10" fill="white">LANDSCAPE</text>
+            </svg>
+          </div>
+          <span class="cert-badge-label">Introduction to the Threat Landscape 3.0</span>
+        </button>
+      </div>
+    </div>
+
     <!-- ZYXEL -->
     <div class="cert-category">
       <div class="cert-category-title">Zyxel</div>
@@ -351,6 +371,27 @@
 
   </div>
 </section>
+
+<!-- MODAL FORTINET -->
+<div id="modal-fortinet-threat" class="cert-modal-overlay">
+  <div class="cert-modal">
+    <div class="cert-modal-header">
+      <h3>Introduction to the Threat Landscape 3.0 - FRENCH</h3>
+      <button class="cert-modal-close" onclick="closeCertModal('modal-fortinet-threat')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cert-modal-body">
+      <iframe src="certificate_cours_threat_landscape_fortinet.pdf" title="Certificat Fortinet Threat Landscape"></iframe>
+    </div>
+    <div class="cert-modal-footer">
+      <a href="certificate_cours_threat_landscape_fortinet.pdf" download class="btn-modal btn-modal-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Télécharger
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- MODALS ZYXEL -->
 <div id="modal-nebula" class="cert-modal-overlay">

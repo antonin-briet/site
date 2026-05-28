@@ -37,6 +37,11 @@
     color: inherit;
     width: 180px;
     transition: transform 0.2s;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
   }
 
   .cert-badge-link:hover { transform: translateY(-4px); }
@@ -75,6 +80,111 @@
     text-align: center;
     line-height: 1.4;
   }
+
+  /* MODAL */
+  .cert-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .cert-modal-overlay.open { display: flex; }
+
+  .cert-modal {
+    background: #13131e;
+    border: 1px solid #2a2a3a;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .cert-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #2a2a3a;
+  }
+
+  .cert-modal-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #e8e8f0;
+  }
+
+  .cert-modal-close {
+    background: none;
+    border: none;
+    color: #9090a8;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .cert-modal-close:hover { color: #e8e8f0; background: #1a1a24; }
+
+  .cert-modal-body {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .cert-modal-body iframe {
+    width: 100%;
+    height: 65vh;
+    border: none;
+    display: block;
+  }
+
+  .cert-modal-footer {
+    padding: 0.875rem 1.25rem;
+    border-top: 1px solid #2a2a3a;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .btn-modal {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.55rem 1.1rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+
+  .btn-modal-outline {
+    background: transparent;
+    color: #9090a8;
+    border: 1px solid #2a2a3a;
+  }
+
+  .btn-modal-outline:hover { color: #e8e8f0; border-color: #5a5a72; background: #1a1a24; }
+
+  .btn-modal-primary {
+    background: #6c63ff;
+    color: #fff;
+    border: 1px solid #6c63ff;
+  }
+
+  .btn-modal-primary:hover { background: #7c74ff; }
 </style>
 </head>
 <body>
@@ -159,23 +269,19 @@
       </div>
     </div>
 
-
     <!-- ZYXEL -->
     <div class="cert-category">
       <div class="cert-category-title">Zyxel</div>
       <div class="cert-badges-row">
 
         <!-- ZCNA Nebula -->
-        <a href="https://mycourse.app/FQRbkPhVLmZtssR4M"
-           target="_blank" rel="noopener noreferrer" class="cert-badge-link">
+        <button class="cert-badge-link" onclick="openCertModal('modal-nebula')">
           <div class="zyxel-badge">
             <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
               <circle cx="80" cy="80" r="76" fill="#E8440A"/>
               <circle cx="80" cy="80" r="62" fill="white"/>
               <path id="arc1" d="M 18,80 A 62,62 0 0,1 142,80" fill="none"/>
-              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A">
-                <textPath href="#arc1" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
-              </text>
+              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A"><textPath href="#arc1" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath></text>
               <text x="80" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="17" fill="#E8440A">ZYXEL</text>
               <text x="80" y="82" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="#555">CERTIFIED</text>
               <line x1="48" y1="87" x2="112" y2="87" stroke="#E8440A" stroke-width="1"/>
@@ -184,19 +290,16 @@
             </svg>
           </div>
           <span class="cert-badge-label">ZCNA — Nebula</span>
-        </a>
+        </button>
 
         <!-- ZCNA Security -->
-        <a href="https://mycourse.app/7OpLjr9YJabhVP65N"
-           target="_blank" rel="noopener noreferrer" class="cert-badge-link">
+        <button class="cert-badge-link" onclick="openCertModal('modal-security')">
           <div class="zyxel-badge">
             <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
               <circle cx="80" cy="80" r="76" fill="#E8440A"/>
               <circle cx="80" cy="80" r="62" fill="white"/>
               <path id="arc2" d="M 18,80 A 62,62 0 0,1 142,80" fill="none"/>
-              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A">
-                <textPath href="#arc2" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
-              </text>
+              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A"><textPath href="#arc2" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath></text>
               <text x="80" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="17" fill="#E8440A">ZYXEL</text>
               <text x="80" y="82" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="#555">CERTIFIED</text>
               <line x1="48" y1="87" x2="112" y2="87" stroke="#E8440A" stroke-width="1"/>
@@ -205,19 +308,16 @@
             </svg>
           </div>
           <span class="cert-badge-label">ZCNA — Security</span>
-        </a>
+        </button>
 
         <!-- ZCNA Switch -->
-        <a href="https://mycourse.app/ToGDGejH1dpTaliIz"
-           target="_blank" rel="noopener noreferrer" class="cert-badge-link">
+        <button class="cert-badge-link" onclick="openCertModal('modal-switch')">
           <div class="zyxel-badge">
             <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
               <circle cx="80" cy="80" r="76" fill="#E8440A"/>
               <circle cx="80" cy="80" r="62" fill="white"/>
               <path id="arc3" d="M 18,80 A 62,62 0 0,1 142,80" fill="none"/>
-              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A">
-                <textPath href="#arc3" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
-              </text>
+              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A"><textPath href="#arc3" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath></text>
               <text x="80" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="17" fill="#E8440A">ZYXEL</text>
               <text x="80" y="82" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="#555">CERTIFIED</text>
               <line x1="48" y1="87" x2="112" y2="87" stroke="#E8440A" stroke-width="1"/>
@@ -226,19 +326,16 @@
             </svg>
           </div>
           <span class="cert-badge-label">ZCNA — Switch</span>
-        </a>
+        </button>
 
         <!-- ZCNA WLAN -->
-        <a href="https://mycourse.app/QXVsdEec0ZzUHJx6O"
-           target="_blank" rel="noopener noreferrer" class="cert-badge-link">
+        <button class="cert-badge-link" onclick="openCertModal('modal-wlan')">
           <div class="zyxel-badge">
             <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
               <circle cx="80" cy="80" r="76" fill="#E8440A"/>
               <circle cx="80" cy="80" r="62" fill="white"/>
               <path id="arc4" d="M 18,80 A 62,62 0 0,1 142,80" fill="none"/>
-              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A">
-                <textPath href="#arc4" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath>
-              </text>
+              <text font-family="Arial" font-weight="bold" font-size="9" fill="#E8440A"><textPath href="#arc4" startOffset="4%">NETWORK ASSOCIATE • NETWORK ASSOCIATE •</textPath></text>
               <text x="80" y="68" text-anchor="middle" font-family="Arial" font-weight="900" font-size="17" fill="#E8440A">ZYXEL</text>
               <text x="80" y="82" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="9" fill="#555">CERTIFIED</text>
               <line x1="48" y1="87" x2="112" y2="87" stroke="#E8440A" stroke-width="1"/>
@@ -247,7 +344,7 @@
             </svg>
           </div>
           <span class="cert-badge-label">ZCNA — WLAN</span>
-        </a>
+        </button>
 
       </div>
     </div>
@@ -255,10 +352,113 @@
   </div>
 </section>
 
+<!-- MODALS ZYXEL -->
+<div id="modal-nebula" class="cert-modal-overlay">
+  <div class="cert-modal">
+    <div class="cert-modal-header">
+      <h3>ZCNA — Nebula</h3>
+      <button class="cert-modal-close" onclick="closeCertModal('modal-nebula')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cert-modal-body">
+      <iframe src="cert_zcna_nebula.pdf" title="Certificat ZCNA Nebula"></iframe>
+    </div>
+    <div class="cert-modal-footer">
+      <a href="https://mycourse.app/FQRbkPhVLmZtssR4M" target="_blank" rel="noopener noreferrer" class="btn-modal btn-modal-outline">Vérifier en ligne</a>
+      <a href="cert_zcna_nebula.pdf" download class="btn-modal btn-modal-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Télécharger
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="modal-security" class="cert-modal-overlay">
+  <div class="cert-modal">
+    <div class="cert-modal-header">
+      <h3>ZCNA — Security</h3>
+      <button class="cert-modal-close" onclick="closeCertModal('modal-security')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cert-modal-body">
+      <iframe src="cert_zcna_security.pdf" title="Certificat ZCNA Security"></iframe>
+    </div>
+    <div class="cert-modal-footer">
+      <a href="https://mycourse.app/7OpLjr9YJabhVP65N" target="_blank" rel="noopener noreferrer" class="btn-modal btn-modal-outline">Vérifier en ligne</a>
+      <a href="cert_zcna_security.pdf" download class="btn-modal btn-modal-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Télécharger
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="modal-switch" class="cert-modal-overlay">
+  <div class="cert-modal">
+    <div class="cert-modal-header">
+      <h3>ZCNA — Switch</h3>
+      <button class="cert-modal-close" onclick="closeCertModal('modal-switch')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cert-modal-body">
+      <iframe src="cert_zcna_switch.pdf" title="Certificat ZCNA Switch"></iframe>
+    </div>
+    <div class="cert-modal-footer">
+      <a href="https://mycourse.app/ToGDGejH1dpTaliIz" target="_blank" rel="noopener noreferrer" class="btn-modal btn-modal-outline">Vérifier en ligne</a>
+      <a href="cert_zcna_switch.pdf" download class="btn-modal btn-modal-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Télécharger
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="modal-wlan" class="cert-modal-overlay">
+  <div class="cert-modal">
+    <div class="cert-modal-header">
+      <h3>ZCNA — WLAN</h3>
+      <button class="cert-modal-close" onclick="closeCertModal('modal-wlan')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cert-modal-body">
+      <iframe src="cert_zcna_wlan.pdf" title="Certificat ZCNA WLAN"></iframe>
+    </div>
+    <div class="cert-modal-footer">
+      <a href="https://mycourse.app/QXVsdEec0ZzUHJx6O" target="_blank" rel="noopener noreferrer" class="btn-modal btn-modal-outline">Vérifier en ligne</a>
+      <a href="cert_zcna_wlan.pdf" download class="btn-modal btn-modal-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Télécharger
+      </a>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <p>© 2026 Antonin Briet · BTS SIO SISR · PSTB Paris</p>
 </footer>
 
 <script src="script.js"></script>
+<script>
+  function openCertModal(id) {
+    document.getElementById(id).classList.add('open');
+  }
+  function closeCertModal(id) {
+    document.getElementById(id).classList.remove('open');
+  }
+  document.querySelectorAll('.cert-modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) overlay.classList.remove('open');
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.cert-modal-overlay.open').forEach(o => o.classList.remove('open'));
+    }
+  });
+</script>
 </body>
 </html>
